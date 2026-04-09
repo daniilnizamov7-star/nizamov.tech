@@ -27,11 +27,22 @@
     .links a{color:var(--m);text-decoration:none;font-weight:500;transition:.2s;font-size:.95rem}
     .links a:hover{color:#fff}
     .mob{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+
+    /* URGENCY STRIP */
+    .urgency-strip{background:linear-gradient(90deg,#00d4ff,#0099ff);color:#000;text-align:center;padding:10px 20px;font-size:.9rem;font-weight:700;position:relative;z-index:99;top:0}
+    .urgency-strip span{opacity:0.7;font-weight:400;margin-left:8px}
+
     .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:140px 20px 100px;background:radial-gradient(circle at 50% 0%,#1a237e 0%,#0a0c10 60%)}
     .h-badge{display:inline-block;background:rgba(0,212,255,0.1);border:1px solid var(--a);color:var(--a);padding:6px 14px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:20px}
     .hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
     .hero h1 span{display:block;background:linear-gradient(to right,var(--a),#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{font-size:1.2rem;color:var(--m);max-width:650px;margin:0 auto 40px}
+    .hero p{font-size:1.2rem;color:var(--m);max-width:650px;margin:0 auto 16px}
+
+    /* FREE MONTH BADGE */
+    .free-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.4);color:#10b981;padding:10px 20px;border-radius:50px;font-size:1rem;font-weight:700;margin:0 auto 32px}
+    .free-badge::before{content:'';width:8px;height:8px;background:#10b981;border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
     .h-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:-60px auto 80px;position:relative;z-index:10;max-width:1000px}
     .sc{background:var(--s);backdrop-filter:blur(20px);border:1px solid var(--b);padding:24px 16px;border-radius:var(--r);text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
@@ -46,28 +57,38 @@
     .card ul{list-style:none;margin-bottom:16px}
     .card ul li{color:var(--m);font-size:.9rem;padding:4px 0}
     .card ul li::before{content:'•';color:var(--a);margin-right:8px}
-    .pricing{padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)}
-    .pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start}
-    .pc{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:28px 24px;text-align:center;transition:.2s;position:relative}
-    .pc.pop{border-color:var(--a);background:linear-gradient(145deg,var(--s),rgba(0,212,255,0.05));transform:scale(1.03)}
-    .pc.pop::before{content:'Популярный';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--a);color:#000;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:700}
-    .pt{font-size:1.3rem;font-weight:700;margin-bottom:8px}
-    .pv{font-size:2rem;font-weight:800;margin-bottom:4px;color:#fff}
-    .pd{color:var(--m);font-size:.9rem;margin-bottom:20px}
-    .pl{list-style:none;text-align:left;margin-bottom:24px}
-    .pl li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--m);font-size:.95rem}
-    .pl li::before{content:'✓';color:#10b981;margin-right:8px}
-    .pl li.no::before{content:'✗';color:#ef4444}
+
+    /* CASE STUDY */
+    .case-section{padding:80px 0;background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(0,212,255,0.05));border-top:1px solid rgba(16,185,129,0.15);border-bottom:1px solid rgba(16,185,129,0.15)}
+    .case-card{background:var(--s);border:1px solid rgba(16,185,129,0.3);border-radius:20px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;max-width:900px;margin:0 auto}
+    .case-tag{display:inline-block;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;padding:5px 12px;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
+    .case-title{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+    .case-desc{color:var(--m);font-size:1rem;line-height:1.7;margin-bottom:24px;max-width:480px}
+    .case-quote{font-size:1.1rem;font-style:italic;color:#e5e7eb;border-left:3px solid #10b981;padding-left:16px;margin-bottom:20px;line-height:1.7}
+    .case-author{color:var(--m);font-size:.85rem}
+    .case-stats{display:flex;flex-direction:column;gap:16px;min-width:200px}
+    .case-stat{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:20px;text-align:center}
+    .case-num{font-size:2.2rem;font-weight:800;color:#10b981;line-height:1}
+    .case-label{font-size:.8rem;color:var(--m);margin-top:4px}
+
+    /* PRODUCTS — no pricing shown */
+    .prod-price-hint{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);color:var(--a);padding:6px 12px;border-radius:8px;font-size:.8rem;font-weight:600;margin-top:8px}
+
+    /* PRICING — removed from main page */
+
+    /* AI section */
+    .ai-section{padding:100px 0;background:radial-gradient(ellipse at center,rgba(0,212,255,0.08),transparent 70%);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
+
     .founder{background:var(--s);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
-    .fc{display:flex;gap:32px;align-items:center;padding:60px 0}
+    .fc-wrap{display:flex;gap:32px;align-items:center;padding:60px 0}
     .fa{width:120px;height:120px;border-radius:50%;background:#1a237e;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:800;color:var(--a);flex-shrink:0}
     .ft h3{font-size:1.4rem;margin-bottom:8px}
     .ft p{color:var(--m);margin-bottom:16px;line-height:1.7}
-    .sl{display:flex;gap:12px}
-    .sl a{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:8px 14px;border-radius:8px;color:#fff;text-decoration:none;font-size:.9rem;transition:.2s}
-    .sl a:hover{background:var(--a);color:#000;border-color:var(--a)}
+    .slinks{display:flex;gap:12px}
+    .slinks a{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:8px 14px;border-radius:8px;color:#fff;text-decoration:none;font-size:.9rem;transition:.2s}
+    .slinks a:hover{background:var(--a);color:#000;border-color:var(--a)}
     footer{background:#050608;padding:60px 0 30px;color:var(--m);font-size:.9rem}
-    .fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:40px}
+    .fg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:40px}
     .f4{color:#fff;margin-bottom:16px;font-weight:600}
     .fl a{display:block;color:var(--m);text-decoration:none;margin-bottom:8px}
     .fl a:hover{color:var(--a)}
@@ -76,40 +97,59 @@
     #modal.active{display:flex}
     .mc{background:#11141a;border:1px solid rgba(255,255,255,0.1);padding:32px;border-radius:20px;max-width:500px;width:90%;position:relative}
     .cm{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--m);font-size:1.5rem;cursor:pointer}
-    .fg{margin-bottom:16px}
-    .fc{width:100%;padding:14px;background:#0a0c10;border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#fff;font-family:inherit;transition:.2s}
-    .fc:focus{border-color:var(--a);box-shadow:0 0 0 2px var(--ag)}
-    select.fc{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238b95a5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
+    .fgroup{margin-bottom:16px}
+    .finput{width:100%;padding:14px;background:#0a0c10;border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#fff;font-family:inherit;transition:.2s}
+    .finput:focus{border-color:var(--a);box-shadow:0 0 0 2px var(--ag);outline:none}
+    select.finput{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238b95a5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
     .cg{display:flex;gap:8px;align-items:flex-start;font-size:.85rem;color:var(--m);margin:12px 0 20px}
     .cg input{margin-top:4px}
-    @media(max-width:900px){.links{display:none;position:fixed;top:70px;left:0;width:100%;background:#11141a;flex-direction:column;padding:20px;border-bottom:1px solid rgba(255,255,255,0.05)}.links.active{display:flex}.mob{display:block}.fc{flex-direction:column;text-align:center}.hero h1{font-size:2.8rem}.stats{margin-top:-30px}}
+    @media(max-width:900px){
+      .links{display:none;position:fixed;top:70px;left:0;width:100%;background:#11141a;flex-direction:column;padding:20px;border-bottom:1px solid rgba(255,255,255,0.05)}
+      .links.active{display:flex}
+      .mob{display:block}
+      .fc-wrap{flex-direction:column;text-align:center}
+      .hero h1{font-size:2.8rem}
+      .stats{margin-top:-30px}
+      .case-card{grid-template-columns:1fr;gap:24px}
+      .case-stats{flex-direction:row;justify-content:center}
+    }
   </style>
 </head>
 <body>
+
+  <!-- URGENCY STRIP -->
+  <div class="urgency-strip">
+    🎁 Первый месяц — бесплатно, настройка в подарок<span>Осталось 3 места в этом месяце →</span>
+  </div>
+
   <header>
     <div class="c nav">
       <a href="#" class="logo">NIZAMOV<span>.TECH</span></a>
       <button class="mob">☰</button>
       <nav class="links">
         <a href="#products">Продукты</a>
+        <a href="#case">Кейсы</a>
         <a href="#ai">ИИ</a>
-        <a href="#pricing">Тарифы</a>
         <a href="https://t.me/Aslyamov74">Написать</a>
       </nav>
     </div>
   </header>
+
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div>
         <div class="h-badge">Платформа для малого бизнеса России и СНГ</div>
         <h1>Ты занимаешься<br><span>бизнесом. Остальное — наше.</span></h1>
-        <p>Выбери продукт под свою нишу. Начни бесплатно. Расти без страха перед налогами, отчётами и новыми правилами.</p>
+        <p>Выбери продукт под свою нишу. Без договоров, без предоплаты.</p>
+        <div class="free-badge">Первый месяц — 0 ₽. Настрою сам.</div>
         <div class="h-btns">
           <button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">✈️ Оставить заявку</button>
           <a href="#products" class="btn btn-o">Смотреть продукты →</a>
         </div>
       </div>
     </section>
+
     <div class="c">
       <div class="stats">
         <div class="sc"><div class="sn">8+</div><div class="sl">продуктов запущено</div></div>
@@ -118,6 +158,8 @@
         <div class="sc"><div class="sn">10%</div><div class="sl">прибыли в садака</div></div>
       </div>
     </div>
+
+    <!-- PROBLEM -->
     <section style="padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)">
       <div class="c">
         <h2 class="st">Проблема</h2>
@@ -130,34 +172,95 @@
         </div>
       </div>
     </section>
+
+    <!-- CASE STUDY -->
+    <section id="case" class="case-section">
+      <div class="c">
+        <h2 class="st">Живой кейс</h2>
+        <p class="ss">Не просто демо — реальный клиент, реальные цифры.</p>
+        <div class="case-card">
+          <div>
+            <div class="case-tag">👑 FoodFlow · Реальный клиент</div>
+            <h3 class="case-title">Царская Кухня, Челябинск</h3>
+            <p class="case-desc">Ресторан работал на бумажных заказах и телефоне. Повар получал заказы с опозданием, клиенты звонили чтобы узнать статус — менеджер не успевал.</p>
+            <div class="case-quote">«Теперь заказ появляется у повара мгновенно. Мы перестали терять гостей из-за пропущенных звонков.»</div>
+            <div class="case-author">— Владелец, Царская Кухня</div>
+            <div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap">
+              <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn btn-sm btn-o">Посмотреть сайт →</a>
+              <a href="https://foodflow-rho.vercel.app" target="_blank" class="btn btn-sm btn-p">Демо FoodFlow →</a>
+            </div>
+          </div>
+          <div class="case-stats">
+            <div class="case-stat">
+              <div class="case-num">0</div>
+              <div class="case-label">пропущенных<br>заказов после запуска</div>
+            </div>
+            <div class="case-stat">
+              <div class="case-num">1 день</div>
+              <div class="case-label">настройка<br>и запуск</div>
+            </div>
+            <div class="case-stat">
+              <div class="case-num">0 ₽</div>
+              <div class="case-label">первый<br>месяц</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
     <section id="products" style="padding:100px 0">
       <div class="c">
         <h2 class="st">Портфолио</h2>
-        <p class="ss">Реальные проекты для клиентов — и демо которые можно потрогать прямо сейчас.</p>
+        <p class="ss">Реальные проекты и демо — потрогай прямо сейчас. Тарифы у каждого продукта свои.</p>
+
         <h3 style="font-size:1.4rem;margin-bottom:24px;color:#fff">В РАБОТЕ</h3>
         <div class="grid" style="margin-bottom:60px">
-          <div class="card"><span class="badge b-n">LIVE</span><div class="ci">🏗️</div><h3>СК ПостройДом</h3><p>Сайт строительной компании. Галерея объектов, услуги, заявки в Telegram.</p><a href="https://postroy-dom.vercel.app" class="btn btn-sm btn-o" style="margin-top:12px">Посмотреть сайт →</a></div>
-          <div class="card"><span class="badge b-n">LIVE</span><div class="ci">👑</div><h3>Царская Кухня</h3><p>Онлайн-меню и витрина ресторана. Работает у реального клиента.</p><a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn btn-sm btn-o" style="margin-top:12px">Посмотреть сайт →</a></div>
+          <div class="card">
+            <span class="badge b-n">LIVE</span>
+            <div class="ci">🏗️</div>
+            <h3>СК ПостройДом</h3>
+            <p>Сайт строительной компании. Галерея объектов, услуги, заявки в Telegram.</p>
+            <a href="https://postroy-dom.vercel.app" class="btn btn-sm btn-o" style="margin-top:12px">Посмотреть сайт →</a>
+          </div>
+          <div class="card">
+            <span class="badge b-n">LIVE</span>
+            <div class="ci">👑</div>
+            <h3>Царская Кухня</h3>
+            <p>Онлайн-меню и система заказов. Работает у реального клиента с первого дня.</p>
+            <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn btn-sm btn-o" style="margin-top:12px">Посмотреть сайт →</a>
+          </div>
         </div>
+
         <h3 style="font-size:1.4rem;margin:40px 0 20px;color:#fff">🎮 ДЕМО ПРОДУКТЫ</h3>
         <div class="grid">
           <div class="card">
-            <span class="badge">🍽️ Общепит</span>
+            <span class="badge" style="background:#1a237e;color:#00d4ff">🍽️ Общепит</span>
             <h3>FoodFlow</h3>
-            <p>QR-меню, заказы, учёт выручки, халяль-маркировка.</p>
-            <ul><li>Real-time заказы на кухню</li><li>Учёт выручки и расходов</li><li>Авторасчёт НДС (Про Макс)</li></ul>
+            <p>QR-меню, заказы на кухню в реальном времени, учёт выручки, халяль-маркировка.</p>
+            <ul>
+              <li>Real-time заказы на кухню</li>
+              <li>Учёт выручки и расходов</li>
+              <li>Авторасчёт НДС (Про Макс)</li>
+            </ul>
+            <div class="prod-price-hint">от 2 000 ₽/мес · тарифы на странице продукта</div>
             <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <a href="/foodflow.html" class="btn btn-sm btn-o">Тарифы</a>
+              <a href="/foodflow.html" class="btn btn-sm btn-o">Тарифы FoodFlow</a>
               <a href="https://foodflow-rho.vercel.app" class="btn btn-sm btn-p">Демо →</a>
             </div>
           </div>
           <div class="card">
             <span class="badge b-d">🌾 Агро</span>
             <h3>АгроПомощник</h3>
-            <p>SaaS для КФХ. Карта полей, склад, субсидии — всё в одном.</p>
-            <ul><li>Карта полей + погода</li><li>Склад и журнал работ</li><li>Отчёт для Минсельхоза</li></ul>
+            <p>SaaS для КФХ. Карта полей, склад, субсидии — всё в одном. 3 тарифа под сезон.</p>
+            <ul>
+              <li>Карта полей + погода</li>
+              <li>Склад и журнал работ</li>
+              <li>Отчёт для Минсельхоза</li>
+            </ul>
+            <div class="prod-price-hint">3 тарифа · включая зимовку</div>
             <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-              <a href="/agro.html" class="btn btn-sm btn-o">Тарифы</a>
+              <a href="/agro.html" class="btn btn-sm btn-o">Тарифы АгроПомощник</a>
               <a href="https://agropomoshnik.vercel.app" class="btn btn-sm btn-p">Демо →</a>
             </div>
           </div>
@@ -165,24 +268,35 @@
             <span class="badge b-d">🍯 Пчёлы</span>
             <h3>ПасечникПро</h3>
             <p>Учёт ульев, осмотры, медосборы, здоровье пчёл.</p>
+            <div class="prod-price-hint">тарифы на странице продукта</div>
             <a href="https://pasechnik-pro.vercel.app" class="btn btn-sm btn-o" style="margin-top:12px">Демо →</a>
           </div>
           <div class="card">
             <span class="badge b-d">🛍️ Торговля</span>
             <h3>Витрина</h3>
             <p>Онлайн-каталог товаров. Поиск, фильтры, заказ в Telegram.</p>
+            <div class="prod-price-hint">тарифы на странице продукта</div>
             <a href="https://shop-vitrina.vercel.app" class="btn btn-sm btn-o" style="margin-top:12px">Демо →</a>
           </div>
           <div class="card">
             <span class="badge b-d">🚗 Авто</span>
             <h3>CarFlow</h3>
             <p>Платформа для импортёров авто. Каталог, растаможка, трекинг.</p>
+            <div class="prod-price-hint">тарифы на странице продукта</div>
             <a href="https://auto-platform-eight.vercel.app" class="btn btn-sm btn-o" style="margin-top:12px">Демо →</a>
+          </div>
+          <div class="card" style="border-style:dashed;opacity:.7">
+            <div class="ci">🚀</div>
+            <h3>Скоро: LearnFlow, НалогНавигатор</h3>
+            <p>Новые ниши в разработке. Напиши — возможно твоя ниша следующая.</p>
+            <button class="btn btn-sm btn-o" style="margin-top:12px" onclick="document.getElementById('modal').classList.add('active')">Предложить нишу →</button>
           </div>
         </div>
       </div>
     </section>
-    <section id="ai" style="padding:100px 0;background:radial-gradient(ellipse at center,rgba(0,212,255,0.08),transparent 70%);border-top:1px solid var(--b);border-bottom:1px solid var(--b)">
+
+    <!-- AI -->
+    <section id="ai" class="ai-section">
       <div class="c">
         <h2 class="st">🤖 ИИ-АССИСТЕНТ</h2>
         <p class="ss">Добавь ИИ к любому продукту. Твой бизнес работает — ИИ отвечает клиентам 24/7.</p>
@@ -191,31 +305,22 @@
           <div class="card" style="text-align:center"><h3>🤖 Telegram-бот</h3><p>Бот для клиентов — меню, заказы.</p><div style="color:var(--a);font-size:1.2rem;font-weight:700;margin:8px 0">+2 000 ₽/мес</div></div>
           <div class="card" style="text-align:center"><h3>🎙️ Голосовой агент</h3><p>Принимает звонки, отвечает голосом.</p><div style="color:var(--a);font-size:1.2rem;font-weight:700;margin:8px 0">+5 000 ₽/мес</div></div>
         </div>
-        <div style="text-align:center;margin-top:32px"><button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">Подключить ИИ →</button></div>
-      </div>
-    </section>
-    <section id="pricing" class="pricing">
-      <div class="c">
-        <h2 class="st">Тарифы платформы</h2>
-        <p class="ss">Начни бесплатно. Переходи между тарифами в любой момент. Оплата за год = 2 месяца в подарок.</p>
-        <div class="pg">
-          <div class="pc"><div class="pt">Старт</div><div class="pv">0 ₽</div><div class="pd">ограниченный функционал</div><ul class="pl"><li>Основной функционал продукта</li><li>1 точка / 1 аккаунт</li><li>Мобильная версия</li><li class="no">Учёт и аналитика</li><li class="no">Интеграции</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Старт" class="btn btn-o" style="width:100%">Начать бесплатно</a></div>
-          <div class="pc"><div class="pt">Базовый</div><div class="pv">2 000 ₽<span style="font-size:1rem;color:var(--m);font-weight:400">/мес</span></div><div class="pd">или 20 000 ₽/год (-17%)</div><ul class="pl"><li>Всё из Старта</li><li>Учёт доходов и расходов</li><li>Базовая аналитика</li><li>Уведомления</li><li class="no">Несколько точек</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Базовый" class="btn btn-o" style="width:100%">Выбрать</a></div>
-          <div class="pc pop"><div class="pt">Бизнес</div><div class="pv">4 500 ₽<span style="font-size:1rem;color:var(--m);font-weight:400">/мес</span></div><div class="pd">или 45 000 ₽/год (-17%)</div><ul class="pl"><li>Всё из Базового</li><li>До 5 точек / аккаунтов</li><li>Отчёты для бухгалтера</li><li>Telegram-интеграция</li><li>Приоритетная поддержка</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Бизнес" class="btn btn-p" style="width:100%">Выбрать</a></div>
-          <div class="pc"><div class="pt">Про Макс</div><div class="pv">8 000 ₽<span style="font-size:1rem;color:var(--m);font-weight:400">/мес</span></div><div class="pd">или 80 000 ₽/год (-17%)</div><ul class="pl"><li>Всё из Бизнеса</li><li>Без лимита точек</li><li>Авторасчёт НДС 2026</li><li>ИИ-аналитика</li><li>Белый лейбл</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Про%20Макс" class="btn btn-o" style="width:100%">Выбрать</a></div>
+        <div style="text-align:center;margin-top:32px">
+          <button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">Подключить ИИ →</button>
         </div>
-        <p style="font-size:.85rem;color:var(--m);margin-top:24px;text-align:center"><a href="https://t.me/daniil74_bot" style="color:var(--a);text-decoration:none">Написать нам</a> если не нашёл нужную нишу.</p>
       </div>
     </section>
+
+    <!-- FOUNDER -->
     <section id="about" class="founder">
       <div class="c">
-        <div class="fc">
+        <div class="fc-wrap">
           <div class="fa">ДН</div>
           <div class="ft">
             <h3>Даниил Низамов</h3>
             <p style="color:var(--a);font-size:.9rem;margin-bottom:12px">Основатель Nizamov.tech · t.me/Daniil_s_zavoda</p>
             <p>Прошёл путь от завода до IT-продукта. Видел как малый бизнес тонет в бумагах, налогах и непонятных требованиях. Решил это исправить.<br><br>Nizamov.tech — не просто набор приложений. Это обещание: пока ты жаришь шашлык или сеешь пшеницу — мы следим за остальным. Принципиально работаю только с халяльными проектами.</p>
-            <div class="sl">
+            <div class="slinks">
               <a href="https://t.me/Aslyamov74">✈️ Написать</a>
               <a href="https://t.me/Daniil_s_zavoda">📢 Канал</a>
               <a href="https://kwork.ru">💼 Kwork</a>
@@ -224,10 +329,13 @@
         </div>
       </div>
     </section>
+
+    <!-- CTA FINAL -->
     <section style="text-align:center;padding:120px 0;background:radial-gradient(circle at 50% 0%,rgba(0,212,255,0.15),transparent 60%)">
       <div class="c">
         <h2 style="font-size:clamp(2rem,6vw,3.5rem);font-weight:800;margin-bottom:16px">Готов перестать<span style="background:linear-gradient(to right,#fff,var(--a));-webkit-background-clip:text;background-clip:text;color:transparent"> переживать?</span></h2>
-        <p style="color:var(--m);max-width:600px;margin:0 auto 32px">Выбери продукт под свою нишу и начни бесплатно прямо сейчас. Без договоров и предоплаты.</p>
+        <p style="color:var(--m);max-width:600px;margin:0 auto 12px">Выбери продукт под свою нишу и начни бесплатно прямо сейчас. Без договоров и предоплаты.</p>
+        <p style="color:#10b981;font-weight:700;margin-bottom:32px">Настройка за 1 день. Первый месяц — подарок.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
           <button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">✈️ Оставить заявку</button>
           <a href="https://t.me/Aslyamov74" class="btn btn-o">Написать напрямую</a>
@@ -235,12 +343,13 @@
       </div>
     </section>
   </main>
+
   <footer>
     <div class="c">
-      <div class="fg">
+      <div class="fg-grid">
         <div><h4 class="f4">NIZAMOV.TECH</h4><p>Платформа для малого бизнеса России и СНГ. Ты занимаешься делом — остальное наше.</p></div>
         <div class="fl"><h4 class="f4">Продукты</h4><a href="https://foodflow-rho.vercel.app">FoodFlow</a><a href="https://agropomoshnik.vercel.app">АгроПомощник</a><a href="https://pasechnik-pro.vercel.app">ПасечникПро</a><a href="https://postroy-dom.vercel.app">СтройПомощник</a></div>
-        <div class="fl"><h4 class="f4">Тарифы & ИИ</h4><a href="#pricing">Старт — 0 ₽</a><a href="#pricing">Базовый</a><a href="#pricing">Бизнес</a><a href="#pricing">Про Макс</a><a href="#ai">ИИ-ассистент</a></div>
+        <div class="fl"><h4 class="f4">Тарифы</h4><a href="/foodflow.html">FoodFlow — тарифы</a><a href="/agro.html">АгроПомощник — тарифы</a><a href="#ai">ИИ-ассистент</a></div>
         <div><h4 class="f4">Контакты</h4><p><a href="https://t.me/Aslyamov74" style="color:var(--m);text-decoration:none">@Aslyamov74</a></p><p><a href="https://t.me/Daniil_s_zavoda" style="color:var(--m);text-decoration:none">Канал в Telegram</a></p><p><a href="#about" style="color:var(--m);text-decoration:none">О нас</a></p></div>
       </div>
       <div class="cr">
@@ -249,16 +358,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- MODAL -->
   <div id="modal">
     <div class="mc">
       <button class="cm" onclick="document.getElementById('modal').classList.remove('active')">✕</button>
       <h3 style="font-size:1.5rem;margin-bottom:8px">Оставить заявку</h3>
       <p style="color:var(--m);margin-bottom:20px">Опишите что нужно — свяжемся в течение часа и подберём решение для вашего бизнеса.</p>
       <form id="cf">
-        <div class="fg"><input type="text" class="fc" placeholder="Ваше имя *" required></div>
-        <div class="fg"><input type="tel" class="fc" placeholder="Номер телефона *" required></div>
-        <div class="fg">
-          <select class="fc" required>
+        <div class="fgroup"><input type="text" class="finput" placeholder="Ваше имя *" required></div>
+        <div class="fgroup"><input type="tel" class="finput" placeholder="Номер телефона *" required></div>
+        <div class="fgroup">
+          <select class="finput" required>
             <option value="" disabled selected>Что интересует?</option>
             <option>🍽️ FoodFlow — кафе, ресторан, шашлычная</option>
             <option>🌾 АгроПомощник — ферма, КФХ</option>
@@ -270,17 +381,25 @@
             <option>✨ Другое — обсудим</option>
           </select>
         </div>
-        <div class="cg"><input type="checkbox" id="pv" required checked><label for="pv">Я согласен на обработку персональных данных в соответствии с <a href="/privacy.html" style="color:var(--a)">Политикой конфиденциальности</a></label></div>
+        <div class="cg">
+          <input type="checkbox" id="pv" required checked>
+          <label for="pv">Я согласен на обработку персональных данных в соответствии с <a href="/privacy.html" style="color:var(--a)">Политикой конфиденциальности</a></label>
+        </div>
         <button type="submit" class="btn btn-p" style="width:100%">Отправить заявку →</button>
       </form>
     </div>
   </div>
+
   <script>
     document.querySelector('.mob').addEventListener('click',()=>document.querySelector('.links').classList.toggle('active'));
     document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('active')));
     document.getElementById('cf').addEventListener('submit',e=>{
-      e.preventDefault();const b=e.target.querySelector('button');const o=b.textContent;b.textContent='✓ Заявка отправлена!';b.disabled=true;
-      setTimeout(()=>{b.textContent=o;b.disabled=false;e.target.reset();document.getElementById('modal').classList.remove('active')},2500)
+      e.preventDefault();
+      const b=e.target.querySelector('button');
+      const o=b.textContent;
+      b.textContent='✓ Заявка отправлена!';
+      b.disabled=true;
+      setTimeout(()=>{b.textContent=o;b.disabled=false;e.target.reset();document.getElementById('modal').classList.remove('active')},2500);
     });
   </script>
 </body>
