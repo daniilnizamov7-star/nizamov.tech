@@ -60,6 +60,20 @@
     .pl li::before{content:'✓';color:#10b981;margin-right:8px;font-weight:bold}
     .pl li.no::before{content:'✗';color:#ef4444}
     .pf{font-size:.85rem;color:var(--m);margin-top:16px;text-align:center}
+    .addons{margin-top:48px;padding-top:40px;border-top:1px solid var(--b)}
+    .addons-title{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:6px;text-align:center}
+    .addons-sub{text-align:center;color:var(--m);font-size:.9rem;margin-bottom:24px}
+    .addons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+    .addon{background:var(--s);border:1px solid var(--b);border-radius:12px;padding:20px;text-align:center;transition:.2s;position:relative;overflow:hidden}
+    .addon:hover{border-color:var(--a);transform:translateY(-3px)}
+    .addon-icon{font-size:1.8rem;margin-bottom:8px}
+    .addon-name{font-size:.95rem;font-weight:700;margin-bottom:4px}
+    .addon-desc{font-size:.8rem;color:var(--m);margin-bottom:12px;line-height:1.5}
+    .addon-price{font-size:1.1rem;font-weight:800;color:var(--a)}
+    .addon-sub{font-size:.75rem;color:var(--m);margin-top:2px}
+    .addon.nds{border-color:rgba(239,68,68,0.4);background:linear-gradient(145deg,var(--s),rgba(239,68,68,0.06))}
+    .addon.nds .addon-price{color:#ef4444}
+    .addon.nds::before{content:'Горячая тема';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:#ef4444;color:#fff;padding:3px 10px;border-radius:0 0 8px 8px;font-size:.68rem;font-weight:700;white-space:nowrap}
     .final{text-align:center;background:radial-gradient(circle at 50% 0%,rgba(0,212,255,0.15),transparent 60%);padding-bottom:120px}
     .final h2{font-size:clamp(2rem,6vw,3.5rem);font-weight:800;margin-bottom:16px}
     .final p{color:var(--m);max-width:600px;margin:0 auto 32px}
@@ -178,9 +192,48 @@
           <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Старт</div><div class="pv">0 ₽</div><div class="pd">навсегда бесплатно</div><ul class="pl"><li>QR-меню для гостей</li><li>Приём заказов</li><li>Заказы в Telegram</li><li>1 точка</li><li class="no">Учёт выручки</li><li class="no">Аналитика</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
           <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Базовый</div><div class="pv">2 000 ₽</div><div class="pd">в месяц · 1 точка</div><ul class="pl"><li>Всё из Старта</li><li>Учёт выручки по дням</li><li>Стоп-лист блюд</li><li>Звуковые уведомления</li><li>Админ-панель</li><li class="no">Несколько точек</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a><div style="margin-top:12px;font-size:.85rem;color:var(--m)">+ ИИ-бот: <span style="color:var(--a)">+2 000 ₽/мес</span></div></div>
           <div class="pc pop"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Бизнес</div><div class="pv">4 500 ₽</div><div class="pd">в месяц · до 5 точек</div><ul class="pl"><li>Всё из Базового</li><li>До 5 точек</li><li>Расходы и себестоимость</li><li>Отчёт для бухгалтера</li><li>Бронирование столиков</li><li>Telegram-уведомления</li></ul><a href="https://foodflow-rho.vercel.app" class="btn btn-p" style="width:100%">Попробовать демо</a><div style="margin-top:12px;font-size:.85rem;color:var(--m)">+ ИИ-бот: <span style="color:var(--a)">+2 000 ₽/мес</span></div></div>
-          <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Про Макс 🔥</div><div class="pv">8 000 ₽</div><div class="pd">в месяц · без лимитов</div><ul class="pl"><li>Всё из Бизнеса</li><li>Без лимита точек</li><li style="color:var(--a);font-weight:700">Авторасчёт НДС 2026</li><li>ИИ-аналитика загруженности</li><li>Программа лояльности</li><li>Telegram-бот для гостей</li><li>Белый лейбл (твой бренд)</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
+          <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Про Макс 🔥</div><div class="pv">8 000 ₽</div><div class="pd">в месяц · без лимитов</div><ul class="pl"><li>Всё из Бизнеса</li><li>Без лимита точек</li><li>ИИ-аналитика загруженности</li><li>Программа лояльности</li><li>Telegram-бот для гостей</li><li>Белый лейбл (твой бренд)</li><li style="color:#ef4444;font-weight:700">Авторасчёт НДС — включён</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
         </div>
         <p class="pf">Разовая настройка под ваш бизнес: Базовый — 3 000 ₽ · Бизнес — 7 000 ₽ · Про Макс — 15 000 ₽</p>
+
+        <div class="addons">
+          <h3 class="addons-title">⚡ Дополнительные модули</h3>
+          <p class="addons-sub">Подключи к любому тарифу — только то что нужно</p>
+          <div class="addons-grid">
+            <div class="addon nds">
+              <div class="addon-icon">🧾</div>
+              <div class="addon-name">Авторасчёт НДС 2026</div>
+              <div class="addon-desc">Система сама считает НДС по новым правилам и формирует отчёт для бухгалтера</div>
+              <div class="addon-price">+1 500 ₽</div>
+              <div class="addon-sub">в месяц · входит в Про Макс</div>
+              <a href="https://t.me/daniil74_bot?text=Хочу%20модуль%20НДС%202026" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
+            </div>
+            <div class="addon">
+              <div class="addon-icon">💬</div>
+              <div class="addon-name">ИИ-чат на сайте</div>
+              <div class="addon-desc">Отвечает на вопросы гостей, принимает заявки и брони 24/7 без участия персонала</div>
+              <div class="addon-price">+2 000 ₽</div>
+              <div class="addon-sub">в месяц</div>
+              <a href="https://t.me/daniil74_bot?text=Хочу%20ИИ-чат" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
+            </div>
+            <div class="addon">
+              <div class="addon-icon">🤖</div>
+              <div class="addon-name">Telegram-бот для гостей</div>
+              <div class="addon-desc">Клиент пишет в Telegram — получает меню, делает заказ, узнаёт статус</div>
+              <div class="addon-price">+2 000 ₽</div>
+              <div class="addon-sub">в месяц</div>
+              <a href="https://t.me/daniil74_bot?text=Хочу%20Telegram-бот" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
+            </div>
+            <div class="addon">
+              <div class="addon-icon">🎙️</div>
+              <div class="addon-name">Голосовой агент</div>
+              <div class="addon-desc">Принимает звонки и отвечает голосом — ни один звонок не потеряется</div>
+              <div class="addon-price">+5 000 ₽</div>
+              <div class="addon-sub">в месяц</div>
+              <a href="https://t.me/daniil74_bot?text=Хочу%20голосовой%20агент" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section class="final">
