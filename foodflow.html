@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FoodFlow — Система для кафе и ресторанов | Nizamov.tech</title>
+  <title>FoodFlow — Кончай терять заказы и деньги | Nizamov.tech</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0c10;color:#e5e7eb;line-height:1.6}
@@ -26,26 +26,46 @@
     .links a:hover{color:#fff}
     .mob{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
     .hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 20px 80px;background:radial-gradient(circle at 50% 0%,#1a237e 0%,#0a0c10 60%)}
-    .h-badge{display:inline-block;background:rgba(0,212,255,0.1);border:1px solid var(--a);color:var(--a);padding:6px 14px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:16px}
+    .h-badge{display:inline-block;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;padding:6px 14px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:16px}
     .hero h1{font-size:clamp(2.8rem,7vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:16px;letter-spacing:-1px}
     .hero h1 span{display:block;background:linear-gradient(to right,var(--a),#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
     .hero p{font-size:1.2rem;color:var(--m);max-width:650px;margin:0 auto 32px;line-height:1.7}
     .h-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .card{background:var(--s);backdrop-filter:blur(20px);border:1px solid var(--b);padding:24px;border-radius:var(--r);transition:.2s;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+    .card{background:var(--s);backdrop-filter:blur(20px);border:1px solid var(--b);padding:28px;border-radius:var(--r);transition:.2s;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
     .card:hover{border-color:var(--a);transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.4)}
-    .ci{font-size:2rem;margin-bottom:12px}
-    .card h3{font-size:1.2rem;margin-bottom:8px;font-weight:700}
-    .card p{color:var(--m);font-size:.95rem;margin-bottom:16px}
-    .card ul{list-style:none;margin-bottom:16px}
-    .card ul li{color:var(--m);font-size:.9rem;padding:4px 0}
-    .card ul li::before{content:'✓';color:#10b981;margin-right:8px;font-weight:bold}
+
+    /* БОЛИ → РЕШЕНИЯ */
+    .pain-block{display:grid;grid-template-columns:1fr 40px 1fr;align-items:center;gap:12px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .pain-block:last-child{border-bottom:none}
+    .pain-side{background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:16px}
+    .pain-side .label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#ef4444;margin-bottom:6px}
+    .pain-side .text{font-size:.95rem;color:#fca5a5;font-style:italic;line-height:1.5}
+    .arrow{text-align:center;font-size:1.4rem;color:var(--a)}
+    .fix-side{background:rgba(0,212,255,0.07);border:1px solid rgba(0,212,255,0.2);border-radius:12px;padding:16px}
+    .fix-side .label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--a);margin-bottom:6px}
+    .fix-side .text{font-size:.95rem;color:#e5e7eb;line-height:1.5}
+
+    /* КАК РАБОТАЕТ */
     .steps{padding:100px 0}
     .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
     .step{text-align:center;padding:20px}
     .sn{width:50px;height:50px;background:var(--bg);border:2px solid var(--a);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-weight:800;color:var(--a);font-size:1.2rem}
-    .step h3{font-size:1.2rem;margin-bottom:8px}
-    .step p{color:var(--m);font-size:.95rem}
+    .step h3{font-size:1.1rem;margin-bottom:8px}
+    .step p{color:var(--m);font-size:.9rem}
+
+    /* КЕЙС */
+    .case-section{padding:80px 0;background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(0,212,255,0.05));border-top:1px solid rgba(16,185,129,0.15);border-bottom:1px solid rgba(16,185,129,0.15)}
+    .case-card{background:var(--s);border:1px solid rgba(16,185,129,0.3);border-radius:20px;padding:40px;max-width:900px;margin:0 auto}
+    .case-tag{display:inline-block;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;padding:5px 12px;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
+    .case-title{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+    .case-desc{color:var(--m);font-size:1rem;line-height:1.7;margin-bottom:20px}
+    .case-stats{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:24px}
+    .case-stat{text-align:center}
+    .case-num{font-size:2rem;font-weight:800;color:#10b981}
+    .case-label{font-size:.8rem;color:var(--m)}
+
+    /* ТАРИФЫ */
     .pricing{padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)}
     .pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start}
     .pc{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:28px 24px;text-align:center;transition:.2s;position:relative}
@@ -83,127 +103,157 @@
     .fl a{display:block;color:var(--m);text-decoration:none;margin-bottom:8px;transition:.2s}
     .fl a:hover{color:var(--a)}
     .cr{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;gap:8px}
-    .urgency-strip{background:linear-gradient(90deg,#00d4ff,#0099ff);color:#000;text-align:center;padding:10px 20px;font-size:.9rem;font-weight:700}
-    .urgency-strip span{opacity:.7;font-weight:400;margin-left:8px}
-    .case-section{padding:80px 0;background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(0,212,255,0.05));border-top:1px solid rgba(16,185,129,0.15);border-bottom:1px solid rgba(16,185,129,0.15)}
-    .case-card{background:var(--s);border:1px solid rgba(16,185,129,0.3);border-radius:20px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;max-width:900px;margin:0 auto}
-    .case-tag{display:inline-block;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:#10b981;padding:5px 12px;border-radius:6px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
-    .case-title{font-size:1.6rem;font-weight:800;margin-bottom:8px}
-    .case-desc{color:var(--m);font-size:1rem;line-height:1.7;margin-bottom:20px;max-width:480px}
-    .case-quote{font-size:1.05rem;font-style:italic;color:#e5e7eb;border-left:3px solid #10b981;padding-left:16px;margin-bottom:16px;line-height:1.7}
-    .case-author{color:var(--m);font-size:.85rem;margin-bottom:20px}
-    .case-stats{display:flex;flex-direction:column;gap:16px;min-width:180px}
-    .case-stat{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:20px;text-align:center}
-    .case-num{font-size:2rem;font-weight:800;color:#10b981;line-height:1}
-    .case-label{font-size:.78rem;color:var(--m);margin-top:4px;line-height:1.4}
-    @media(max-width:900px){.links{display:none;position:fixed;top:70px;left:0;width:100%;background:#11141a;flex-direction:column;padding:20px;border-bottom:1px solid rgba(255,255,255,0.05)}.links.active{display:flex}.mob{display:block}.hero h1{font-size:2.8rem}.case-card{grid-template-columns:1fr;gap:24px}.case-stats{flex-direction:row;justify-content:center}}
+    @media(max-width:900px){.links{display:none;position:fixed;top:70px;left:0;width:100%;background:#11141a;flex-direction:column;padding:20px;border-bottom:1px solid rgba(255,255,255,0.05)}.links.active{display:flex}.mob{display:block}.pain-block{grid-template-columns:1fr;gap:8px}.arrow{display:none}.hero h1{font-size:2.8rem}.case-stats{gap:16px}}
   </style>
 </head>
 <body>
-  <div class="urgency-strip">🎁 Первый месяц — бесплатно, настройка в подарок<span>Запуск за 1 день →</span></div>
   <header>
     <div class="c nav">
       <a href="/" class="logo">NIZAMOV<span>.TECH</span></a>
       <button class="mob">☰</button>
       <nav class="links">
-        <a href="#features">Возможности</a>
+        <a href="#problems">Твои боли</a>
+        <a href="#how">Как работает</a>
         <a href="#pricing">Тарифы</a>
-        <a href="#case">Кейсы</a>
-        <a href="https://t.me/Aslyamov74">Написать</a>
+        <a href="https://t.me/daniil74_bot">Подключить</a>
       </nav>
     </div>
   </header>
+
   <main>
+    <!-- HERO -->
     <section class="hero">
       <div>
-        <div class="h-badge">🍽️ Для кафе, ресторанов и шашлычных</div>
-        <h1>FoodFlow<br><span>Система управления заведением</span></h1>
-        <p>Клиенты заказывают через QR — ты готовишь. Без звонков, без бумаг, без головной боли. Автоматический учёт выручки и налогов.</p>
+        <div class="h-badge">🍽️ Для кафе, ресторанов, шашлычных</div>
+        <h1>Официанты путают заказы?<br><span>Больше не будут.</span></h1>
+        <p>Гость сам выбирает с телефона → заказ мгновенно на кухню → никакой путаницы, никаких скандалов, никакого ручного учёта. Первый месяц бесплатно.</p>
         <div class="h-btns">
-          <a href="https://foodflow-rho.vercel.app" class="btn btn-p">🎮 Попробовать демо</a>
-          <a href="https://t.me/daniil74_bot" class="btn btn-o">💬 Хочу для своего кафе</a>
+          <a href="https://t.me/daniil74_bot" class="btn btn-p">✈️ Подключить моё кафе</a>
+          <a href="https://foodflow-rho.vercel.app" class="btn btn-o">🎮 Потрогать демо →</a>
         </div>
       </div>
     </section>
-    <section style="padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)">
+
+    <!-- БОЛИ → РЕШЕНИЯ -->
+    <section id="problems" style="padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)">
       <div class="c">
-        <h2 class="st">Почему кафе теряют деньги?</h2>
-        <p class="ss">Знакомые ситуации? Мы их все закрываем.</p>
-        <div class="grid">
-          <div class="card"><div class="ci">📞</div><h3>Клиенты не дозваниваются</h3><p>Телефон занят, официант отошёл — клиент уходит к конкурентам.</p><ul><li>QR-меню и заказ онлайн</li></ul></div>
-          <div class="card"><div class="ci">📋</div><h3>Заказы путаются</h3><p>Записки, крики на кухню, перепутанные столики — хаос в час пик.</p><ul><li>Real-time заказы на кухню</li></ul></div>
-          <div class="card"><div class="ci">💸</div><h3>Не понимаю прибыль</h3><p>Деньги есть — но сколько выручки? Какое блюдо выгоднее? Непонятно.</p><ul><li>Учёт выручки и аналитика</li></ul></div>
-          <div class="card"><div class="ci">🧾</div><h3>Налоги и отчёты</h3><p>НДС 2026, новые требования — непонятно что делать и как считать.</p><ul><li>Авторасчёт НДС (Про Макс)</li></ul></div>
-          <div class="card"><div class="ci">🔁</div><h3>Клиенты не возвращаются</h3><p>Нет программы лояльности — клиент пришёл один раз и забыл.</p><ul><li>Программа лояльности (Про Макс)</li></ul></div>
-          <div class="card"><div class="ci">🤖</div><h3>Пропущенные звонки</h3><p>Не успеваешь отвечать — теряешь заказы.</p><ul><li>ИИ-ассистент отвечает 24/7</li></ul></div>
+        <h2 class="st">Узнаёшь эти ситуации?</h2>
+        <p class="ss">Каждая из них — это потерянные деньги или нервы. Вот как FoodFlow их закрывает.</p>
+
+        <div style="background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:32px">
+          <div class="pain-block">
+            <div class="pain-side">
+              <div class="label">😤 Боль</div>
+              <div class="text">"Официант записал в блокнот не то, повар приготовил не то блюдо, гость злится и не платит"</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="fix-side">
+              <div class="label">✅ Решение</div>
+              <div class="text">Гость сам выбирает с телефона через QR. Заказ точно и мгновенно летит на кухню — ошибок нет физически</div>
+            </div>
+          </div>
+          <div class="pain-block">
+            <div class="pain-side">
+              <div class="label">😤 Боль</div>
+              <div class="text">"В конце дня считаю выручку вручную или по чекам — долго, ошибаюсь, не понимаю картину"</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="fix-side">
+              <div class="label">✅ Решение</div>
+              <div class="text">Каждый заказ = запись в учёт. Выручка, популярные блюда, средний чек — в реальном времени прямо на телефоне</div>
+            </div>
+          </div>
+          <div class="pain-block">
+            <div class="pain-side">
+              <div class="label">😤 Боль</div>
+              <div class="text">"Клиент спрашивает 'где мой заказ?' — иду на кухню, уточняю, возвращаюсь. Это бесит и меня и клиента"</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="fix-side">
+              <div class="label">✅ Решение</div>
+              <div class="text">Клиент видит статус своего заказа на телефоне: "готовится", "готов", "доставлен". Ни одного лишнего вопроса</div>
+            </div>
+          </div>
+          <div class="pain-block">
+            <div class="pain-side">
+              <div class="label">😤 Боль</div>
+              <div class="text">"С 2026 года НДС изменился — не понимаю как считать, боюсь ошибиться и получить штраф"</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="fix-side">
+              <div class="label">✅ Решение</div>
+              <div class="text">Авторасчёт НДС по новым правилам + готовый отчёт для бухгалтера. Просто подключи модуль — система всё считает сама</div>
+            </div>
+          </div>
+          <div class="pain-block">
+            <div class="pain-side">
+              <div class="label">😤 Боль</div>
+              <div class="text">"Клиенты звонят, пишут в WhatsApp — не успеваю отвечать, теряю заказы и нервы"</div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="fix-side">
+              <div class="label">✅ Решение</div>
+              <div class="text">ИИ-бот в Telegram отвечает 24/7: показывает меню, принимает заказы, отвечает на вопросы пока ты занят</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-    <section id="features" class="steps">
+
+    <!-- КАК РАБОТАЕТ -->
+    <section id="how" class="steps">
       <div class="c">
-        <h2 class="st">Всё что нужно заведению</h2>
-        <p class="ss">Одна система закрывает все задачи.</p>
+        <h2 class="st">Как это работает</h2>
+        <p class="ss">Просто, как QR-код. Никакого сложного оборудования и обучения.</p>
         <div class="sg">
-          <div class="step"><div class="sn">01</div><h3>QR-меню</h3><p>Клиент сканирует QR, выбирает блюда, оформляет заказ прямо с телефона.</p></div>
-          <div class="step"><div class="sn">02</div><h3>Заказы на кухню</h3><p>Заказ оформлен — мгновенно появляется в панели администратора со звуком.</p></div>
-          <div class="step"><div class="sn">03</div><h3>Учёт выручки</h3><p>Видишь сколько заработал за день, неделю, месяц. Выгрузка отчёта для бухгалтера.</p></div>
-          <div class="step"><div class="sn">04</div><h3>Халяль-маркировка</h3><p>Каждое блюдо помечается как халяль. Клиенты видят — доверие растёт.</p></div>
+          <div class="step"><div class="sn">01</div><h3>📱 Гость сканирует QR</h3><p>На столе наклейка с QR-кодом. Гость сканирует — видит меню на своём телефоне.</p></div>
+          <div class="step"><div class="sn">02</div><h3>🛒 Выбирает и заказывает</h3><p>Листает блюда, добавляет в корзину, жмёт "Заказать". Никаких очередей к официанту.</p></div>
+          <div class="step"><div class="sn">03</div><h3>👨‍🍳 Кухня получает заказ</h3><p>Мгновенно. Точно. Без пересказов и бумажек. Статус обновляется в реальном времени.</p></div>
+          <div class="step"><div class="sn">04</div><h3>📊 Ты видишь всё</h3><p>Выручка, заказы, популярные блюда — в одном экране. Принимай решения на основе данных.</p></div>
         </div>
       </div>
     </section>
-    <section id="case" class="case-section">
+
+    <!-- КЕЙС -->
+    <section class="case-section">
       <div class="c">
-        <h2 class="st">Живой кейс</h2>
-        <p class="ss">Не просто демо — реальный клиент, реальные цифры.</p>
+        <h2 class="st">Работает у реального клиента</h2>
+        <p class="ss">Царская Кухня — с нами с 2026 года</p>
         <div class="case-card">
-          <div>
-            <div class="case-tag">👑 FoodFlow · Реальный клиент</div>
-            <h3 class="case-title">Царская Кухня, Челябинск</h3>
-            <p class="case-desc">Ресторан работал на бумажных заказах и телефоне. Повар получал заказы с опозданием, менеджер не успевал отвечать на звонки — клиенты уходили.</p>
-            <div class="case-quote">«Теперь заказ появляется у повара мгновенно. Мы перестали терять гостей из-за пропущенных звонков.»</div>
-            <div class="case-author">— Владелец, Царская Кухня</div>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn btn-sm btn-o">Посмотреть сайт →</a>
-              <a href="https://foodflow-rho.vercel.app" target="_blank" class="btn btn-sm btn-p">Демо FoodFlow →</a>
-            </div>
-          </div>
+          <div class="case-tag">✅ Реальный клиент · Работает сейчас</div>
+          <div class="case-title">👑 Царская Кухня</div>
+          <div class="case-desc">До FoodFlow: официанты записывали заказы в блокнот, путались, клиенты ждали. Хозяин считал выручку вечером по чекам. После подключения: заказы идут прямо с телефона гостя на кухню, хаос исчез за один день.</div>
           <div class="case-stats">
-            <div class="case-stat">
-              <div class="case-num">0</div>
-              <div class="case-label">пропущенных<br>заказов после запуска</div>
-            </div>
-            <div class="case-stat">
-              <div class="case-num">1 день</div>
-              <div class="case-label">настройка<br>и запуск</div>
-            </div>
-            <div class="case-stat">
-              <div class="case-num">0 ₽</div>
-              <div class="case-label">первый<br>месяц</div>
-            </div>
+            <div class="case-stat"><div class="case-num">0</div><div class="case-label">ошибок в заказах</div></div>
+            <div class="case-stat"><div class="case-num">1 день</div><div class="case-label">на запуск</div></div>
+            <div class="case-stat"><div class="case-num">24/7</div><div class="case-label">система работает</div></div>
           </div>
+          <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn btn-o">Посмотреть сайт →</a>
         </div>
       </div>
     </section>
+
+    <!-- ТАРИФЫ -->
     <section id="pricing" class="pricing">
       <div class="c">
         <h2 class="st">Тарифы</h2>
-        <p class="ss">Начни бесплатно — плати когда вырастешь. Никаких договоров и предоплат.</p>
+        <p class="ss">Начни бесплатно — плати когда убедишься что работает. Никаких договоров и предоплат.</p>
         <div class="pg">
-          <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Старт</div><div class="pv">0 ₽</div><div class="pd">навсегда бесплатно</div><ul class="pl"><li>QR-меню для гостей</li><li>Приём заказов</li><li>Заказы в Telegram</li><li>1 точка</li><li class="no">Учёт выручки</li><li class="no">Аналитика</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
-          <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Базовый</div><div class="pv">2 000 ₽</div><div class="pd">в месяц · 1 точка</div><ul class="pl"><li>Всё из Старта</li><li>Учёт выручки по дням</li><li>Стоп-лист блюд</li><li>Звуковые уведомления</li><li>Админ-панель</li><li class="no">Несколько точек</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a><div style="margin-top:12px;font-size:.85rem;color:var(--m)">+ ИИ-бот: <span style="color:var(--a)">+2 000 ₽/мес</span></div></div>
-          <div class="pc pop"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Бизнес</div><div class="pv">4 500 ₽</div><div class="pd">в месяц · до 5 точек</div><ul class="pl"><li>Всё из Базового</li><li>До 5 точек</li><li>Расходы и себестоимость</li><li>Отчёт для бухгалтера</li><li>Бронирование столиков</li><li>Telegram-уведомления</li></ul><a href="https://foodflow-rho.vercel.app" class="btn btn-p" style="width:100%">Попробовать демо</a><div style="margin-top:12px;font-size:.85rem;color:var(--m)">+ ИИ-бот: <span style="color:var(--a)">+2 000 ₽/мес</span></div></div>
+          <div class="pc"><div class="tb">🎁 Навсегда бесплатно</div><div class="pt">Старт</div><div class="pv">0 ₽</div><div class="pd">попробуй без риска</div><ul class="pl"><li>QR-меню для гостей</li><li>Приём заказов</li><li>Уведомления в Telegram</li><li>1 точка</li><li class="no">Учёт выручки</li><li class="no">Аналитика</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
+          <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Базовый</div><div class="pv">2 000 ₽</div><div class="pd">в месяц · 1 точка</div><ul class="pl"><li>Всё из Старта</li><li>Учёт выручки по дням</li><li>Стоп-лист блюд</li><li>Звуковые уведомления</li><li>Админ-панель</li><li class="no">Несколько точек</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
+          <div class="pc pop"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Бизнес</div><div class="pv">4 500 ₽</div><div class="pd">в месяц · до 5 точек</div><ul class="pl"><li>Всё из Базового</li><li>До 5 точек</li><li>Расходы и себестоимость</li><li>Отчёт для бухгалтера</li><li>Бронирование столиков</li><li>Telegram-уведомления</li></ul><a href="https://foodflow-rho.vercel.app" class="btn btn-p" style="width:100%">Попробовать демо</a></div>
           <div class="pc"><div class="tb">🎁 1 месяц бесплатно</div><div class="pt">Про Макс 🔥</div><div class="pv">8 000 ₽</div><div class="pd">в месяц · без лимитов</div><ul class="pl"><li>Всё из Бизнеса</li><li>Без лимита точек</li><li>ИИ-аналитика загруженности</li><li>Программа лояльности</li><li>Telegram-бот для гостей</li><li>Белый лейбл (твой бренд)</li><li style="color:#ef4444;font-weight:700">Авторасчёт НДС — включён</li></ul><a href="https://t.me/daniil74_bot" class="btn btn-o" style="width:100%">Подключить</a></div>
         </div>
         <p class="pf">Разовая настройка под ваш бизнес: Базовый — 3 000 ₽ · Бизнес — 7 000 ₽ · Про Макс — 15 000 ₽</p>
 
         <div class="addons">
-          <h3 class="addons-title">⚡ Дополнительные модули</h3>
-          <p class="addons-sub">Подключи к любому тарифу — только то что нужно</p>
+          <h3 class="addons-title">⚡ Убери конкретную боль — подключи модуль</h3>
+          <p class="addons-sub">Добавляй только то что нужно к любому тарифу</p>
           <div class="addons-grid">
             <div class="addon nds">
               <div class="addon-icon">🧾</div>
               <div class="addon-name">Авторасчёт НДС 2026</div>
-              <div class="addon-desc">Система сама считает НДС по новым правилам и формирует отчёт для бухгалтера</div>
+              <div class="addon-desc">Боишься ошибиться с новым НДС? Система считает сама и формирует отчёт для бухгалтера</div>
               <div class="addon-price">+1 500 ₽</div>
               <div class="addon-sub">в месяц · входит в Про Макс</div>
               <a href="https://t.me/daniil74_bot?text=Хочу%20модуль%20НДС%202026" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
@@ -211,7 +261,7 @@
             <div class="addon">
               <div class="addon-icon">💬</div>
               <div class="addon-name">ИИ-чат на сайте</div>
-              <div class="addon-desc">Отвечает на вопросы гостей, принимает заявки и брони 24/7 без участия персонала</div>
+              <div class="addon-desc">Клиент пишет ночью — бот отвечает сразу, принимает заявку. Ты не теряешь клиента пока спишь</div>
               <div class="addon-price">+2 000 ₽</div>
               <div class="addon-sub">в месяц</div>
               <a href="https://t.me/daniil74_bot?text=Хочу%20ИИ-чат" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
@@ -219,7 +269,7 @@
             <div class="addon">
               <div class="addon-icon">🤖</div>
               <div class="addon-name">Telegram-бот для гостей</div>
-              <div class="addon-desc">Клиент пишет в Telegram — получает меню, делает заказ, узнаёт статус</div>
+              <div class="addon-desc">Устал отвечать на одни и те же вопросы? Бот отвечает, показывает меню и принимает заказы 24/7</div>
               <div class="addon-price">+2 000 ₽</div>
               <div class="addon-sub">в месяц</div>
               <a href="https://t.me/daniil74_bot?text=Хочу%20Telegram-бот" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
@@ -227,7 +277,7 @@
             <div class="addon">
               <div class="addon-icon">🎙️</div>
               <div class="addon-name">Голосовой агент</div>
-              <div class="addon-desc">Принимает звонки и отвечает голосом — ни один звонок не потеряется</div>
+              <div class="addon-desc">Клиент позвонил когда ты занят — агент ответит, запишет заявку. Ни один звонок не потеряется</div>
               <div class="addon-price">+5 000 ₽</div>
               <div class="addon-sub">в месяц</div>
               <a href="https://t.me/daniil74_bot?text=Хочу%20голосовой%20агент" class="btn btn-sm btn-o" style="width:100%;margin-top:12px">Подключить</a>
@@ -236,27 +286,30 @@
         </div>
       </div>
     </section>
+
+    <!-- ФИНАЛЬНЫЙ CTA -->
     <section class="final">
-      <div class="c">
-        <h2>Готов запустить FoodFlow?</h2>
-        <p>Напиши нам — обсудим твоё заведение и подберём тариф. Первый месяц бесплатно.</p>
+      <div class="c" style="padding-top:100px">
+        <h2>Хватит терять деньги<span style="background:linear-gradient(to right,#fff,var(--a));-webkit-background-clip:text;background-clip:text;color:transparent"> на хаосе в зале.</span></h2>
+        <p>Первый месяц бесплатно. Запустим за 1 день. Никаких договоров — только результат.</p>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <a href="https://t.me/daniil74_bot" class="btn btn-p">✈️ Написать в Telegram</a>
+          <a href="https://t.me/daniil74_bot" class="btn btn-p">✈️ Подключить моё кафе</a>
           <a href="https://foodflow-rho.vercel.app" class="btn btn-o">🎮 Попробовать демо</a>
         </div>
       </div>
     </section>
   </main>
+
   <footer>
     <div class="c">
       <div class="fg">
-        <div><h4 class="f4">NIZAMOV.TECH</h4><p>Платформа для малого бизнеса России и СНГ. Ты занимаешься делом — остальное наше.</p></div>
-        <div class="fl"><h4 class="f4">Продукты</h4><a href="/foodflow.html">FoodFlow</a><a href="https://agropomoshnik.vercel.app">АгроПомощник</a><a href="https://pasechnik-pro.vercel.app">ПасечникПро</a><a href="https://postroy-dom.vercel.app">СтройПомощник</a></div>
-        <div class="fl"><h4 class="f4">Тарифы & ИИ</h4><a href="#pricing">Старт — 0 ₽</a><a href="#pricing">Базовый</a><a href="#pricing">Бизнес</a><a href="#pricing">Про Макс</a><a href="#ai">ИИ-ассистент</a></div>
-        <div><h4 class="f4">Контакты</h4><p><a href="https://t.me/Aslyamov74" style="color:var(--m);text-decoration:none">@Aslyamov74</a></p><p><a href="https://t.me/Daniil_s_zavoda" style="color:var(--m);text-decoration:none">Канал в Telegram</a></p><p><a href="#about" style="color:var(--m);text-decoration:none">О нас</a></p></div>
+        <div><h4 class="f4">FOODFLOW</h4><p>Убираем хаос в зале — заказы без ошибок, учёт без тетрадок, НДС без паники.</p></div>
+        <div class="fl"><h4 class="f4">Продукты Nizamov.tech</h4><a href="/foodflow.html">FoodFlow</a><a href="/agro.html">АгроПомощник</a><a href="https://pasechnik-pro.vercel.app">ПасечникПро</a><a href="https://postroy-dom.vercel.app">СтройПомощник</a></div>
+        <div class="fl"><h4 class="f4">Тарифы</h4><a href="#pricing">Старт — 0 ₽</a><a href="#pricing">Базовый</a><a href="#pricing">Бизнес</a><a href="#pricing">Про Макс</a></div>
+        <div><h4 class="f4">Контакты</h4><p><a href="https://t.me/Aslyamov74" style="color:var(--m);text-decoration:none">@Aslyamov74</a></p><p><a href="https://t.me/Daniil_s_zavoda" style="color:var(--m);text-decoration:none">Канал в Telegram</a></p><p><a href="/" style="color:var(--m);text-decoration:none">Nizamov.tech</a></p></div>
       </div>
       <div class="cr">
-        <p>© 2026 Nizamov.tech — Даниил Низамов · <a href="/privacy.html" style="color:var(--a);text-decoration:none">Политика конфиденциальности</a></p>
+        <p>© 2026 Nizamov.tech — FoodFlow · <a href="/privacy.html" style="color:var(--a);text-decoration:none">Политика конфиденциальности</a></p>
         <p>Халяльный IT-продукт · 10% в садака · Челябинск</p>
       </div>
     </div>
