@@ -3,421 +3,1171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nizamov.tech — Перестань тонуть в хаосе. Займись бизнесом.</title>
+  <title>Nizamov.tech — Цифровой порядок для малого бизнеса</title>
+  <meta name="description" content="IT-решения для малого бизнеса России. Кафе, фермы, репетиторы — убираем хаос, автоматизируем процессы.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a0c10;color:#e5e7eb;line-height:1.6}
-    :root{--bg:#0a0c10;--s:rgba(20,24,35,0.6);--b:rgba(255,255,255,0.1);--a:#00d4ff;--ag:rgba(0,212,255,0.3);--m:#8b95a5;--r:16px}
-    .c{max-width:1100px;margin:0 auto;padding:0 20px}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:.2s;font-size:1rem}
-    .btn-p{background:linear-gradient(135deg,var(--a),#0099ff);color:#000;box-shadow:0 0 20px var(--ag)}
-    .btn-p:hover{transform:translateY(-2px);box-shadow:0 0 30px var(--ag)}
-    .btn-o{background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff;backdrop-filter:blur(8px)}
-    .btn-o:hover{background:rgba(255,255,255,0.05);border-color:var(--a);color:var(--a)}
-    .btn-sm{padding:10px 16px;font-size:.9rem}
-    .st{font-size:clamp(2rem,5vw,3rem);font-weight:800;text-align:center;margin-bottom:.5rem;background:linear-gradient(to right,#fff,var(--a));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .ss{text-align:center;color:var(--m);max-width:650px;margin:0 auto 3rem;font-size:1.1rem}
-    .badge{position:absolute;top:12px;right:12px;padding:4px 8px;border-radius:6px;font-size:.7rem;font-weight:700}
-    .b-n{background:#10b981;color:#000}.b-d{background:#f59e0b;color:#000}
-    header{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,12,16,0.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--b)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .logo{font-weight:800;font-size:1.4rem;color:#fff;text-decoration:none;letter-spacing:-.5px}
-    .logo span{color:var(--a)}
-    .links{display:flex;gap:20px;align-items:center}
-    .links a{color:var(--m);text-decoration:none;font-weight:500;transition:.2s;font-size:.95rem}
-    .links a:hover{color:#fff}
-    .mob{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;padding:140px 20px 100px;background:radial-gradient(circle at 50% 0%,#1a237e 0%,#0a0c10 60%)}
-    .h-badge{display:inline-block;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.4);color:#fca5a5;padding:6px 14px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:20px}
-    .hero h1{font-size:clamp(2.5rem,7vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
-    .hero h1 span{display:block;background:linear-gradient(to right,var(--a),#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{font-size:1.2rem;color:var(--m);max-width:650px;margin:0 auto 40px}
-    .h-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:-60px auto 80px;position:relative;z-index:10;max-width:1000px}
-    .sc{background:var(--s);backdrop-filter:blur(20px);border:1px solid var(--b);padding:24px 16px;border-radius:var(--r);text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.3)}
-    .sn{font-size:2rem;font-weight:800;color:var(--a);margin-bottom:4px}
-    .sl{color:var(--m);font-size:.9rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-    .card{background:var(--s);backdrop-filter:blur(20px);border:1px solid var(--b);padding:28px;border-radius:var(--r);transition:.2s;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.2)}
-    .card:hover{border-color:var(--a);transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,0.4)}
-    .pain-card{border-left:3px solid #ef4444;padding-left:16px;margin-bottom:8px}
-    .pain-q{font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px}
-    .pain-a{font-size:.85rem;color:#fca5a5;font-style:italic;margin-bottom:8px}
-    .solve{font-size:.88rem;color:var(--a);padding:8px 12px;background:rgba(0,212,255,0.07);border-radius:8px}
-    .solve::before{content:'→ ';font-weight:700}
-    .niche-card{background:var(--s);border:1px solid var(--b);padding:28px;border-radius:var(--r);transition:.2s;position:relative;overflow:hidden}
-    .niche-card:hover{border-color:var(--a);transform:translateY(-4px)}
-    .niche-tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--a);margin-bottom:10px}
-    .niche-card h3{font-size:1.2rem;font-weight:800;margin-bottom:10px}
-    .niche-problem{background:rgba(239,68,68,0.08);border-left:3px solid #ef4444;padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.9rem;color:#fca5a5;font-style:italic}
-    .niche-result{font-size:.9rem;color:var(--m);margin-bottom:18px}
-    .niche-result strong{color:#10b981}
-    .niche-btns{display:flex;gap:8px;flex-wrap:wrap}
-    .ai-card{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:24px;transition:.2s}
-    .ai-card:hover{border-color:var(--a)}
-    .ai-problem{font-size:.9rem;color:#fca5a5;margin-bottom:8px;font-style:italic}
-    .ai-result{font-size:.9rem;color:var(--m);margin-bottom:14px}
-    .ai-price{font-size:1.4rem;font-weight:800;color:var(--a)}
-    .ai-card h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
-    .port-card{background:var(--s);backdrop-filter:blur(20px);border:1px solid var(--b);padding:24px;border-radius:var(--r);transition:.2s;position:relative;overflow:hidden}
-    .port-card:hover{border-color:var(--a);transform:translateY(-5px)}
-    .port-card h3{font-size:1.2rem;margin-bottom:6px;font-weight:700}
-    .port-card p{color:var(--m);font-size:.95rem;margin-bottom:16px}
-    .pricing{padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)}
-    .pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;align-items:start}
-    .pc{background:var(--s);border:1px solid var(--b);border-radius:var(--r);padding:28px 24px;text-align:center;transition:.2s;position:relative}
-    .pc.pop{border-color:var(--a);background:linear-gradient(145deg,var(--s),rgba(0,212,255,0.05));transform:scale(1.03)}
-    .pc.pop::before{content:'Популярный';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--a);color:#000;padding:4px 12px;border-radius:20px;font-size:.75rem;font-weight:700}
-    .pt{font-size:1.3rem;font-weight:700;margin-bottom:8px}
-    .pv{font-size:2rem;font-weight:800;margin-bottom:4px;color:#fff}
-    .pd{color:var(--m);font-size:.9rem;margin-bottom:20px}
-    .pl{list-style:none;text-align:left;margin-bottom:24px}
-    .pl li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.05);color:var(--m);font-size:.95rem}
-    .pl li::before{content:'✓';color:#10b981;margin-right:8px}
-    .pl li.no::before{content:'✗';color:#ef4444}
-    .founder{background:var(--s);border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
-    .fc-wrap{display:flex;gap:32px;align-items:center;padding:60px 0}
-    .fa{width:120px;height:120px;border-radius:50%;background:#1a237e;display:flex;align-items:center;justify-content:center;font-size:2.5rem;font-weight:800;color:var(--a);flex-shrink:0}
-    .ft h3{font-size:1.4rem;margin-bottom:8px}
-    .slinks{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
-    .slinks a{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:8px 14px;border-radius:8px;color:#fff;text-decoration:none;font-size:.9rem;transition:.2s}
-    .slinks a:hover{background:var(--a);color:#000;border-color:var(--a)}
-    footer{background:#050608;padding:60px 0 30px;color:var(--m);font-size:.9rem}
-    .fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:40px}
-    .f4{color:#fff;margin-bottom:16px;font-weight:600}
-    .fl a{display:block;color:var(--m);text-decoration:none;margin-bottom:8px}
-    .fl a:hover{color:var(--a)}
-    .cr{text-align:center;padding-top:24px;border-top:1px solid rgba(255,255,255,0.05);display:flex;flex-direction:column;gap:8px}
-    #modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
-    #modal.active{display:flex}
-    .mc{background:#11141a;border:1px solid rgba(255,255,255,0.1);padding:32px;border-radius:20px;max-width:500px;width:90%;position:relative}
-    .cm{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--m);font-size:1.5rem;cursor:pointer}
-    .mfg{margin-bottom:16px}
-    .mfc{width:100%;padding:14px;background:#0a0c10;border:1px solid rgba(255,255,255,0.1);border-radius:10px;color:#fff;font-family:inherit;transition:.2s;font-size:1rem}
-    .mfc:focus{outline:none;border-color:var(--a);box-shadow:0 0 0 2px var(--ag)}
-    select.mfc{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238b95a5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center}
-    .cg{display:flex;gap:8px;align-items:flex-start;font-size:.85rem;color:var(--m);margin:12px 0 20px}
-    .cg input{margin-top:4px}
-    @media(max-width:900px){.links{display:none;position:fixed;top:70px;left:0;width:100%;background:#11141a;flex-direction:column;padding:20px;border-bottom:1px solid rgba(255,255,255,0.05)}.links.active{display:flex}.mob{display:block}.fc-wrap{flex-direction:column;text-align:center}.hero h1{font-size:2.8rem}.stats{margin-top:-30px}}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #0e0f13;
+      --ink-2: #3d3f4a;
+      --ink-3: #8a8c99;
+      --paper: #fafaf8;
+      --paper-2: #f2f2ef;
+      --paper-3: #e8e8e4;
+      --accent: #1a3cff;
+      --accent-soft: rgba(26,60,255,0.08);
+      --accent-mid: rgba(26,60,255,0.18);
+      --red: #e02020;
+      --green: #0d7a55;
+      --r: 4px;
+      --r-lg: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .c { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────── */
+    .display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+    }
+    .display-italic { font-style: italic; }
+    .label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ─── BUTTONS ────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: var(--r);
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700; font-size: 14px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: all .18s ease; white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--ink); color: var(--paper);
+    }
+    .btn-primary:hover { background: #1a3cff; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      border: 1.5px solid var(--paper-3);
+      color: var(--ink-2);
+    }
+    .btn-ghost:hover { border-color: var(--ink-2); color: var(--ink); background: var(--paper-2); }
+    .btn-accent {
+      background: var(--accent); color: #fff;
+      box-shadow: 0 4px 16px rgba(26,60,255,0.25);
+    }
+    .btn-accent:hover { background: #0f2be0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,60,255,0.3); }
+    .btn-sm { padding: 9px 16px; font-size: 13px; }
+
+    /* ─── NAV ────────────────────────────────────── */
+    header {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(16px) saturate(1.4);
+      border-bottom: 1px solid var(--paper-3);
+    }
+    .nav {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .logo {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 800; font-size: 15px;
+      letter-spacing: -0.02em;
+      color: var(--ink); text-decoration: none;
+    }
+    .logo-dot { color: var(--accent); }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500;
+      color: var(--ink-2); text-decoration: none;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta { display: flex; align-items: center; gap: 12px; }
+    .mob { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .mob-line {
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); margin: 4px 0;
+      transition: .2s;
+    }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .hero {
+      padding: 160px 0 100px;
+      background: var(--paper);
+      position: relative; overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow-line {
+      width: 32px; height: 2px; background: var(--accent);
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    .hero-sub {
+      font-size: 17px; color: var(--ink-2);
+      max-width: 460px; line-height: 1.75;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-note {
+      margin-top: 20px;
+      font-size: 12px; color: var(--ink-3);
+    }
+    .hero-visual {
+      position: relative;
+    }
+    .hero-card-stack {
+      position: relative;
+      height: 360px;
+    }
+    .h-card {
+      position: absolute;
+      background: #fff;
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03);
+    }
+    .h-card-1 {
+      top: 0; left: 0; right: 60px;
+      animation: float1 4s ease-in-out infinite;
+    }
+    .h-card-2 {
+      top: 120px; left: 40px; right: 0;
+      animation: float2 4s ease-in-out infinite;
+    }
+    .h-card-3 {
+      top: 240px; left: 0; right: 80px;
+      animation: float3 4s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+    @keyframes float3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .h-card-label { font-size: 11px; font-weight: 600; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+    .h-card-val { font-size: 22px; font-weight: 800; color: var(--ink); }
+    .h-card-sub { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+    .h-card-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-right: 6px; }
+    .h-card-status { font-size: 12px; color: var(--green); font-weight: 600; }
+
+    /* ─── DIVIDER ────────────────────────────────── */
+    .rule { height: 1px; background: var(--paper-3); }
+
+    /* ─── STATS ROW ──────────────────────────────── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      background: #fff;
+      overflow: hidden;
+      margin: 60px 0;
+    }
+    .stat-cell {
+      padding: 36px 28px;
+      border-right: 1px solid var(--paper-3);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-size: 36px; font-weight: 800;
+      color: var(--ink); line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-desc { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+
+    /* ─── SECTION ────────────────────────────────── */
+    section { padding: 100px 0; }
+    .section-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      gap: 24px;
+    }
+    .section-header-left {}
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: var(--ink);
+      margin-top: 10px;
+    }
+
+    /* ─── PAIN SECTION ───────────────────────────── */
+    .pain-section { background: var(--paper-2); }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--paper-3);
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .pain-cell {
+      background: var(--paper);
+      padding: 36px 32px;
+      transition: background .2s;
+    }
+    .pain-cell:hover { background: #fff; }
+    .pain-niche {
+      font-size: 13px; font-weight: 700;
+      color: var(--accent); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .pain-niche::before {
+      content: ''; display: block;
+      width: 20px; height: 2px; background: var(--accent);
+    }
+    .pain-item { margin-bottom: 20px; }
+    .pain-item:last-child { margin-bottom: 0; }
+    .pain-q {
+      font-size: 14px; font-weight: 700;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .pain-a {
+      font-size: 13px; color: #b91c1c;
+      font-style: italic; margin-bottom: 6px;
+    }
+    .pain-solve {
+      font-size: 13px; color: var(--ink-2);
+      padding-left: 14px;
+      border-left: 2px solid var(--accent);
+      line-height: 1.6;
+    }
+    .pain-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 24px; font-size: 13px; font-weight: 700;
+      color: var(--accent); text-decoration: none;
+      transition: gap .15s;
+    }
+    .pain-link:hover { gap: 10px; }
+
+    /* ─── PRODUCTS ───────────────────────────────── */
+    .products-section { background: var(--paper); }
+    .products-live {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      margin-bottom: 48px;
+    }
+    .live-card {
+      background: #fff;
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      padding: 28px 32px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .live-card:hover { border-color: var(--ink-2); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .live-badge {
+      flex-shrink: 0;
+      background: var(--green); color: #fff;
+      font-size: 10px; font-weight: 800;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 3px;
+      margin-top: 3px;
+    }
+    .live-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .live-card p { font-size: 13px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.6; }
+    .live-card a { font-size: 13px; font-weight: 700; color: var(--accent); text-decoration: none; }
+    .live-card a:hover { text-decoration: underline; }
+
+    .products-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .products-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--paper-3);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .prod-card {
+      background: #fff;
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      transition: all .2s;
+      position: relative;
+    }
+    .prod-card:hover { border-color: var(--ink-2); box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .prod-tag {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--ink-3); margin-bottom: 14px;
+    }
+    .prod-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .prod-problem {
+      font-size: 13px; color: #b91c1c;
+      font-style: italic; margin-bottom: 10px;
+      padding-left: 12px; border-left: 2px solid #fca5a5;
+      line-height: 1.6;
+    }
+    .prod-result { font-size: 13px; color: var(--ink-2); margin-bottom: 20px; line-height: 1.6; }
+    .prod-result strong { color: var(--green); font-weight: 700; }
+    .prod-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .prod-accent {
+      border-top: 3px solid var(--accent);
+    }
+    .prod-green {
+      border-top: 3px solid var(--green);
+    }
+
+    /* ─── AI SECTION ─────────────────────────────── */
+    .ai-section {
+      background: var(--ink);
+      padding: 100px 0;
+    }
+    .ai-section .label { color: rgba(255,255,255,0.4); }
+    .ai-section .section-title { color: #fff; }
+    .ai-section .section-header { border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 40px; }
+    .ai-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--r-lg); overflow: hidden;
+      margin-top: 40px;
+    }
+    .ai-cell {
+      background: var(--ink);
+      padding: 36px 28px;
+      transition: background .2s;
+    }
+    .ai-cell:hover { background: #161820; }
+    .ai-icon {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; margin-bottom: 20px;
+    }
+    .ai-cell h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .ai-cell p { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 16px; line-height: 1.7; }
+    .ai-price { font-size: 20px; font-weight: 800; color: var(--accent); }
+    .ai-price span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); }
+    .ai-cta { margin-top: 40px; text-align: center; }
+    .btn-white {
+      background: #fff; color: var(--ink);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .btn-white:hover { background: var(--paper-2); transform: translateY(-1px); }
+
+    /* ─── PRICING ────────────────────────────────── */
+    .pricing-section { background: var(--paper-2); }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; align-items: start;
+    }
+    .price-card {
+      background: #fff;
+      border: 1px solid var(--paper-3);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      transition: .2s;
+      position: relative;
+    }
+    .price-card.featured {
+      background: var(--ink); border-color: var(--ink);
+    }
+    .price-card.featured .price-tier { color: rgba(255,255,255,0.5); }
+    .price-card.featured h3 { color: #fff; }
+    .price-card.featured .price-val { color: #fff; }
+    .price-card.featured .price-per { color: rgba(255,255,255,0.4); }
+    .price-card.featured .price-note { color: rgba(255,255,255,0.4); }
+    .price-card.featured .price-li { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.08); }
+    .price-card.featured .price-li::before { color: rgba(255,255,255,0.4); }
+    .featured-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 4px 12px; border-radius: 3px;
+    }
+    .price-tier { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; }
+    .price-card h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
+    .price-val { font-size: 32px; font-weight: 800; color: var(--ink); line-height: 1; }
+    .price-per { font-size: 13px; color: var(--ink-3); font-weight: 500; margin-bottom: 4px; }
+    .price-note { font-size: 12px; color: var(--ink-3); margin-bottom: 24px; }
+    .price-list { list-style: none; margin-bottom: 24px; }
+    .price-li {
+      font-size: 13px; color: var(--ink-2);
+      padding: 8px 0; border-bottom: 1px solid var(--paper-2);
+      display: flex; align-items: flex-start; gap: 8px;
+    }
+    .price-li::before { content: '→'; color: var(--ink-3); flex-shrink: 0; }
+    .price-li.no::before { content: '—'; color: var(--paper-3); }
+    .price-li.no { color: var(--paper-3); }
+
+    /* ─── FOUNDER ────────────────────────────────── */
+    .founder-section { background: #fff; }
+    .founder-inner {
+      display: grid; grid-template-columns: 280px 1fr;
+      gap: 80px; align-items: start;
+    }
+    .founder-portrait {
+      width: 280px; height: 280px;
+      background: linear-gradient(135deg, var(--paper-2), var(--paper-3));
+      border-radius: var(--r-lg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 72px; font-weight: 800;
+      color: var(--ink-3);
+      border: 1px solid var(--paper-3);
+      font-family: 'Manrope', sans-serif;
+    }
+    .founder-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-style: italic; color: var(--ink);
+      line-height: 1.5; margin-bottom: 24px;
+    }
+    .founder-bio {
+      font-size: 15px; color: var(--ink-2);
+      line-height: 1.8; margin-bottom: 28px;
+    }
+    .founder-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .founder-role { font-size: 13px; color: var(--ink-3); margin-bottom: 24px; }
+    .founder-links { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    /* ─── CTA ────────────────────────────────────── */
+    .cta-section {
+      background: var(--paper);
+      padding: 120px 0;
+      text-align: center;
+      border-top: 1px solid var(--paper-3);
+    }
+    .cta-eyebrow { margin-bottom: 24px; }
+    .cta-section h2 {
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .cta-section p { font-size: 16px; color: var(--ink-2); max-width: 540px; margin: 0 auto 36px; }
+    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      padding: 64px 0 36px;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 32px;
+    }
+    .footer-brand { }
+    .footer-logo {
+      font-size: 15px; font-weight: 800; color: #fff;
+      letter-spacing: -0.02em; display: block; margin-bottom: 14px;
+    }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 280px; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color .15s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: rgba(255,255,255,0.25);
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color .15s; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ─── MODAL ──────────────────────────────────── */
+    #modal {
+      position: fixed; inset: 0;
+      background: rgba(14,15,19,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 200; display: none;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    #modal.open { display: flex; }
+    .modal-box {
+      background: #fff;
+      border-radius: var(--r-lg);
+      padding: 40px;
+      max-width: 480px; width: 100%;
+      position: relative;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+    }
+    .modal-close {
+      position: absolute; top: 16px; right: 16px;
+      background: var(--paper-2); border: none; cursor: pointer;
+      width: 32px; height: 32px; border-radius: 50%;
+      font-size: 16px; color: var(--ink-2);
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s;
+    }
+    .modal-close:hover { background: var(--paper-3); }
+    .modal-box h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+    .modal-box p { font-size: 14px; color: var(--ink-2); margin-bottom: 24px; }
+    .field { margin-bottom: 14px; }
+    .field input, .field select, .field textarea {
+      width: 100%; padding: 12px 14px;
+      background: var(--paper-2);
+      border: 1.5px solid var(--paper-3);
+      border-radius: var(--r);
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px; color: var(--ink);
+      transition: border-color .15s, background .15s;
+      appearance: none;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: none; border-color: var(--accent);
+      background: #fff;
+    }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a8c99' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+      background-color: var(--paper-2); padding-right: 36px;
+    }
+    .consent {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 12px; color: var(--ink-3); margin: 14px 0 20px;
+    }
+    .consent input { margin-top: 3px; flex-shrink: 0; }
+    .consent a { color: var(--accent); }
+
+    /* ─── COOKIE BANNER ──────────────────────────── */
+    #cookie {
+      position: fixed; bottom: 24px; left: 24px; right: 24px;
+      max-width: 560px; background: var(--ink);
+      border-radius: var(--r-lg); padding: 20px 24px;
+      display: flex; gap: 20px; align-items: center;
+      z-index: 150; flex-wrap: wrap;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+      transform: translateY(120%); transition: transform .4s ease;
+    }
+    #cookie.visible { transform: translateY(0); }
+    #cookie p { font-size: 13px; color: rgba(255,255,255,0.6); flex: 1; min-width: 200px; }
+    #cookie a { color: rgba(255,255,255,0.8); }
+    .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn-cookie-ok { background: #fff; color: var(--ink); padding: 9px 18px; border-radius: var(--r); font-size: 13px; font-weight: 700; border: none; cursor: pointer; }
+    .btn-cookie-no { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); padding: 9px 18px; border-radius: var(--r); font-size: 13px; cursor: pointer; }
+
+    /* ─── ANIMATIONS ─────────────────────────────── */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 1024px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 60px; }
+      .hero-visual { display: none; }
+      .hero { padding: 130px 0 70px; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .products-live { grid-template-columns: 1fr; }
+      .founder-inner { grid-template-columns: 1fr; }
+      .founder-portrait { width: 100%; height: 200px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .nav-links { display: none; }
+      .nav-cta .btn-ghost { display: none; }
+      .mob { display: block; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 580px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="c nav">
-      <a href="#" class="logo">NIZAMOV<span>.TECH</span></a>
-      <button class="mob">☰</button>
-      <nav class="links">
-	<p href="#number">8 (991) 174-51-13</p>
-        <a href="#problems">Твои боли</a>
-        <a href="#products">Решения</a>
-        <a href="#pricing">Тарифы</a>
-        <a href="https://t.me/Aslyamov74">Написать</a>
-      </nav>
+
+<!-- NAV -->
+<header>
+  <div class="c nav">
+    <a href="#" class="logo">NIZAMOV<span class="logo-dot">.</span>TECH</a>
+    <ul class="nav-links">
+      <li><a href="#problems">Проблемы</a></li>
+      <li><a href="#products">Решения</a></li>
+      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#about">О нас</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+79911745113" class="btn btn-ghost btn-sm">8 (991) 174-51-13</a>
+      <button class="btn btn-primary btn-sm" onclick="openModal()">Связаться</button>
     </div>
-  </header>
+    <button class="mob" onclick="toggleMob()" aria-label="Меню">
+      <span class="mob-line"></span>
+      <span class="mob-line"></span>
+      <span class="mob-line"></span>
+    </button>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="h-badge">😤 Знакомо? Заказы теряются. Налоги давят. Нет времени.</div>
-        <h1>Малый бизнес тонет<br><span>в хаосе. Мы его убираем.</span></h1>
-        <p>Пока ты жаришь шашлык, сеешь пшеницу или строишь дома — твой бизнес должен работать сам. Без потерянных заказов, без ручного учёта, без паники перед ФНС.</p>
-        <div class="h-btns">
-          <button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">✈️ Решить мою проблему</button>
-          <a href="#problems" class="btn btn-o">Найти свою боль →</a>
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="c">
+    <div class="hero-grid">
+      <div class="fade-up">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span class="label">IT-решения для малого бизнеса России</span>
         </div>
-      </div>
-    </section>
-
-    <div class="c">
-      <div class="stats">
-        <div class="sc"><div class="sn">0 ₽</div><div class="sl">чтобы начать</div></div>
-        <div class="sc"><div class="sn">24/7</div><div class="sl">система работает без тебя</div></div>
-        <div class="sc"><div class="sn">8+</div><div class="sl">ниш закрыто</div></div>
-        <div class="sc"><div class="sn">10%</div><div class="sl">прибыли в садака</div></div>
-      </div>
-    </div>
-
-    <!-- БОЛИ -->
-    <section id="problems" style="padding:100px 0;background:linear-gradient(to bottom,#0a0c10,#11141a)">
-      <div class="c">
-        <h2 class="st">Узнаёшь себя?</h2>
-        <p class="ss">Это не просто неудобства — это деньги, которые ты теряешь каждый день.</p>
-        <div class="grid">
-
-          <div class="card">
-            <div style="font-size:2rem;margin-bottom:16px">🍽️</div>
-            <h3 style="margin-bottom:16px;font-size:1.05rem;color:#fca5a5;font-weight:700">Кафе, ресторан, шашлычная</h3>
-            <div class="pain-card">
-              <div class="pain-q">Официант перепутал заказ — гость злится</div>
-              <div class="pain-a">"Опять скандал, повар сделал не то блюдо"</div>
-              <div class="solve">Гость сам выбирает с телефона → заказ мгновенно на кухню</div>
-            </div>
-            <div class="pain-card" style="margin-top:14px">
-              <div class="pain-q">Не знаю сколько заработал за день</div>
-              <div class="pain-a">"Считаю выручку вручную — ошибаюсь"</div>
-              <div class="solve">Каждый заказ в учёт автоматически, отчёт в реальном времени</div>
-            </div>
-            <a href="/foodflow.html" class="btn btn-p btn-sm" style="margin-top:20px">Решение для кафе →</a>
-          </div>
-
-          <div class="card">
-            <div style="font-size:2rem;margin-bottom:16px">🌾</div>
-            <h3 style="margin-bottom:16px;font-size:1.05rem;color:#fca5a5;font-weight:700">Фермер, КФХ, агробизнес</h3>
-            <div class="pain-card">
-              <div class="pain-q">Субсидии — не понимаю на что имею право</div>
-              <div class="pain-a">"Сосед получил грант, а я даже не знал что он есть"</div>
-              <div class="solve">Калькулятор субсидий покажет всё что тебе положено</div>
-            </div>
-            <div class="pain-card" style="margin-top:14px">
-              <div class="pain-q">Отчёты в ЕФИС, ФГИС — голова кругом</div>
-              <div class="pain-a">"Трачу 3 дня на документы вместо работы в поле"</div>
-              <div class="solve">Одна кнопка — готовый пакет документов для госорганов</div>
-            </div>
-            <a href="/agro.html" class="btn btn-sm" style="margin-top:20px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.9rem">Решение для фермеров →</a>
-          </div>
-
-          <div class="card">
-            <div style="font-size:2rem;margin-bottom:16px">📊</div>
-            <h3 style="margin-bottom:16px;font-size:1.05rem;color:#fca5a5;font-weight:700">Любой малый бизнес</h3>
-            <div class="pain-card">
-              <div class="pain-q">НДС вырос с 2026 — как теперь считать?</div>
-              <div class="pain-a">"Боюсь ошибиться и получить штраф от ФНС"</div>
-              <div class="solve">Система сама считает НДС и формирует отчёт для бухгалтера</div>
-            </div>
-            <div class="pain-card" style="margin-top:14px">
-              <div class="pain-q">Клиенты звонят — не успеваю отвечать</div>
-              <div class="pain-a">"Пропущенные звонки = потерянные деньги"</div>
-              <div class="solve">ИИ-бот отвечает 24/7 — ни один клиент не уйдёт без ответа</div>
-            </div>
-            <button class="btn btn-o btn-sm" style="margin-top:20px" onclick="document.getElementById('modal').classList.add('active')">Обсудить мою ситуацию →</button>
-          </div>
-
+        <h1 class="display">
+          Цифровой порядок<br>
+          <span class="display-italic">вместо хаоса</span>
+        </h1>
+        <p class="hero-sub">
+          Пока вы занимаетесь делом — система работает за вас.
+          Никаких потерянных заказов, ручного учёта и паники перед ФНС.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="openModal()">Обсудить мой проект</button>
+          <a href="#products" class="btn btn-ghost">Смотреть решения</a>
         </div>
+        <p class="hero-note">Без предоплаты · Первая консультация бесплатно</p>
       </div>
-    </section>
 
-    <!-- ПОРТФОЛИО -->
-    <section id="products" style="padding:100px 0">
-      <div class="c">
-        <h2 class="st">Что мы уже запустили</h2>
-        <p class="ss">Реальные проекты — можно пощупать прямо сейчас.</p>
-
-        <h3 style="font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#10b981;margin-bottom:20px">● Работает у клиентов</h3>
-        <div class="grid" style="margin-bottom:60px">
-          <div class="port-card">
-            <span class="badge b-n">LIVE</span>
-            <div style="font-size:2rem;margin-bottom:12px">👑</div>
-            <h3>Царская Кухня</h3>
-            <p>Хозяин больше не бегает с блокнотом — гости заказывают сами, заказы идут прямо на кухню.</p>
-            <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn btn-sm btn-o">Посмотреть →</a>
+      <div class="hero-visual fade-up" style="transition-delay:.2s">
+        <div class="hero-card-stack">
+          <div class="h-card h-card-1">
+            <div class="h-card-label">Заказы сегодня</div>
+            <div class="h-card-val">47</div>
+            <div class="h-card-sub">+12 с прошлой недели</div>
           </div>
-          <div class="port-card">
-            <span class="badge b-n">LIVE</span>
-            <div style="font-size:2rem;margin-bottom:12px">🏗️</div>
-            <h3>СК ПостройДом</h3>
-            <p>Строители перестали терять заявки — все обращения через сайт приходят прямо в Telegram.</p>
-            <a href="https://postroy-dom.vercel.app" class="btn btn-sm btn-o">Посмотреть →</a>
+          <div class="h-card h-card-2">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+              <span class="h-card-dot"></span>
+              <span class="h-card-status">Система работает</span>
+            </div>
+            <div class="h-card-label">Следующий урок</div>
+            <div class="h-card-val" style="font-size:17px">Вика · 16:00</div>
+            <div class="h-card-sub">Математика — осталось 2 часа</div>
+          </div>
+          <div class="h-card h-card-3">
+            <div class="h-card-label">Выручка за месяц</div>
+            <div class="h-card-val">84 200 ₽</div>
+            <div class="h-card-sub">Формируется отчёт для бухгалтера</div>
           </div>
         </div>
-
-        <h3 style="font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#f59e0b;margin-bottom:20px">◎ Демо — попробуй прямо сейчас</h3>
-        <div class="grid">
-          <div class="niche-card">
-            <span class="badge b-d">🍽️</span>
-            <div style="margin-top:28px"></div>
-            <div class="niche-tag">FoodFlow</div>
-            <h3>Кафе, ресторан, шашлычная</h3>
-            <div class="niche-problem">"Официанты путают заказы, выручку считаю в тетради, НДС вообще непонятно"</div>
-            <div class="niche-result">Результат: <strong>заказы без ошибок</strong>, выручка в реальном времени, НДС считается сам</div>
-            <div class="niche-btns">
-              <a href="/foodflow.html" class="btn btn-sm btn-o">Тарифы</a>
-              <a href="https://foodflow-rho.vercel.app" class="btn btn-sm btn-p">Демо →</a>
-            </div>
-          </div>
-
-          <div class="niche-card">
-            <span class="badge b-d">🌾</span>
-            <div style="margin-top:28px"></div>
-            <div class="niche-tag">АгроПомощник</div>
-            <h3>Ферма, КФХ, сельхозбизнес</h3>
-            <div class="niche-problem">"Субсидии не получаю, отчёты занимают неделю, не помню что где сажал"</div>
-            <div class="niche-result">Результат: <strong>100% субсидий получено</strong>, отчёты в 1 клик, вся история полей</div>
-            <div class="niche-btns">
-              <a href="/agro.html" class="btn btn-sm btn-o">Тарифы</a>
-              <a href="https://agropomoshnik.vercel.app" class="btn btn-sm" style="background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;font-weight:700;text-decoration:none;font-size:.9rem">Демо →</a>
-            </div>
-          </div>
-
-          <div class="niche-card">
-            <span class="badge b-d">🍯</span>
-            <div style="margin-top:28px"></div>
-            <div class="niche-tag">ПасечникПро</div>
-            <h3>Пасека, пчеловодство</h3>
-            <div class="niche-problem">"Не помню когда последний раз осматривал улей, теряю данные по медосборам"</div>
-            <div class="niche-result">Результат: <strong>вся пасека под контролем</strong> — ульи, осмотры, медосборы</div>
-            <div class="niche-btns">
-              <a href="https://pasechnik-pro.vercel.app" class="btn btn-sm btn-o">Демо →</a>
-            </div>
-          </div>
-
-          <div class="niche-card">
-            <span class="badge b-d">🛍️</span>
-            <div style="margin-top:28px"></div>
-            <div class="niche-tag">Витрина</div>
-            <h3>Магазин, торговая точка</h3>
-            <div class="niche-problem">"Клиенты спрашивают цены в WhatsApp, я отвечаю вручную каждому"</div>
-            <div class="niche-result">Результат: <strong>каталог онлайн</strong> — клиент выбирает сам, заказ в Telegram</div>
-            <div class="niche-btns">
-              <a href="https://shop-vitrina.vercel.app" class="btn btn-sm btn-o">Демо →</a>
-            </div>
-          </div>
-
-          <div class="niche-card">
-            <span class="badge b-d">🚗</span>
-            <div style="margin-top:28px"></div>
-            <div class="niche-tag">CarFlow</div>
-            <h3>Импорт авто</h3>
-            <div class="niche-problem">"Клиент спрашивает где его машина — я сам не знаю что ответить"</div>
-            <div class="niche-result">Результат: <strong>трекинг в реальном времени</strong>, клиент видит статус сам</div>
-            <div class="niche-btns">
-              <a href="https://auto-platform-eight.vercel.app" class="btn btn-sm btn-o">Демо →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ИИ -->
-    <section id="ai" style="padding:100px 0;background:radial-gradient(ellipse at center,rgba(0,212,255,0.08),transparent 70%);border-top:1px solid var(--b);border-bottom:1px solid var(--b)">
-      <div class="c">
-        <h2 class="st">🤖 Устал отвечать клиентам?</h2>
-        <p class="ss">Пропущенный звонок — это потерянный клиент. ИИ работает 24/7 вместо тебя.</p>
-        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-          <div class="ai-card">
-            <div style="font-size:1.8rem;margin-bottom:12px">💬</div>
-            <h3>ИИ-чат на сайте</h3>
-            <div class="ai-problem">"Клиент зашёл ночью, задал вопрос — никто не ответил, ушёл к конкуренту"</div>
-            <div class="ai-result">ИИ отвечает мгновенно, принимает заявку и передаёт тебе готового клиента</div>
-            <div class="ai-price">+2 000 ₽/мес</div>
-          </div>
-          <div class="ai-card">
-            <div style="font-size:1.8rem;margin-bottom:12px">🤖</div>
-            <h3>Telegram-бот для клиентов</h3>
-            <div class="ai-problem">"Клиенты пишут в любое время — не успеваю отвечать всем"</div>
-            <div class="ai-result">Бот принимает заказы, отвечает на вопросы, показывает меню или каталог</div>
-            <div class="ai-price">+2 000 ₽/мес</div>
-          </div>
-          <div class="ai-card">
-            <div style="font-size:1.8rem;margin-bottom:12px">🎙️</div>
-            <h3>Голосовой агент</h3>
-            <div class="ai-problem">"Клиент позвонил — я был на встрече, не ответил. Он нашёл другого"</div>
-            <div class="ai-result">Принимает звонок, отвечает голосом, записывает заявку — ни один звонок не пропадёт</div>
-            <div class="ai-price">+5 000 ₽/мес</div>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:32px">
-          <button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">Подключить ИИ к моему бизнесу →</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ТАРИФЫ -->
-    <section id="pricing" class="pricing">
-      <div class="c">
-        <h2 class="st">Тарифы платформы</h2>
-        <p class="ss">Начни бесплатно — заплати только когда почувствуешь пользу. Год = 2 месяца в подарок.</p>
-        <div class="pg">
-          <div class="pc"><div class="pt">Старт</div><div class="pv">0 ₽</div><div class="pd">попробуй без риска</div><ul class="pl"><li>Основной функционал</li><li>1 точка / 1 аккаунт</li><li>Мобильная версия</li><li class="no">Учёт и аналитика</li><li class="no">Интеграции</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Старт" class="btn btn-o" style="width:100%">Начать бесплатно</a></div>
-          <div class="pc"><div class="pt">Базовый</div><div class="pv">. . . ₽<span style="font-size:1rem;color:var(--m);font-weight:400">/мес</span></div><div class="pd">. . . ₽/год (−17%)</div><ul class="pl"><li>Всё из Старта</li><li>Учёт доходов и расходов</li><li>Базовая аналитика</li><li>Уведомления в Telegram</li><li class="no">Несколько точек</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Базовый" class="btn btn-o" style="width:100%">Выбрать</a></div>
-          <div class="pc pop"><div class="pt">Бизнес</div><div class="pv">. . . ₽<span style="font-size:1rem;color:var(--m);font-weight:400">/мес</span></div><div class="pd">. . . ₽/год (−17%)</div><ul class="pl"><li>Всё из Базового</li><li>До 5 точек / аккаунтов</li><li>Отчёты для бухгалтера</li><li>Telegram-интеграция</li><li>Приоритетная поддержка</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Бизнес" class="btn btn-p" style="width:100%">Выбрать</a></div>
-          <div class="pc"><div class="pt">Про Макс</div><div class="pv">. . . ₽<span style="font-size:1rem;color:var(--m);font-weight:400">/мес</span></div><div class="pd">. . . ₽/год (−17%)</div><ul class="pl"><li>Всё из Бизнеса</li><li>Без лимита точек</li><li>Авторасчёт НДС 2026</li><li>ИИ-аналитика</li><li>Белый лейбл</li></ul><a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Про%20Макс" class="btn btn-o" style="width:100%">Выбрать</a></div>
-        </div>
-        <p style="font-size:.85rem;color:var(--m);margin-top:24px;text-align:center">Не нашёл свою нишу? <a href="https://t.me/daniil74_bot" style="color:var(--a);text-decoration:none">Напиши нам</a> — сделаем под тебя.</p>
-      </div>
-    </section>
-
-    <!-- ОСНОВАТЕЛЬ -->
-    <section id="about" class="founder">
-      <div class="c">
-        <div class="fc-wrap">
-          <div class="fa">ДН</div>
-          <div class="ft">
-            <h3>Даниил Низамов</h3>
-            <p style="color:var(--a);font-size:.9rem;margin-bottom:12px">Основатель Nizamov.tech · t.me/Daniil_s_zavoda</p>
-            <p style="color:var(--m);line-height:1.7">Прошёл путь от завода до IT-продукта. Видел как малый бизнес тонет в бумагах, налогах и хаосе — и решил это исправить.<br><br>Nizamov.tech — это не набор функций. Это избавление от конкретных болей: потерянных заказов, непонятных налогов, ручного учёта. Принципиально работаю только с халяльными проектами.</p>
-            <div class="slinks">
-              <a href="https://t.me/Aslyamov74">✈️ Написать</a>
-              <a href="https://t.me/Daniil_s_zavoda">📢 Канал</a>
-              <a href="https://kwork.ru">💼 Kwork</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section style="text-align:center;padding:120px 0;background:radial-gradient(circle at 50% 0%,rgba(0,212,255,0.15),transparent 60%)">
-      <div class="c">
-        <h2 style="font-size:clamp(2rem,6vw,3.5rem);font-weight:800;margin-bottom:16px">Какая боль мешает<span style="background:linear-gradient(to right,#fff,var(--a));-webkit-background-clip:text;background-clip:text;color:transparent"> твоему бизнесу?</span></h2>
-        <p style="color:var(--m);max-width:600px;margin:0 auto 32px">Опиши ситуацию — подберём решение за 10 минут. Без договоров и предоплаты.</p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <button class="btn btn-p" onclick="document.getElementById('modal').classList.add('active')">✈️ Описать мою боль</button>
-          <a href="https://t.me/Aslyamov74" class="btn btn-o">Написать напрямую</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="c">
-      <div class="fg">
-        <div><h4 class="f4">NIZAMOV.TECH</h4><p>Убираем хаос из малого бизнеса России и СНГ. Ты занимаешься делом — остальное наше.</p></div>
-        <div class="fl"><h4 class="f4">Продукты</h4><a href="/foodflow.html">FoodFlow — кафе</a><a href="/agro.html">АгроПомощник — ферма</a><a href="https://pasechnik-pro.vercel.app">ПасечникПро</a><a href="https://postroy-dom.vercel.app">СтройПомощник</a></div>
-        <div class="fl"><h4 class="f4">Тарифы</h4><a href="#pricing">Старт — 0 ₽</a><a href="#pricing">Базовый</a><a href="#pricing">Бизнес</a><a href="#pricing">Про Макс</a></div>
-        <div><h4 class="f4">Контакты</h4><p>89911745113</p><p><a href="https://t.me/Aslyamov74" style="color:var(--m);text-decoration:none">@Aslyamov74</a></p><p><a href="https://t.me/Daniil_s_zavoda" style="color:var(--m);text-decoration:none">Канал в Telegram</a></p><p><a href="#about" style="color:var(--m);text-decoration:none">О нас</a></p></div>
-      </div>
-      <div class="cr">
-        <p>© 2026 Nizamov.tech — Даниил Низамов · <a href="/privacy.html" style="color:var(--a);text-decoration:none">Политика конфиденциальности</a></p>
-        <p>Халяльный IT-продукт · 10% в садака · Челябинск</p>
       </div>
     </div>
-  </footer>
 
-  <div id="modal">
-    <div class="mc">
-      <button class="cm" onclick="document.getElementById('modal').classList.remove('active')">✕</button>
-      <h3 style="font-size:1.5rem;margin-bottom:8px">Опишите вашу боль</h3>
-      <p style="color:var(--m);margin-bottom:20px">Расскажите что мешает бизнесу — подберём решение и свяжемся в течение часа.</p>
-      <form id="cf">
-        <div class="mfg"><input type="text" class="mfc" placeholder="Ваше имя *" required></div>
-        <div class="mfg"><input type="tel" class="mfc" placeholder="Номер телефона *" required></div>
-        <div class="mfg">
-          <select class="mfc" required>
-            <option value="" disabled selected>Какая проблема болит сильнее всего?</option>
-            <option>🍽️ Теряю заказы в кафе / ресторане</option>
-            <option>📊 Не знаю сколько зарабатываю</option>
-            <option>🌾 Не получаю субсидии / отчёты съедают время</option>
-            <option>📞 Клиенты не дожидаются ответа</option>
-            <option>🧾 Непонятно как считать НДС 2026</option>
-            <option>🏗️ Нужен сайт для строительного бизнеса</option>
-            <option>🚗 Клиенты не видят статус своего авто</option>
-            <option>✨ Другая боль — расскажу</option>
-          </select>
-        </div>
-        <div class="cg"><input type="checkbox" id="pv" required checked><label for="pv">Я согласен на обработку персональных данных в соответствии с <a href="/privacy.html" style="color:var(--a)">Политикой конфиденциальности</a></label></div>
-        <button type="submit" class="btn btn-p" style="width:100%">Отправить →</button>
-      </form>
+    <div class="stats-row fade-up" style="transition-delay:.3s">
+      <div class="stat-cell">
+        <div class="stat-num">0<span> ₽</span></div>
+        <div class="stat-desc">чтобы начать работу</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-desc">система работает без вас</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">8<span>+</span></div>
+        <div class="stat-desc">ниш автоматизировано</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">10<span>%</span></div>
+        <div class="stat-desc">прибыли в садака</div>
+      </div>
     </div>
   </div>
+</section>
 
-  <script>
-    document.querySelector('.mob').addEventListener('click',()=>document.querySelector('.links').classList.toggle('active'));
-    document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('active')));
-    document.getElementById('cf').addEventListener('submit',e=>{
-      e.preventDefault();const b=e.target.querySelector('button');const o=b.textContent;b.textContent='✓ Получили! Свяжемся в течение часа';b.disabled=true;
-      setTimeout(()=>{b.textContent=o;b.disabled=false;e.target.reset();document.getElementById('modal').classList.remove('active')},3000)
-    });
-  </script>
+<!-- БОЛИ -->
+<section id="problems" class="pain-section">
+  <div class="c">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="label">Узнаёте себя?</div>
+        <h2 class="display section-title">Проблемы,<br>которые стоят денег</h2>
+      </div>
+      <p style="font-size:15px;color:var(--ink-2);max-width:320px;text-align:right">Это не просто неудобства — каждая из этих ситуаций уносит реальную выручку каждый день.</p>
+    </div>
+
+    <div class="pain-grid">
+      <div class="pain-cell">
+        <div class="pain-niche">Кафе, ресторан, шашлычная</div>
+        <div class="pain-item">
+          <div class="pain-q">Официант перепутал заказ</div>
+          <div class="pain-a">"Опять скандал, повар сделал не то блюдо"</div>
+          <div class="pain-solve">Гость выбирает сам с телефона → заказ сразу на кухню</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-q">Не знаю сколько заработал</div>
+          <div class="pain-a">"Считаю выручку вручную — постоянно ошибаюсь"</div>
+          <div class="pain-solve">Каждый заказ в учёт автоматически, отчёт в реальном времени</div>
+        </div>
+        <a href="/foodflow.html" class="pain-link">Решение для кафе →</a>
+      </div>
+
+      <div class="pain-cell">
+        <div class="pain-niche">Репетитор — английский, математика</div>
+        <div class="pain-item">
+          <div class="pain-q">Теряю сообщения в WhatsApp</div>
+          <div class="pain-a">"Родители пишут в разные чаты — ничего не найти"</div>
+          <div class="pain-solve">Чат, расписание и ДЗ в одной платформе для всех ролей</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-q">Ученик не знал о домашнем задании</div>
+          <div class="pain-a">"Точно отправляла — но никто не видел"</div>
+          <div class="pain-solve">ДЗ с фото-отчётом и еженедельный отчёт родителям автоматически</div>
+        </div>
+        <a href="/lesso.html" class="pain-link">Решение для репетиторов →</a>
+      </div>
+
+      <div class="pain-cell">
+        <div class="pain-niche">Фермер, КФХ, агробизнес</div>
+        <div class="pain-item">
+          <div class="pain-q">Субсидии — не понимаю на что имею право</div>
+          <div class="pain-a">"Сосед получил грант, а я даже не знал что он есть"</div>
+          <div class="pain-solve">Калькулятор субсидий покажет всё что вам положено</div>
+        </div>
+        <div class="pain-item">
+          <div class="pain-q">Отчёты в ЕФИС, ФГИС — голова кругом</div>
+          <div class="pain-a">"Трачу 3 дня на документы вместо работы в поле"</div>
+          <div class="pain-solve">Одна кнопка — готовый пакет документов для госорганов</div>
+        </div>
+        <a href="/agro.html" class="pain-link">Решение для фермеров →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПРОДУКТЫ -->
+<section id="products" class="products-section">
+  <div class="c">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="label">Портфолио</div>
+        <h2 class="display section-title">Работающие<br>решения</h2>
+      </div>
+    </div>
+
+    <div class="products-label">Работает у клиентов</div>
+    <div class="products-live">
+      <div class="live-card">
+        <span class="live-badge">LIVE</span>
+        <div>
+          <h3>Царская Кухня</h3>
+          <p>Гости заказывают с телефона, заказы идут прямо на кухню. Хозяин видит выручку в реальном времени.</p>
+          <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank">Открыть проект →</a>
+        </div>
+      </div>
+      <div class="live-card">
+        <span class="live-badge">LIVE</span>
+        <div>
+          <h3>СК ПостройДом</h3>
+          <p>Строители перестали терять заявки — все обращения через сайт приходят прямо в Telegram.</p>
+          <a href="https://postroy-dom.vercel.app" target="_blank">Открыть проект →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-label" style="margin-top:48px">Демо — попробуйте прямо сейчас</div>
+    <div class="products-grid">
+
+      <div class="prod-card prod-accent">
+        <div class="prod-tag">FoodFlow · Кафе</div>
+        <h3>Кафе, ресторан, шашлычная</h3>
+        <div class="prod-problem">"Официанты путают заказы, выручку считаю в тетради"</div>
+        <div class="prod-result">Результат: <strong>заказы без ошибок</strong>, выручка в реальном времени</div>
+        <div class="prod-actions">
+          <a href="/foodflow.html" class="btn btn-ghost btn-sm">Тарифы</a>
+          <a href="https://foodflow-rho.vercel.app" target="_blank" class="btn btn-primary btn-sm">Демо →</a>
+        </div>
+      </div>
+
+      <div class="prod-card prod-accent" style="border-top-color:var(--accent)">
+        <div class="prod-tag" style="color:var(--accent)">Lesso · Репетиторы</div>
+        <h3>Английский, математика, музыка</h3>
+        <div class="prod-problem">"Веду учеников в WhatsApp — теряю всё"</div>
+        <div class="prod-result">Результат: <strong>расписание, ДЗ, чат</strong> — вместо WhatsApp. 300 ₽/мес</div>
+        <div class="prod-actions">
+          <a href="/lesso.html" class="btn btn-ghost btn-sm">Подробнее</a>
+          <a href="https://lesso-three.vercel.app" target="_blank" class="btn btn-primary btn-sm">Попробовать →</a>
+        </div>
+      </div>
+
+      <div class="prod-card prod-green">
+        <div class="prod-tag" style="color:var(--green)">АгроПомощник · Ферма</div>
+        <h3>Ферма, КФХ, сельхозбизнес</h3>
+        <div class="prod-problem">"Субсидии не получаю, отчёты занимают неделю"</div>
+        <div class="prod-result">Результат: <strong>100% субсидий</strong>, отчёты в 1 клик</div>
+        <div class="prod-actions">
+          <a href="/agro.html" class="btn btn-ghost btn-sm">Тарифы</a>
+          <a href="https://agropomoshnik.vercel.app" target="_blank" class="btn btn-primary btn-sm">Демо →</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-tag">ПасечникПро · Пасека</div>
+        <h3>Пасека, пчеловодство</h3>
+        <div class="prod-problem">"Не помню когда осматривал улей, теряю данные"</div>
+        <div class="prod-result">Результат: <strong>вся пасека под контролем</strong> — ульи, осмотры, мёд</div>
+        <div class="prod-actions">
+          <a href="https://pasechnik-pro.vercel.app" target="_blank" class="btn btn-ghost btn-sm">Демо →</a>
+        </div>
+      </div>
+
+      <div class="prod-card">
+        <div class="prod-tag">Витрина · Торговля</div>
+        <h3>Магазин, торговая точка</h3>
+        <div class="prod-problem">"Клиенты спрашивают цены в WhatsApp, отвечаю вручную"</div>
+        <div class="prod-result">Результат: <strong>каталог онлайн</strong> — клиент выбирает сам</div>
+        <div class="prod-actions">
+          <a href="https://shop-vitrina.vercel.app" target="_blank" class="btn btn-ghost btn-sm">Демо →</a>
+        </div>
+      </div>
+
+      <div class="prod-card" style="border-top:3px solid #059669">
+        <div class="prod-tag" style="color:#059669">Осознанность · Для себя</div>
+        <h3>Приложение для мусульман</h3>
+        <div class="prod-problem">"Другие приложения дают неточное время намаза в Челябинске"</div>
+        <div class="prod-result">Результат: <strong>точное время намаза</strong>, азкары, 99 имён, Кибла</div>
+        <div class="prod-actions">
+          <a href="/osoznannost.html" class="btn btn-ghost btn-sm">Подробнее</a>
+          <a href="https://namaz-drab.vercel.app" target="_blank" class="btn btn-sm" style="background:#059669;color:#fff;border-radius:4px;padding:9px 16px;font-size:13px;font-weight:700;text-decoration:none;display:inline-flex">Открыть →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ИИ -->
+<section id="ai" class="ai-section">
+  <div class="c">
+    <div class="section-header" style="margin-bottom:0">
+      <div class="section-header-left">
+        <div class="label" style="color:rgba(255,255,255,0.35)">Дополнительно</div>
+        <h2 class="display section-title" style="color:#fff">ИИ вместо вас<br>отвечает клиентам</h2>
+      </div>
+      <p style="font-size:15px;color:rgba(255,255,255,0.4);max-width:280px;text-align:right">Пропущенный звонок — потерянный клиент. ИИ работает 24/7.</p>
+    </div>
+
+    <div class="ai-grid">
+      <div class="ai-cell">
+        <div class="ai-icon">💬</div>
+        <h3>ИИ-чат на сайте</h3>
+        <p>Клиент зашёл ночью, задал вопрос — ИИ ответил, принял заявку и передал вам готового клиента.</p>
+        <div class="ai-price">+2 000 <span>₽/мес</span></div>
+      </div>
+      <div class="ai-cell">
+        <div class="ai-icon">🤖</div>
+        <h3>Telegram-бот</h3>
+        <p>Принимает заказы, отвечает на вопросы, показывает меню или каталог — круглосуточно.</p>
+        <div class="ai-price">+2 000 <span>₽/мес</span></div>
+      </div>
+      <div class="ai-cell">
+        <div class="ai-icon">🎙️</div>
+        <h3>Голосовой агент</h3>
+        <p>Принимает звонок, отвечает голосом, записывает заявку — ни один звонок не пропадёт.</p>
+        <div class="ai-price">+5 000 <span>₽/мес</span></div>
+      </div>
+    </div>
+
+    <div class="ai-cta">
+      <button class="btn btn-white" onclick="openModal()">Подключить ИИ к моему бизнесу →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section id="pricing" class="pricing-section">
+  <div class="c">
+    <div class="section-header">
+      <div class="section-header-left">
+        <div class="label">Тарифы платформы</div>
+        <h2 class="display section-title">Начните<br>бесплатно</h2>
+      </div>
+      <p style="font-size:15px;color:var(--ink-2);max-width:300px;text-align:right">Платите только когда почувствуете пользу. Год — 2 месяца в подарок.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Старт</div>
+        <div class="price-val">0 <span style="font-size:18px;color:var(--ink-3)">₽</span></div>
+        <div class="price-per">навсегда</div>
+        <div class="price-note">попробуйте без риска</div>
+        <ul class="price-list">
+          <li class="price-li">Основной функционал</li>
+          <li class="price-li">1 точка / 1 аккаунт</li>
+          <li class="price-li">Мобильная версия</li>
+          <li class="price-li no">Учёт и аналитика</li>
+          <li class="price-li no">Интеграции</li>
+        </ul>
+        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Старт" class="btn btn-ghost" style="width:100%;justify-content:center">Начать бесплатно</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Базовый</div>
+        <div class="price-val">· · ·</div>
+        <div class="price-per">₽/мес</div>
+        <div class="price-note">· · · ₽/год (−17%)</div>
+        <ul class="price-list">
+          <li class="price-li">Всё из Старта</li>
+          <li class="price-li">Учёт доходов и расходов</li>
+          <li class="price-li">Базовая аналитика</li>
+          <li class="price-li">Уведомления в Telegram</li>
+          <li class="price-li no">Несколько точек</li>
+        </ul>
+        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Базовый" class="btn btn-ghost" style="width:100%;justify-content:center">Выбрать</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="featured-badge">Популярный</div>
+        <div class="price-tier">Бизнес</div>
+        <div class="price-val">· · ·</div>
+        <div class="price-per">₽/мес</div>
+        <div class="price-note">· · · ₽/год (−17%)</div>
+        <ul class="price-list">
+          <li class="price-li">Всё из Базового</li>
+          <li class="price-li">До 5 точек / аккаунтов</li>
+          <li class="price-li">Отчёты для бухгалтера</li>
+          <li class="price-li">Telegram-интеграция</li>
+          <li class="price-li">Приоритетная поддержка</li>
+        </ul>
+        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Бизнес" class="btn btn-accent" style="width:100%;justify-content:center">Выбрать</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-tier">Про Макс</div>
+        <div class="price-val">· · ·</div>
+        <div class="price-per">₽/мес</div>
+        <div class="price-note">· · · ₽/год (−17%)</div>
+        <ul class="price-list">
+          <li class="price-li">Всё из Бизнеса</li>
+          <li class="price-li">Без лимита точек</li>
+          <li class="price-li">Авторасчёт НДС 2026</li>
+          <li class="price-li">ИИ-аналитика</li>
+          <li class="price-li">Белый лейбл</li>
+        </ul>
+        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Про%20Макс" class="btn btn-ghost" style="width:100%;justify-content:center">Выбрать</a>
+      </div>
+    </div>
+
+    <p style="font-size:13px;color:var(--ink-3);margin-top:24px;text-align:center">Не нашли свою нишу? <a href="https://t.me/daniil74_bot" style="color:var(--accent);text-decoration:none">Напишите</a> — сделаем под вас.</p>
+  </div>
+</section>
+
+<!-- ОСНОВАТЕЛЬ -->
+<section id="about" class="founder-section">
+  <div class="c">
+    <div class="founder-inner">
+      <div>
+        <div class="founder-portrait">ДН</div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:16px">Об основателе</div>
+        <p class="founder-quote">
+          "Видел как малый бизнес тонет в бумагах — и решил это исправить."
+        </p>
+        <p class="founder-bio">
+          Прошёл путь от завода до IT-продукта. Работаю в Челябинске,
+          строю реальные инструменты для реального бизнеса — не абстрактные
+          "платформы", а решения конкретных болей.
+          <br><br>
+          Nizamov.tech — это избавление от потерянных заказов, непонятных налогов,
+          ручного учёта. Принципиально работаю только с халяльными проектами.
+          10% прибыли — в садака.
+        </p>
+        <div class="founder-name">Даниил Низамов</div>
+        <div class="founder-role">Основатель Nizamov.tech · Челябинск</div>
+        <div class="founder-links">
+          <a href="https://t.me/Aslyamov74" class="btn btn-primary btn-sm">Написать в Telegram</a>
+          <a href="https://t.me/Daniil_s_zavoda" class="btn btn-ghost btn-sm">Канал</a>
+          <a href="https://kwork.ru" class="btn btn-ghost btn-sm">Kwork</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="c">
+    <div class="cta-eyebrow">
+      <div class="label">Готовы начать?</div>
+    </div>
+    <h2 class="display">Опишите вашу боль —<br><span class="display-italic">найдём решение за 10 минут</span></h2>
+    <p>Без договоров и предоплаты. Первая консультация бесплатно.</p>
+    <div class="cta-actions">
+      <button class="btn btn-primary" onclick="openModal()">Описать мою ситуацию</button>
+      <a href="https://t.me/Aslyamov74" class="btn btn-ghost">Написать напрямую</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="c">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">NIZAMOV.TECH</span>
+        <p class="footer-desc">Убираем хаос из малого бизнеса России и СНГ. Вы занимаетесь делом — остальное наше. Халяльный IT-продукт.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Продукты</h4>
+        <a href="/foodflow.html">FoodFlow — кафе</a>
+        <a href="/lesso.html">Lesso — репетиторы</a>
+        <a href="/agro.html">АгроПомощник</a>
+        <a href="/osoznannost.html">Осознанность</a>
+        <a href="https://pasechnik-pro.vercel.app">ПасечникПро</a>
+      </div>
+      <div class="footer-col">
+        <h4>Навигация</h4>
+        <a href="#problems">Наши решения</a>
+        <a href="#products">Портфолио</a>
+        <a href="#pricing">Тарифы</a>
+        <a href="#about">Об основателе</a>
+      </div>
+      <div class="footer-col">
+        <h4>Контакты</h4>
+        <a href="tel:+79911745113">8 (991) 174-51-13</a>
+        <a href="https://t.me/Aslyamov74">@Aslyamov74</a>
+        <a href="https://t.me/Daniil_s_zavoda">Telegram-канал</a>
+        <a href="/privacy.html">Конфиденциальность</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Nizamov.tech — Даниил Низамов · Челябинск</span>
+      <span>Халяльный продукт · 10% в садака</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Опишите вашу ситуацию</h3>
+    <p>Расскажите что мешает бизнесу — свяжемся в течение часа.</p>
+    <form id="cf" onsubmit="submitForm(event)">
+      <div class="field"><input type="text" placeholder="Ваше имя *" required></div>
+      <div class="field"><input type="tel" placeholder="Телефон *" required></div>
+      <div class="field">
+        <select required>
+          <option value="" disabled selected>Какая проблема болит сильнее всего?</option>
+          <option>Теряю заказы в кафе / ресторане</option>
+          <option>Веду учеников в WhatsApp — хаос</option>
+          <option>Не получаю субсидии / отчёты съедают время</option>
+          <option>Клиенты не дожидаются ответа</option>
+          <option>Непонятно как считать НДС 2026</option>
+          <option>Нужен сайт для строительного бизнеса</option>
+          <option>Другое — расскажу подробнее</option>
+        </select>
+      </div>
+      <div class="consent">
+        <input type="checkbox" id="pv" required checked>
+        <label for="pv">Согласен на обработку данных согласно <a href="/privacy.html">политике конфиденциальности</a></label>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Отправить →</button>
+    </form>
+  </div>
+</div>
+
+<!-- COOKIE -->
+<div id="cookie">
+  <p>Мы используем cookie для корректной работы сайта. <a href="/privacy.html">Подробнее</a></p>
+  <div class="cookie-btns">
+    <button class="btn-cookie-ok" onclick="acceptCookie()">Принять</button>
+    <button class="btn-cookie-no" onclick="declineCookie()">Отказаться</button>
+  </div>
+</div>
+
+<script>
+  // Cookie banner
+  function acceptCookie() {
+    localStorage.setItem('cookie_consent', 'accepted');
+    document.getElementById('cookie').classList.remove('visible');
+  }
+  function declineCookie() {
+    localStorage.setItem('cookie_consent', 'declined');
+    document.getElementById('cookie').classList.remove('visible');
+  }
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.getItem('cookie_consent')) {
+      setTimeout(() => document.getElementById('cookie').classList.add('visible'), 800);
+    }
+  });
+
+  // Modal
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '✓ Получили! Свяжемся в течение часа';
+    btn.disabled = true;
+    setTimeout(() => { closeModal(); e.target.reset(); btn.textContent = 'Отправить →'; btn.disabled = false; }, 2800);
+  }
+
+  // Mobile menu
+  function toggleMob() {
+    document.querySelector('.nav-links').classList.toggle('mob-open');
+  }
+  const style = document.createElement('style');
+  style.textContent = `.nav-links.mob-open{display:flex;position:fixed;top:60px;left:0;width:100%;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--paper-3);box-shadow:0 8px 24px rgba(0,0,0,0.08);gap:16px}`;
+  document.head.appendChild(style);
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('mob-open')));
+
+  // Fade-up on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
