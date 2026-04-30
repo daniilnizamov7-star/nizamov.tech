@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Осознанность — Намаз, зикр и духовный рост | Nizamov.tech</title>
+  <meta name="description" content="Приложение для мусульман: точное время намаза, утренние/вечерние азкары, счётчик истигфара, 99 имён Аллаха, дуа по ситуациям. Бесплатно.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#f8f9fc;color:#1a1d2e;line-height:1.6}
+    :root{--bg:#f8f9fc;--card:#fff;--b:rgba(16,185,129,0.12);--a:#059669;--ag:rgba(5,150,105,0.2);--m:#6b7280;--r:16px;--dark:#0f1f1b}
+    .c{max-width:1100px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:12px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:.2s;font-size:1rem}
+    .btn-p{background:linear-gradient(135deg,var(--a),#047857);color:#fff;box-shadow:0 4px 20px var(--ag)}
+    .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--ag)}
+    .btn-o{background:transparent;border:1.5px solid var(--b);color:var(--a)}
+    .btn-o:hover{background:rgba(5,150,105,0.06);border-color:var(--a)}
+    .btn-sm{padding:10px 16px;font-size:.9rem}
+
+    /* NAV */
+    header{position:fixed;top:0;width:100%;z-index:100;background:rgba(248,249,252,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--b)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{font-weight:800;font-size:1.3rem;color:var(--dark);text-decoration:none;display:flex;align-items:center;gap:10px}
+    .logo-icon{font-size:1.5rem}
+    .logo-back{font-size:.78rem;color:var(--m);font-weight:400}
+    .links{display:flex;gap:20px;align-items:center}
+    .links a{color:var(--m);text-decoration:none;font-weight:500;transition:.2s;font-size:.95rem}
+    .links a:hover{color:var(--a)}
+    .mob{display:none;background:none;border:none;color:var(--dark);font-size:1.5rem;cursor:pointer}
+
+    /* HERO */
+    .hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 20px 80px;background:linear-gradient(160deg,#ecfdf5 0%,#f8f9fc 50%,#f0fdf4 100%);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 20%,rgba(5,150,105,0.07),transparent 60%),radial-gradient(ellipse at 60% 80%,rgba(52,211,153,0.05),transparent 60%)}
+    .arabic-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:20vw;color:rgba(5,150,105,0.03);font-family:serif;line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+    .h-badge{display:inline-block;background:rgba(5,150,105,0.1);border:1px solid rgba(5,150,105,0.25);color:var(--a);padding:6px 14px;border-radius:50px;font-size:.85rem;font-weight:600;margin-bottom:20px}
+    .hero h1{font-size:clamp(2.8rem,7vw,4.2rem);font-weight:800;line-height:1.1;margin-bottom:20px;letter-spacing:-1px;color:var(--dark)}
+    .hero h1 .green{background:linear-gradient(135deg,var(--a),#34d399);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{font-size:1.15rem;color:var(--m);max-width:600px;margin:0 auto 40px;line-height:1.8}
+    .h-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .hero-free{display:inline-block;background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.2);color:var(--a);padding:8px 20px;border-radius:50px;font-size:.9rem;font-weight:700;margin-top:16px}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:-50px auto 80px;position:relative;z-index:10;max-width:1000px}
+    .sc{background:#fff;border:1px solid var(--b);padding:20px 16px;border-radius:var(--r);text-align:center;box-shadow:0 4px 20px rgba(5,150,105,0.06)}
+    .sn{font-size:1.8rem;font-weight:800;color:var(--a);margin-bottom:4px}
+    .sl{color:var(--m);font-size:.85rem}
+
+    /* FEATURES */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .feat-card{background:#fff;border:1px solid var(--b);padding:28px;border-radius:var(--r);transition:.25s;box-shadow:0 2px 10px rgba(5,150,105,0.04)}
+    .feat-card:hover{border-color:var(--a);transform:translateY(-4px);box-shadow:0 12px 30px rgba(5,150,105,0.1)}
+    .feat-icon{font-size:2.2rem;margin-bottom:14px}
+    .feat-card h3{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--dark)}
+    .feat-card p{color:var(--m);font-size:.9rem;line-height:1.6}
+    .feat-tag{display:inline-block;background:rgba(5,150,105,0.08);color:var(--a);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:3px 8px;border-radius:6px;margin-bottom:10px}
+
+    /* ПОЧЕМУ */
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+    .why-card{background:#fff;border-left:4px solid var(--a);border-radius:0 var(--r) var(--r) 0;padding:24px;box-shadow:0 2px 10px rgba(5,150,105,0.04)}
+    .why-card h3{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--dark)}
+    .why-card p{color:var(--m);font-size:.9rem;line-height:1.6}
+
+    /* ЭКРАНЫ */
+    .screens{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .screen-item{background:#fff;border:1px solid var(--b);border-radius:var(--r);padding:24px;text-align:center;box-shadow:0 2px 10px rgba(5,150,105,0.04)}
+    .screen-item .icon{font-size:2.5rem;margin-bottom:12px}
+    .screen-item h4{font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:6px}
+    .screen-item p{color:var(--m);font-size:.83rem}
+
+    /* CTA */
+    .cta-section{padding:120px 0;background:linear-gradient(135deg,#ecfdf5,#f0fdf4);text-align:center}
+    .cta-section h2{font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--dark);margin-bottom:16px}
+    .cta-section p{color:var(--m);max-width:550px;margin:0 auto 32px;font-size:1.05rem}
+    .free-badge{display:inline-block;background:var(--a);color:#fff;font-size:1rem;font-weight:800;padding:10px 24px;border-radius:50px;margin-bottom:28px;letter-spacing:.5px}
+
+    /* FOOTER */
+    footer{background:var(--dark);color:#9ca3af;padding:50px 0 30px;font-size:.9rem}
+    .fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;margin-bottom:32px}
+    .f4{color:#fff;margin-bottom:12px;font-weight:600}
+    .fl a{display:block;color:#9ca3af;text-decoration:none;margin-bottom:7px;transition:.2s}
+    .fl a:hover{color:var(--a)}
+    .cr{text-align:center;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)}
+    .cr a{color:var(--a);text-decoration:none}
+
+    @media(max-width:900px){
+      .links{display:none;position:fixed;top:60px;left:0;width:100%;background:#fff;flex-direction:column;padding:20px;border-bottom:1px solid var(--b);box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+      .links.active{display:flex}
+      .mob{display:block}
+      .stats{margin-top:-20px}
+      .arabic-bg{font-size:40vw}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="c nav">
+      <a href="/" class="logo">
+        <span class="logo-icon">☪️</span>
+        <span>Осознанность<span class="logo-back" style="display:block;margin-top:-2px">← Nizamov.tech</span></span>
+      </a>
+      <button class="mob" onclick="document.querySelector('.links').classList.toggle('active')">☰</button>
+      <nav class="links">
+        <a href="#features">Возможности</a>
+        <a href="#why">Почему мы</a>
+        <a href="#screens">Экраны</a>
+        <a href="https://namaz-drab.vercel.app" class="btn btn-p btn-sm">Открыть приложение</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="arabic-bg">الله</div>
+      <div style="position:relative;z-index:1">
+        <div class="h-badge">☪️ Приложение для мусульман — бесплатно</div>
+        <h1>Духовная жизнь —<br><span class="green">под контролем</span></h1>
+        <p>Время намаза, утренние и вечерние азкары, зикр, 99 имён Аллаха, направление Киблы, дуа по ситуациям. Всё в одном приложении — для Челябинска с точным временем.</p>
+        <div class="h-btns">
+          <a href="https://namaz-drab.vercel.app" class="btn btn-p">☪️ Открыть приложение</a>
+          <a href="#features" class="btn btn-o">Что внутри →</a>
+        </div>
+        <div class="hero-free">🎁 Полностью бесплатно — навсегда</div>
+      </div>
+    </section>
+
+    <div class="c">
+      <div class="stats">
+        <div class="sc"><div class="sn">5</div><div class="sl">намазов с точным временем</div></div>
+        <div class="sc"><div class="sn">375</div><div class="sl">аятов и хадисов</div></div>
+        <div class="sc"><div class="sn">99</div><div class="sl">имён Аллаха</div></div>
+        <div class="sc"><div class="sn">0 ₽</div><div class="sl">полностью бесплатно</div></div>
+        <div class="sc"><div class="sn">PWA</div><div class="sl">без установки из магазина</div></div>
+      </div>
+    </div>
+
+    <!-- ПОЧЕМУ СДЕЛАЛИ -->
+    <section style="padding:80px 0;background:#fff">
+      <div class="c">
+        <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;text-align:center;margin-bottom:12px;color:var(--dark)">Почему появилось это приложение</h2>
+        <p style="text-align:center;color:var(--m);max-width:650px;margin:0 auto 48px;font-size:1.05rem">Популярные приложения для намаза показывали неточное время для Челябинска. Решили сделать своё — точное, чистое, без рекламы.</p>
+        <div class="why-grid">
+          <div class="why-card">
+            <h3>⏰ Точное время намаза</h3>
+            <p>Рассчитывается по координатам Челябинска с правильным методом расчёта — не берётся из общей базы.</p>
+          </div>
+          <div class="why-card">
+            <h3>🚫 Никакой рекламы</h3>
+            <p>Духовная практика и реклама несовместимы. Приложение полностью бесплатное и без показа рекламы.</p>
+          </div>
+          <div class="why-card">
+            <h3>📱 Работает как приложение</h3>
+            <p>PWA — добавьте на главный экран телефона и пользуйтесь как обычным приложением, без App Store.</p>
+          </div>
+          <div class="why-card">
+            <h3>🌙 Тёмная тема</h3>
+            <p>Удобно пользоваться ночью — перед Фаджром или после Иши. Глаза не устают.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ВОЗМОЖНОСТИ -->
+    <section id="features" style="padding:100px 0;background:#f8f9fc">
+      <div class="c">
+        <h2 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;text-align:center;margin-bottom:.5rem;color:var(--dark)">Что внутри</h2>
+        <p style="text-align:center;color:var(--m);max-width:650px;margin:0 auto 3rem;font-size:1.1rem">Всё что нужно для духовной практики — в одном месте.</p>
+        <div class="grid">
+
+          <div class="feat-card">
+            <div class="feat-tag">Главное</div>
+            <div class="feat-icon">🕌</div>
+            <h3>Время намаза</h3>
+            <p>Точное расписание 5 намазов на каждый день. Зухр, Аср, Магриб — всё с учётом вашего местоположения.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Утро / вечер</div>
+            <div class="feat-icon">📿</div>
+            <h3>Зикр и тасбих</h3>
+            <p>Тасбих (Субханаллах / Альхамдулиллах / Аллаху Акбар) 10×/1× в зависимости от намаза. Счётчик с вибрацией.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Практика</div>
+            <div class="feat-icon">🌅</div>
+            <h3>Утренние и вечерние азкары</h3>
+            <p>Полный список азкаров с арабским текстом, транслитерацией и переводом. Счётчик истигфара 100×.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Знание</div>
+            <div class="feat-icon">📖</div>
+            <h3>Аят и хадис дня</div>
+            <p>375 записей — чётный день: аят из Корана, нечётный: хадис. Новое каждый день, не повторяется.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Имена</div>
+            <div class="feat-icon">✨</div>
+            <h3>99 имён Аллаха</h3>
+            <p>Все 99 имён с арабским написанием, транслитерацией и значением. Читайте и запоминайте.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Дуа</div>
+            <div class="feat-icon">🤲</div>
+            <h3>Дуа по ситуациям</h3>
+            <p>5 категорий — утро, перед едой, в дороге, при болезни, перед сном. Быстрый доступ когда нужно.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Личное</div>
+            <div class="feat-icon">💛</div>
+            <h3>Мои дуа</h3>
+            <p>Сохраняйте свои личные дуа и просьбы к Аллаху. Всегда под рукой в момент намаза.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Навигация</div>
+            <div class="feat-icon">🧭</div>
+            <h3>Кибла</h3>
+            <p>Направление на Мекку по компасу. Работает прямо в браузере без дополнительных приложений.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Духовный рост</div>
+            <div class="feat-icon">🌙</div>
+            <h3>Дополнительные намазы</h3>
+            <p>Напоминания о Духа, Витр и Тахаджуд. Цели по салавату: 10 / 100 / 300 / 1000.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Мотивация</div>
+            <div class="feat-icon">🔥</div>
+            <h3>Стрик и Хиджри дата</h3>
+            <p>Отслеживайте непрерывность практики. Хиджри дата на главном экране — всегда помните где вы в году.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Время</div>
+            <div class="feat-icon">🌇</div>
+            <h3>Время захода солнца</h3>
+            <p>Знайте точное время ифтара в Рамадан и окончание Аср для дополнительных молитв.</p>
+          </div>
+
+          <div class="feat-card">
+            <div class="feat-tag">Удобство</div>
+            <div class="feat-icon">🔔</div>
+            <h3>Уведомления о намазе</h3>
+            <p>Напоминание за несколько минут до каждого намаза — не пропустите ни одного.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОЧЕМУ МЫ -->
+    <section id="why" style="padding:100px 0;background:#fff">
+      <div class="c">
+        <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;text-align:center;margin-bottom:12px;color:var(--dark)">Сравнение с Sajda и другими</h2>
+        <p style="text-align:center;color:var(--m);max-width:600px;margin:0 auto 48px">Популярные приложения хороши — но есть нюансы.</p>
+        <div style="max-width:800px;margin:0 auto;background:#f8f9fc;border:1px solid var(--b);border-radius:20px;overflow:hidden">
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;background:#fff;border-bottom:1px solid var(--b);font-weight:700;font-size:.85rem;color:var(--m);padding:16px 24px;text-transform:uppercase;letter-spacing:.5px">
+            <div>Функция</div>
+            <div style="text-align:center;color:var(--a)">Осознанность</div>
+            <div style="text-align:center">Sajda / другие</div>
+          </div>
+          <div style="font-size:.92rem">
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 24px;border-bottom:1px solid var(--b);align-items:center">
+              <div style="color:var(--dark)">Точное время для Челябинска</div>
+              <div style="text-align:center;color:var(--a);font-weight:700">✓</div>
+              <div style="text-align:center;color:var(--m)">не всегда</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 24px;border-bottom:1px solid var(--b);align-items:center;background:rgba(5,150,105,0.02)">
+              <div style="color:var(--dark)">Без рекламы</div>
+              <div style="text-align:center;color:var(--a);font-weight:700">✓</div>
+              <div style="text-align:center;color:var(--m)">реклама / платно</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 24px;border-bottom:1px solid var(--b);align-items:center">
+              <div style="color:var(--dark)">Аят и хадис каждый день</div>
+              <div style="text-align:center;color:var(--a);font-weight:700">375 записей</div>
+              <div style="text-align:center;color:var(--m)">частично</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 24px;border-bottom:1px solid var(--b);align-items:center;background:rgba(5,150,105,0.02)">
+              <div style="color:var(--dark)">Мои личные дуа</div>
+              <div style="text-align:center;color:var(--a);font-weight:700">✓</div>
+              <div style="text-align:center;color:var(--m)">редко</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 24px;border-bottom:1px solid var(--b);align-items:center">
+              <div style="color:var(--dark)">PWA — без App Store</div>
+              <div style="text-align:center;color:var(--a);font-weight:700">✓</div>
+              <div style="text-align:center;color:var(--m)">нужна установка</div>
+            </div>
+            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 24px;align-items:center;background:rgba(5,150,105,0.02)">
+              <div style="color:var(--dark)">Стоимость</div>
+              <div style="text-align:center;color:var(--a);font-weight:800">0 ₽</div>
+              <div style="text-align:center;color:var(--m)">0–599 ₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ЭКРАНЫ -->
+    <section id="screens" style="padding:100px 0;background:#f8f9fc">
+      <div class="c">
+        <h2 style="font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;text-align:center;margin-bottom:.5rem;color:var(--dark)">Что вы видите внутри</h2>
+        <p style="text-align:center;color:var(--m);max-width:600px;margin:0 auto 3rem">Простой, чистый интерфейс — никаких лишних кнопок.</p>
+        <div class="screens">
+          <div class="screen-item">
+            <div class="icon">🏠</div>
+            <h4>Главный экран</h4>
+            <p>Время следующего намаза, аят/хадис дня, хиджри дата, стрик</p>
+          </div>
+          <div class="screen-item">
+            <div class="icon">📿</div>
+            <h4>Зикр</h4>
+            <p>Тасбих с тактильной обратной связью, счётчик истигфара</p>
+          </div>
+          <div class="screen-item">
+            <div class="icon">🌅</div>
+            <h4>Азкары</h4>
+            <p>Утренние и вечерние — арабский, транслитерация, перевод</p>
+          </div>
+          <div class="screen-item">
+            <div class="icon">🤲</div>
+            <h4>Дуа</h4>
+            <p>5 категорий ситуационных дуа + ваши личные дуа</p>
+          </div>
+          <div class="screen-item">
+            <div class="icon">✨</div>
+            <h4>99 имён</h4>
+            <p>Все имена Аллаха с арабским текстом и значением</p>
+          </div>
+          <div class="screen-item">
+            <div class="icon">🧭</div>
+            <h4>Кибла</h4>
+            <p>Направление на Мекку по компасу устройства</p>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:40px">
+          <a href="https://namaz-drab.vercel.app" class="btn btn-p">☪️ Открыть и посмотреть самому</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="c">
+        <div class="free-badge">🎁 Полностью бесплатно</div>
+        <h2>Начните духовную практику<br><span style="background:linear-gradient(135deg,var(--a),#34d399);-webkit-background-clip:text;background-clip:text;color:transparent">осознанно</span></h2>
+        <p>Откройте в браузере, добавьте на главный экран — и пользуйтесь как приложением. Никакой регистрации.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="https://namaz-drab.vercel.app" class="btn btn-p">☪️ Открыть приложение</a>
+          <a href="https://t.me/Aslyamov74" class="btn btn-o">Написать разработчику</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="c">
+      <div class="fg">
+        <div><h4 class="f4">☪️ Осознанность</h4><p>Приложение для мусульман — намаз, зикр, азкары, дуа. Сделано в Челябинске.</p><p style="margin-top:12px"><a href="/" style="color:#9ca3af;text-decoration:none">← Nizamov.tech</a></p></div>
+        <div class="fl"><h4 class="f4">Возможности</h4><a href="#features">Время намаза</a><a href="#features">Азкары и зикр</a><a href="#features">99 имён Аллаха</a><a href="#features">Дуа по ситуациям</a></div>
+        <div class="fl"><h4 class="f4">Ещё</h4><a href="/lesso.html">Lesso — для репетиторов</a><a href="/foodflow.html">FoodFlow — для кафе</a><a href="/agro.html">АгроПомощник</a></div>
+        <div><h4 class="f4">Контакты</h4><p><a href="https://t.me/Aslyamov74" style="color:#9ca3af;text-decoration:none">@Aslyamov74</a></p><p>+7 991 174-51-13</p></div>
+      </div>
+      <div class="cr">
+        <p>© 2026 Nizamov.tech · Даниил Низамов · <a href="/privacy.html">Политика конфиденциальности</a></p>
+        <p style="color:#4b7c6f;margin-top:8px;font-size:.82rem">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.mob').addEventListener('click',()=>document.querySelector('.links').classList.toggle('active'));
+    document.querySelectorAll('.links a').forEach(a=>a.addEventListener('click',()=>document.querySelector('.links').classList.remove('active')));
+  </script>
+</body>
+</html>
