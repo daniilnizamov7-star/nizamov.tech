@@ -1,1021 +1,525 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nizamov.tech — Цифровой порядок для малого бизнеса</title>
-  <meta name="description" content="IT-решения для малого бизнеса России. Кафе, фермы, репетиторы — убираем хаос, автоматизируем процессы.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nizamov.tech — IT-решения для малого бизнеса. Автоматизация кафе, репетиторов, фермеров. Первая консультация бесплатно.">
+<title>Nizamov.tech — Цифровой порядок для малого бизнеса</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0B0F;
+  --bg2:#111218;
+  --bg3:#16171F;
+  --card:#1C1D27;
+  --border:#2A2B38;
+  --accent:#2563EB;
+  --accent2:#3B82F6;
+  --gold:#F59E0B;
+  --green:#10B981;
+  --text:#F0EEE8;
+  --muted:#8B8C9E;
+  --danger:#EF4444;
+  --r:12px;
+  --r2:20px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
 
-    :root {
-      --ink: #0e0f13;
-      --ink-2: #3d3f4a;
-      --ink-3: #8a8c99;
-      --paper: #fafaf8;
-      --paper-2: #f2f2ef;
-      --paper-3: #e8e8e4;
-      --accent: #1a3cff;
-      --accent-soft: rgba(26,60,255,0.08);
-      --accent-mid: rgba(26,60,255,0.18);
-      --red: #e02020;
-      --green: #0d7a55;
-      --r: 4px;
-      --r-lg: 12px;
-    }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,11,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--text);text-decoration:none;letter-spacing:-.3px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--accent2)}
+.nav-tel{color:var(--muted);font-size:13px;text-decoration:none;margin-right:16px}
+.nav-tel:hover{color:var(--text)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:.2s}
 
-    html { scroll-behavior: smooth; }
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 24px 60px;max-width:1200px;margin:0 auto;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.3);border-radius:100px;padding:6px 16px;margin-bottom:32px;width:fit-content}
+.hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+.hero-eyebrow span{font-size:13px;color:var(--accent2);font-weight:500}
+.hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(42px,6vw,80px);line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:560px;margin-bottom:40px;line-height:1.6}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:64px}
+.btn-primary{background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
+.btn-ghost{color:var(--muted);border:1px solid var(--border);background:transparent;padding:14px 28px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--muted);color:var(--text)}
+.hero-note{font-size:13px;color:var(--muted);margin-top:12px}
 
-    body {
-      font-family: 'Manrope', sans-serif;
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
+/* STATS */
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;max-width:600px}
+.stat{background:var(--card);padding:24px;text-align:center}
+.stat-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:var(--text);letter-spacing:-1px}
+.stat-val span{font-size:18px;color:var(--accent)}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
 
-    .c { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+/* FLOW ANIMATION */
+.flow-widget{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:24px;max-width:360px;margin-top:40px}
+.flow-title{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.flow-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green)}
+.flow-items{display:flex;flex-direction:column;gap:10px}
+.flow-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;animation:slideIn .4s ease both}
+.flow-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.flow-icon.blue{background:rgba(37,99,235,.15);color:#60A5FA}
+.flow-icon.green{background:rgba(16,185,129,.15);color:#34D399}
+.flow-icon.gold{background:rgba(245,158,11,.15);color:#FCD34D}
+.flow-text strong{display:block;font-size:14px;font-weight:600;color:var(--text)}
+.flow-text span{font-size:12px;color:var(--muted)}
+.flow-badge{margin-left:auto;font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;flex-shrink:0}
+.flow-badge.live{background:rgba(16,185,129,.15);color:#34D399}
+.flow-badge.new{background:rgba(37,99,235,.15);color:#60A5FA}
 
-    /* ─── TYPOGRAPHY ─────────────────────────────── */
-    .display {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
-    }
-    .display-italic { font-style: italic; }
-    .label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
+/* SECTION */
+.section{max-width:1200px;margin:0 auto;padding:80px 24px}
+.section-label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.section-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,4vw,52px);letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
+.section-sub{font-size:18px;color:var(--muted);max-width:600px;line-height:1.6}
+.sep{border:none;border-top:1px solid var(--border);margin:0}
 
-    /* ─── BUTTONS ────────────────────────────────── */
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 24px; border-radius: var(--r);
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700; font-size: 14px;
-      text-decoration: none; border: none; cursor: pointer;
-      transition: all .18s ease; white-space: nowrap;
-    }
-    .btn-primary {
-      background: var(--ink); color: var(--paper);
-    }
-    .btn-primary:hover { background: #1a3cff; transform: translateY(-1px); }
-    .btn-ghost {
-      background: transparent;
-      border: 1.5px solid var(--paper-3);
-      color: var(--ink-2);
-    }
-    .btn-ghost:hover { border-color: var(--ink-2); color: var(--ink); background: var(--paper-2); }
-    .btn-accent {
-      background: var(--accent); color: #fff;
-      box-shadow: 0 4px 16px rgba(26,60,255,0.25);
-    }
-    .btn-accent:hover { background: #0f2be0; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,60,255,0.3); }
-    .btn-sm { padding: 9px 16px; font-size: 13px; }
+/* PAIN */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-top:48px}
+.pain-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:border-color .2s,transform .2s}
+.pain-card:hover{border-color:#3A3B4E;transform:translateY(-2px)}
+.pain-header{padding:20px 24px 16px;display:flex;align-items:flex-start;gap:14px}
+.pain-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.pain-nico{background:rgba(239,68,68,.1);color:#F87171}
+.pain-rnico{background:rgba(37,99,235,.1);color:#60A5FA}
+.pain-body{padding:0 24px 20px}
+.pain-quote{font-style:italic;color:var(--muted);font-size:14px;margin-bottom:16px;padding:12px 16px;background:var(--bg3);border-left:3px solid var(--border);border-radius:0 8px 8px 0}
+.pain-solution{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text)}
+.pain-solution::before{content:'→';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
+.pain-footer{padding:16px 24px;border-top:1px solid var(--border);background:var(--bg3)}
+.pain-link{color:var(--accent2);font-size:13px;font-weight:600;text-decoration:none;transition:color .2s}
+.pain-link:hover{color:#93C5FD}
+.pain-niche{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pain-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px}
 
-    /* ─── NAV ────────────────────────────────────── */
-    header {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(250,250,248,0.92);
-      backdrop-filter: blur(16px) saturate(1.4);
-      border-bottom: 1px solid var(--paper-3);
-    }
-    .nav {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      height: 60px;
-    }
-    .logo {
-      font-family: 'Manrope', sans-serif;
-      font-weight: 800; font-size: 15px;
-      letter-spacing: -0.02em;
-      color: var(--ink); text-decoration: none;
-    }
-    .logo-dot { color: var(--accent); }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 14px; font-weight: 500;
-      color: var(--ink-2); text-decoration: none;
-      transition: color .15s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-cta { display: flex; align-items: center; gap: 12px; }
-    .mob { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-    .mob-line {
-      display: block; width: 22px; height: 2px;
-      background: var(--ink); margin: 4px 0;
-      transition: .2s;
-    }
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-top:48px}
+.product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+.product-card:hover{border-color:#3A3B4E;transform:translateY(-2px)}
+.product-card.featured{border-color:rgba(37,99,235,.5)}
+.product-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#818CF8)}
+.prod-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.1);color:#34D399;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;width:fit-content}
+.prod-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.prod-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--text);letter-spacing:-.5px}
+.prod-desc{font-size:14px;color:var(--muted);line-height:1.6}
+.prod-result{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--muted)}
+.prod-result strong{color:var(--green)}
+.prod-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.btn-sm{padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s;cursor:pointer;border:1px solid transparent;display:inline-block}
+.btn-sm-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-sm-primary:hover{background:var(--accent2)}
+.btn-sm-ghost{background:transparent;color:var(--muted);border-color:var(--border)}
+.btn-sm-ghost:hover{color:var(--text);border-color:#3A3B4E}
 
-    /* ─── HERO ───────────────────────────────────── */
-    .hero {
-      padding: 160px 0 100px;
-      background: var(--paper);
-      position: relative; overflow: hidden;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px; align-items: center;
-    }
-    .hero-eyebrow {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 28px;
-    }
-    .hero-eyebrow-line {
-      width: 32px; height: 2px; background: var(--accent);
-    }
-    .hero h1 {
-      font-size: clamp(2.8rem, 4.5vw, 4.2rem);
-      margin-bottom: 24px;
-      color: var(--ink);
-    }
-    .hero-sub {
-      font-size: 17px; color: var(--ink-2);
-      max-width: 460px; line-height: 1.75;
-      margin-bottom: 40px;
-    }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-note {
-      margin-top: 20px;
-      font-size: 12px; color: var(--ink-3);
-    }
-    .hero-visual {
-      position: relative;
-    }
-    .hero-card-stack {
-      position: relative;
-      height: 360px;
-    }
-    .h-card {
-      position: absolute;
-      background: #fff;
-      border: 1px solid var(--paper-3);
-      border-radius: var(--r-lg);
-      padding: 20px 24px;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03);
-    }
-    .h-card-1 {
-      top: 0; left: 0; right: 60px;
-      animation: float1 4s ease-in-out infinite;
-    }
-    .h-card-2 {
-      top: 120px; left: 40px; right: 0;
-      animation: float2 4s ease-in-out infinite;
-    }
-    .h-card-3 {
-      top: 240px; left: 0; right: 80px;
-      animation: float3 4s ease-in-out infinite;
-    }
-    @keyframes float1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-    @keyframes float2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
-    @keyframes float3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-    .h-card-label { font-size: 11px; font-weight: 600; color: var(--ink-3); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
-    .h-card-val { font-size: 22px; font-weight: 800; color: var(--ink); }
-    .h-card-sub { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
-    .h-card-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-right: 6px; }
-    .h-card-status { font-size: 12px; color: var(--green); font-weight: 600; }
+/* AI section */
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px}
+.ai-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .2s}
+.ai-card:hover{border-color:#3A3B4E}
+.ai-icon{font-size:28px;margin-bottom:16px}
+.ai-name{font-weight:700;font-size:18px;color:var(--text);margin-bottom:8px}
+.ai-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+.ai-price{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--accent)}
+.ai-price span{font-size:13px;color:var(--muted);font-weight:400;font-family:'Inter',sans-serif}
 
-    /* ─── DIVIDER ────────────────────────────────── */
-    .rule { height: 1px; background: var(--paper-3); }
+/* ABOUT */
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-avatar{width:120px;height:120px;border-radius:24px;background:linear-gradient(135deg,#1E3A8A,#2563EB);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:24px;letter-spacing:-2px}
+.about-quote{font-family:'Montserrat',sans-serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;line-height:1.3;color:var(--text);margin-bottom:24px;letter-spacing:-.5px}
+.about-quote em{font-style:normal;color:var(--accent)}
+.about-bio{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px}
+.about-links{display:flex;gap:12px;flex-wrap:wrap}
+.about-tag{background:var(--card);border:1px solid var(--border);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:500;color:var(--muted);display:flex;align-items:center;gap:6px}
+.about-tag.halal{color:var(--gold);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)}
+.about-stats-side{display:flex;flex-direction:column;gap:16px}
+.aside-stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;align-items:flex-start;gap:16px}
+.aside-stat-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:var(--text);letter-spacing:-1px;line-height:1}
+.aside-stat-info{flex:1}
+.aside-stat-label{font-size:14px;color:var(--muted);margin-top:4px;line-height:1.4}
+.aside-stat-icon{font-size:24px;margin-bottom:8px}
 
-    /* ─── STATS ROW ──────────────────────────────── */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--paper-3);
-      border-radius: var(--r-lg);
-      background: #fff;
-      overflow: hidden;
-      margin: 60px 0;
-    }
-    .stat-cell {
-      padding: 36px 28px;
-      border-right: 1px solid var(--paper-3);
-    }
-    .stat-cell:last-child { border-right: none; }
-    .stat-num {
-      font-size: 36px; font-weight: 800;
-      color: var(--ink); line-height: 1;
-      margin-bottom: 6px;
-    }
-    .stat-num span { color: var(--accent); }
-    .stat-desc { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+/* CTA */
+.cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-inner{max-width:1200px;margin:0 auto;padding:80px 24px;text-align:center}
+.cta-inner h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,4vw,56px);letter-spacing:-1.5px;margin-bottom:16px}
+.cta-inner p{font-size:18px;color:var(--muted);margin-bottom:40px}
+.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
 
-    /* ─── SECTION ────────────────────────────────── */
-    section { padding: 100px 0; }
-    .section-header {
-      display: flex; align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 56px;
-      gap: 24px;
-    }
-    .section-header-left {}
-    .section-title {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      color: var(--ink);
-      margin-top: 10px;
-    }
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand{font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:var(--text);margin-bottom:12px}
+.footer-brand span{color:var(--accent)}
+.footer-tagline{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
+.footer-halal{font-size:13px;color:var(--gold);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 14px;display:inline-block}
+.footer-col h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--text)}
+.footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px}
+.footer-copy{font-size:13px;color:var(--muted)}
 
-    /* ─── PAIN SECTION ───────────────────────────── */
-    .pain-section { background: var(--paper-2); }
-    .pain-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--paper-3);
-      border: 1px solid var(--paper-3);
-      border-radius: var(--r-lg);
-      overflow: hidden;
-    }
-    .pain-cell {
-      background: var(--paper);
-      padding: 36px 32px;
-      transition: background .2s;
-    }
-    .pain-cell:hover { background: #fff; }
-    .pain-niche {
-      font-size: 13px; font-weight: 700;
-      color: var(--accent); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .pain-niche::before {
-      content: ''; display: block;
-      width: 20px; height: 2px; background: var(--accent);
-    }
-    .pain-item { margin-bottom: 20px; }
-    .pain-item:last-child { margin-bottom: 0; }
-    .pain-q {
-      font-size: 14px; font-weight: 700;
-      color: var(--ink); margin-bottom: 4px;
-    }
-    .pain-a {
-      font-size: 13px; color: #b91c1c;
-      font-style: italic; margin-bottom: 6px;
-    }
-    .pain-solve {
-      font-size: 13px; color: var(--ink-2);
-      padding-left: 14px;
-      border-left: 2px solid var(--accent);
-      line-height: 1.6;
-    }
-    .pain-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 24px; font-size: 13px; font-weight: 700;
-      color: var(--accent); text-decoration: none;
-      transition: gap .15s;
-    }
-    .pain-link:hover { gap: 10px; }
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:24px;max-width:500px;width:100%;padding:36px;position:relative}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--bg3);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
+.modal h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:24px;margin-bottom:8px}
+.modal p{color:var(--muted);font-size:14px;margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.form-group select,.form-group textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:12px 16px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;appearance:none;resize:none}
+.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-submit{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;transition:background .2s}
+.form-submit:hover{background:var(--accent2)}
+.modal-success{text-align:center;padding:20px 0}
+.modal-success .check{font-size:48px;margin-bottom:16px}
+.modal-success h3{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px}
+.modal-success p{color:var(--muted);font-size:14px}
 
-    /* ─── PRODUCTS ───────────────────────────────── */
-    .products-section { background: var(--paper); }
-    .products-live {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
-      margin-bottom: 48px;
-    }
-    .live-card {
-      background: #fff;
-      border: 1px solid var(--paper-3);
-      border-radius: var(--r-lg);
-      padding: 28px 32px;
-      display: flex; gap: 20px; align-items: flex-start;
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .live-card:hover { border-color: var(--ink-2); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
-    .live-badge {
-      flex-shrink: 0;
-      background: var(--green); color: #fff;
-      font-size: 10px; font-weight: 800;
-      letter-spacing: .1em; text-transform: uppercase;
-      padding: 3px 8px; border-radius: 3px;
-      margin-top: 3px;
-    }
-    .live-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
-    .live-card p { font-size: 13px; color: var(--ink-2); margin-bottom: 14px; line-height: 1.6; }
-    .live-card a { font-size: 13px; font-weight: 700; color: var(--accent); text-decoration: none; }
-    .live-card a:hover { text-decoration: underline; }
+/* COOKIE */
+.cookie-bar{position:fixed;bottom:24px;left:24px;right:24px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:150;max-width:680px;margin:0 auto;transform:translateY(80px);opacity:0;transition:transform .3s,opacity .3s}
+.cookie-bar.show{transform:translateY(0);opacity:1}
+.cookie-text{font-size:14px;color:var(--muted)}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-ok{background:var(--accent);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
+.cookie-no{background:transparent;color:var(--muted);border:1px solid var(--border);padding:8px 16px;border-radius:8px;font-size:14px;cursor:pointer}
 
-    .products-label {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 20px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .products-label::after {
-      content: ''; flex: 1; height: 1px; background: var(--paper-3);
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .prod-card {
-      background: #fff;
-      border: 1px solid var(--paper-3);
-      border-radius: var(--r-lg);
-      padding: 28px 24px;
-      transition: all .2s;
-      position: relative;
-    }
-    .prod-card:hover { border-color: var(--ink-2); box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
-    .prod-tag {
-      font-size: 11px; font-weight: 700;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--ink-3); margin-bottom: 14px;
-    }
-    .prod-card h3 { font-size: 16px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-    .prod-problem {
-      font-size: 13px; color: #b91c1c;
-      font-style: italic; margin-bottom: 10px;
-      padding-left: 12px; border-left: 2px solid #fca5a5;
-      line-height: 1.6;
-    }
-    .prod-result { font-size: 13px; color: var(--ink-2); margin-bottom: 20px; line-height: 1.6; }
-    .prod-result strong { color: var(--green); font-weight: 700; }
-    .prod-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-    .prod-accent {
-      border-top: 3px solid var(--accent);
-    }
-    .prod-green {
-      border-top: 3px solid var(--green);
-    }
+/* ANIMATIONS */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
 
-    /* ─── AI SECTION ─────────────────────────────── */
-    .ai-section {
-      background: var(--ink);
-      padding: 100px 0;
-    }
-    .ai-section .label { color: rgba(255,255,255,0.4); }
-    .ai-section .section-title { color: #fff; }
-    .ai-section .section-header { border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 40px; }
-    .ai-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1px; background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--r-lg); overflow: hidden;
-      margin-top: 40px;
-    }
-    .ai-cell {
-      background: var(--ink);
-      padding: 36px 28px;
-      transition: background .2s;
-    }
-    .ai-cell:hover { background: #161820; }
-    .ai-icon {
-      width: 40px; height: 40px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 18px; margin-bottom: 20px;
-    }
-    .ai-cell h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .ai-cell p { font-size: 13px; color: rgba(255,255,255,0.45); margin-bottom: 16px; line-height: 1.7; }
-    .ai-price { font-size: 20px; font-weight: 800; color: var(--accent); }
-    .ai-price span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.4); }
-    .ai-cta { margin-top: 40px; text-align: center; }
-    .btn-white {
-      background: #fff; color: var(--ink);
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    }
-    .btn-white:hover { background: var(--paper-2); transform: translateY(-1px); }
-
-    /* ─── PRICING ────────────────────────────────── */
-    .pricing-section { background: var(--paper-2); }
-    .pricing-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 16px; align-items: start;
-    }
-    .price-card {
-      background: #fff;
-      border: 1px solid var(--paper-3);
-      border-radius: var(--r-lg);
-      padding: 28px 24px;
-      transition: .2s;
-      position: relative;
-    }
-    .price-card.featured {
-      background: var(--ink); border-color: var(--ink);
-    }
-    .price-card.featured .price-tier { color: rgba(255,255,255,0.5); }
-    .price-card.featured h3 { color: #fff; }
-    .price-card.featured .price-val { color: #fff; }
-    .price-card.featured .price-per { color: rgba(255,255,255,0.4); }
-    .price-card.featured .price-note { color: rgba(255,255,255,0.4); }
-    .price-card.featured .price-li { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.08); }
-    .price-card.featured .price-li::before { color: rgba(255,255,255,0.4); }
-    .featured-badge {
-      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-      background: var(--accent); color: #fff;
-      font-size: 11px; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase; padding: 4px 12px; border-radius: 3px;
-    }
-    .price-tier { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; }
-    .price-card h3 { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
-    .price-val { font-size: 32px; font-weight: 800; color: var(--ink); line-height: 1; }
-    .price-per { font-size: 13px; color: var(--ink-3); font-weight: 500; margin-bottom: 4px; }
-    .price-note { font-size: 12px; color: var(--ink-3); margin-bottom: 24px; }
-    .price-list { list-style: none; margin-bottom: 24px; }
-    .price-li {
-      font-size: 13px; color: var(--ink-2);
-      padding: 8px 0; border-bottom: 1px solid var(--paper-2);
-      display: flex; align-items: flex-start; gap: 8px;
-    }
-    .price-li::before { content: '→'; color: var(--ink-3); flex-shrink: 0; }
-    .price-li.no::before { content: '—'; color: var(--paper-3); }
-    .price-li.no { color: var(--paper-3); }
-
-    /* ─── FOUNDER ────────────────────────────────── */
-    .founder-section { background: #fff; }
-    .founder-inner {
-      display: grid; grid-template-columns: 280px 1fr;
-      gap: 80px; align-items: start;
-    }
-    .founder-portrait {
-      width: 280px; height: 280px;
-      background: linear-gradient(135deg, var(--paper-2), var(--paper-3));
-      border-radius: var(--r-lg);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 72px; font-weight: 800;
-      color: var(--ink-3);
-      border: 1px solid var(--paper-3);
-      font-family: 'Manrope', sans-serif;
-    }
-    .founder-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-      font-style: italic; color: var(--ink);
-      line-height: 1.5; margin-bottom: 24px;
-    }
-    .founder-bio {
-      font-size: 15px; color: var(--ink-2);
-      line-height: 1.8; margin-bottom: 28px;
-    }
-    .founder-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-    .founder-role { font-size: 13px; color: var(--ink-3); margin-bottom: 24px; }
-    .founder-links { display: flex; gap: 10px; flex-wrap: wrap; }
-
-    /* ─── CTA ────────────────────────────────────── */
-    .cta-section {
-      background: var(--paper);
-      padding: 120px 0;
-      text-align: center;
-      border-top: 1px solid var(--paper-3);
-    }
-    .cta-eyebrow { margin-bottom: 24px; }
-    .cta-section h2 {
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-    .cta-section p { font-size: 16px; color: var(--ink-2); max-width: 540px; margin: 0 auto 36px; }
-    .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ─── FOOTER ─────────────────────────────────── */
-    footer {
-      background: var(--ink);
-      padding: 64px 0 36px;
-    }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px; padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 32px;
-    }
-    .footer-brand { }
-    .footer-logo {
-      font-size: 15px; font-weight: 800; color: #fff;
-      letter-spacing: -0.02em; display: block; margin-bottom: 14px;
-    }
-    .footer-desc { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.7; max-width: 280px; }
-    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
-    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 10px; transition: color .15s; }
-    .footer-col a:hover { color: #fff; }
-    .footer-bottom {
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 12px; color: rgba(255,255,255,0.25);
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color .15s; }
-    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
-
-    /* ─── MODAL ──────────────────────────────────── */
-    #modal {
-      position: fixed; inset: 0;
-      background: rgba(14,15,19,0.7);
-      backdrop-filter: blur(8px);
-      z-index: 200; display: none;
-      align-items: center; justify-content: center; padding: 24px;
-    }
-    #modal.open { display: flex; }
-    .modal-box {
-      background: #fff;
-      border-radius: var(--r-lg);
-      padding: 40px;
-      max-width: 480px; width: 100%;
-      position: relative;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.2);
-    }
-    .modal-close {
-      position: absolute; top: 16px; right: 16px;
-      background: var(--paper-2); border: none; cursor: pointer;
-      width: 32px; height: 32px; border-radius: 50%;
-      font-size: 16px; color: var(--ink-2);
-      display: flex; align-items: center; justify-content: center;
-      transition: background .15s;
-    }
-    .modal-close:hover { background: var(--paper-3); }
-    .modal-box h3 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
-    .modal-box p { font-size: 14px; color: var(--ink-2); margin-bottom: 24px; }
-    .field { margin-bottom: 14px; }
-    .field input, .field select, .field textarea {
-      width: 100%; padding: 12px 14px;
-      background: var(--paper-2);
-      border: 1.5px solid var(--paper-3);
-      border-radius: var(--r);
-      font-family: 'Manrope', sans-serif;
-      font-size: 14px; color: var(--ink);
-      transition: border-color .15s, background .15s;
-      appearance: none;
-    }
-    .field input:focus, .field select:focus, .field textarea:focus {
-      outline: none; border-color: var(--accent);
-      background: #fff;
-    }
-    .field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a8c99' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 12px center;
-      background-color: var(--paper-2); padding-right: 36px;
-    }
-    .consent {
-      display: flex; gap: 10px; align-items: flex-start;
-      font-size: 12px; color: var(--ink-3); margin: 14px 0 20px;
-    }
-    .consent input { margin-top: 3px; flex-shrink: 0; }
-    .consent a { color: var(--accent); }
-
-    /* ─── COOKIE BANNER ──────────────────────────── */
-    #cookie {
-      position: fixed; bottom: 24px; left: 24px; right: 24px;
-      max-width: 560px; background: var(--ink);
-      border-radius: var(--r-lg); padding: 20px 24px;
-      display: flex; gap: 20px; align-items: center;
-      z-index: 150; flex-wrap: wrap;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
-      transform: translateY(120%); transition: transform .4s ease;
-    }
-    #cookie.visible { transform: translateY(0); }
-    #cookie p { font-size: 13px; color: rgba(255,255,255,0.6); flex: 1; min-width: 200px; }
-    #cookie a { color: rgba(255,255,255,0.8); }
-    .cookie-btns { display: flex; gap: 8px; flex-shrink: 0; }
-    .btn-cookie-ok { background: #fff; color: var(--ink); padding: 9px 18px; border-radius: var(--r); font-size: 13px; font-weight: 700; border: none; cursor: pointer; }
-    .btn-cookie-no { background: transparent; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.5); padding: 9px 18px; border-radius: var(--r); font-size: 13px; cursor: pointer; }
-
-    /* ─── ANIMATIONS ─────────────────────────────── */
-    .fade-up {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity .5s ease, transform .5s ease;
-    }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    /* ─── RESPONSIVE ─────────────────────────────── */
-    @media (max-width: 1024px) {
-      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-      .products-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 860px) {
-      .hero-grid { grid-template-columns: 1fr; gap: 60px; }
-      .hero-visual { display: none; }
-      .hero { padding: 130px 0 70px; }
-      .pain-grid { grid-template-columns: 1fr; }
-      .products-live { grid-template-columns: 1fr; }
-      .founder-inner { grid-template-columns: 1fr; }
-      .founder-portrait { width: 100%; height: 200px; }
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .stat-cell:nth-child(2) { border-right: none; }
-      .nav-links { display: none; }
-      .nav-cta .btn-ghost { display: none; }
-      .mob { display: block; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 580px) {
-      .pricing-grid { grid-template-columns: 1fr; }
-      .products-grid { grid-template-columns: 1fr; }
-      .ai-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .section-header { flex-direction: column; align-items: flex-start; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-    }
-  </style>
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links,.nav-tel{display:none}
+  .burger{display:flex}
+  .hero{padding:90px 20px 48px}
+  .hero h1{letter-spacing:-1px}
+  .hero-stats{grid-template-columns:1fr 1fr 1fr}
+  .stat{padding:16px 12px}
+  .stat-val{font-size:24px}
+  .about-inner{grid-template-columns:1fr;gap:32px}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .products-grid,.pain-grid,.ai-grid{grid-template-columns:1fr}
+  .pain-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .footer-inner{grid-template-columns:1fr}
+  .hero-stats{max-width:100%}
+  .cta-actions{flex-direction:column;align-items:center}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .btn-primary,.btn-ghost{width:100%;text-align:center}
+}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<header>
-  <div class="c nav">
-    <a href="#" class="logo">NIZAMOV<span class="logo-dot">.</span>TECH</a>
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">NIZAMOV<span>.TECH</span></a>
     <ul class="nav-links">
-      <li><a href="#problems">Проблемы</a></li>
-      <li><a href="#products">Решения</a></li>
-      <li><a href="#pricing">Тарифы</a></li>
+      <li><a href="#problems">Боли</a></li>
+      <li><a href="#products">Продукты</a></li>
       <li><a href="#about">О нас</a></li>
     </ul>
-    <div class="nav-cta">
-      <a href="tel:+79911745113" class="btn btn-ghost btn-sm">8 (991) 174-51-13</a>
-      <button class="btn btn-primary btn-sm" onclick="openModal()">Связаться</button>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="tel:+79911745113" class="nav-tel">+7 991 174-51-13</a>
+      <a href="#" class="nav-cta" onclick="openModal();return false">Обсудить проект</a>
+      <div class="burger" onclick="toggleMenu()" id="burger"><span></span><span></span><span></span></div>
     </div>
-    <button class="mob" onclick="toggleMob()" aria-label="Меню">
-      <span class="mob-line"></span>
-      <span class="mob-line"></span>
-      <span class="mob-line"></span>
-    </button>
   </div>
-</header>
+</nav>
 
 <main>
-
 <!-- HERO -->
-<section class="hero">
-  <div class="c">
-    <div class="hero-grid">
-      <div class="fade-up">
+<section style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 70%)"></div>
+    <div style="position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.05) 0%,transparent 70%)"></div>
+  </div>
+  <div class="hero" style="z-index:1;position:relative">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:flex-start">
+      <div>
         <div class="hero-eyebrow">
-          <div class="hero-eyebrow-line"></div>
-          <span class="label">IT-решения для малого бизнеса России</span>
+          <div class="hero-eyebrow-dot"></div>
+          <span>Работает у клиентов прямо сейчас</span>
         </div>
-        <h1 class="display">
-          Цифровой порядок<br>
-          <span class="display-italic">вместо хаоса</span>
-        </h1>
-        <p class="hero-sub">
-          Пока вы занимаетесь делом — система работает за вас.
-          Никаких потерянных заказов, ручного учёта и паники перед ФНС.
-        </p>
+        <h1>Цифровой порядок<br>вместо <em>хаоса</em></h1>
+        <p>Пока вы занимаетесь делом — система работает за вас. Никаких потерянных заказов, ручного учёта и паники перед ФНС.</p>
         <div class="hero-actions">
-          <button class="btn btn-primary" onclick="openModal()">Обсудить мой проект</button>
-          <a href="#products" class="btn btn-ghost">Смотреть решения</a>
+          <a href="#" class="btn-primary" onclick="openModal();return false">Обсудить мой проект →</a>
+          <a href="#products" class="btn-ghost">Смотреть решения</a>
         </div>
         <p class="hero-note">Без предоплаты · Первая консультация бесплатно</p>
+        <div class="hero-stats" style="margin-top:40px">
+          <div class="stat"><div class="stat-val">8<span>+</span></div><div class="stat-label">ниш</div></div>
+          <div class="stat"><div class="stat-val">24<span>/7</span></div><div class="stat-label">система</div></div>
+          <div class="stat"><div class="stat-val">10<span>%</span></div><div class="stat-label">садака</div></div>
+        </div>
       </div>
-
-      <div class="hero-visual fade-up" style="transition-delay:.2s">
-        <div class="hero-card-stack">
-          <div class="h-card h-card-1">
-            <div class="h-card-label">Заказы сегодня</div>
-            <div class="h-card-val">47</div>
-            <div class="h-card-sub">+12 с прошлой недели</div>
-          </div>
-          <div class="h-card h-card-2">
-            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-              <span class="h-card-dot"></span>
-              <span class="h-card-status">Система работает</span>
+      <div class="flow-widget" style="display:none;min-width:320px" id="hero-widget">
+        <div class="flow-title"><span>Ваш бизнес сегодня</span></div>
+        <div class="flow-items">
+          <div class="flow-item" style="animation-delay:.1s">
+            <div class="flow-icon blue">🍽️</div>
+            <div class="flow-text">
+              <strong>Заказ #147 — Столик 3</strong>
+              <span>Борщ × 2, Стейк × 1</span>
             </div>
-            <div class="h-card-label">Следующий урок</div>
-            <div class="h-card-val" style="font-size:17px">Вика · 16:00</div>
-            <div class="h-card-sub">Математика — осталось 2 часа</div>
+            <div class="flow-badge live">Live</div>
           </div>
-          <div class="h-card h-card-3">
-            <div class="h-card-label">Выручка за месяц</div>
-            <div class="h-card-val">84 200 ₽</div>
-            <div class="h-card-sub">Формируется отчёт для бухгалтера</div>
+          <div class="flow-item" style="animation-delay:.25s">
+            <div class="flow-icon green">📚</div>
+            <div class="flow-text">
+              <strong>Вика — ДЗ сдано ✓</strong>
+              <span>Математика, 15:45</span>
+            </div>
+            <div class="flow-badge live">Live</div>
+          </div>
+          <div class="flow-item" style="animation-delay:.4s">
+            <div class="flow-icon gold">💰</div>
+            <div class="flow-text">
+              <strong>Выручка за день</strong>
+              <span>47 200 ₽ · +12% к вчера</span>
+            </div>
+            <div class="flow-badge new">Авто</div>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="stats-row fade-up" style="transition-delay:.3s">
-      <div class="stat-cell">
-        <div class="stat-num">0<span> ₽</span></div>
-        <div class="stat-desc">чтобы начать работу</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">24<span>/7</span></div>
-        <div class="stat-desc">система работает без вас</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">8<span>+</span></div>
-        <div class="stat-desc">ниш автоматизировано</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">10<span>%</span></div>
-        <div class="stat-desc">прибыли в садака</div>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- БОЛИ -->
-<section id="problems" class="pain-section">
-  <div class="c">
-    <div class="section-header">
-      <div class="section-header-left">
-        <div class="label">Узнаёте себя?</div>
-        <h2 class="display section-title">Проблемы,<br>которые стоят денег</h2>
-      </div>
-      <p style="font-size:15px;color:var(--ink-2);max-width:320px;text-align:right">Это не просто неудобства — каждая из этих ситуаций уносит реальную выручку каждый день.</p>
-    </div>
+<hr class="sep">
 
-    <div class="pain-grid">
-      <div class="pain-cell">
-        <div class="pain-niche">Кафе, ресторан, шашлычная</div>
-        <div class="pain-item">
-          <div class="pain-q">Официант перепутал заказ</div>
-          <div class="pain-a">"Опять скандал, повар сделал не то блюдо"</div>
-          <div class="pain-solve">Гость выбирает сам с телефона → заказ сразу на кухню</div>
-        </div>
-        <div class="pain-item">
-          <div class="pain-q">Не знаю сколько заработал</div>
-          <div class="pain-a">"Считаю выручку вручную — постоянно ошибаюсь"</div>
-          <div class="pain-solve">Каждый заказ в учёт автоматически, отчёт в реальном времени</div>
-        </div>
-        <a href="/foodflow.html" class="pain-link">Решение для кафе →</a>
-      </div>
+<!-- PAIN -->
+<section class="section" id="problems">
+  <div class="section-label">Узнаёте себя?</div>
+  <h2 class="section-title">Проблемы,<br>которые стоят денег</h2>
+  <p class="section-sub">Это не просто неудобства — каждая ситуация уносит реальную выручку каждый день.</p>
 
-      <div class="pain-cell">
-        <div class="pain-niche">Репетитор — английский, математика</div>
-        <div class="pain-item">
-          <div class="pain-q">Теряю сообщения в WhatsApp</div>
-          <div class="pain-a">"Родители пишут в разные чаты — ничего не найти"</div>
-          <div class="pain-solve">Чат, расписание и ДЗ в одной платформе для всех ролей</div>
-        </div>
-        <div class="pain-item">
-          <div class="pain-q">Ученик не знал о домашнем задании</div>
-          <div class="pain-a">"Точно отправляла — но никто не видел"</div>
-          <div class="pain-solve">ДЗ с фото-отчётом и еженедельный отчёт родителям автоматически</div>
-        </div>
-        <a href="/lesso.html" class="pain-link">Решение для репетиторов →</a>
-      </div>
-
-      <div class="pain-cell">
-        <div class="pain-niche">Фермер, КФХ, агробизнес</div>
-        <div class="pain-item">
-          <div class="pain-q">Субсидии — не понимаю на что имею право</div>
-          <div class="pain-a">"Сосед получил грант, а я даже не знал что он есть"</div>
-          <div class="pain-solve">Калькулятор субсидий покажет всё что вам положено</div>
-        </div>
-        <div class="pain-item">
-          <div class="pain-q">Отчёты в ЕФИС, ФГИС — голова кругом</div>
-          <div class="pain-a">"Трачу 3 дня на документы вместо работы в поле"</div>
-          <div class="pain-solve">Одна кнопка — готовый пакет документов для госорганов</div>
-        </div>
-        <a href="/agro.html" class="pain-link">Решение для фермеров →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ПРОДУКТЫ -->
-<section id="products" class="products-section">
-  <div class="c">
-    <div class="section-header">
-      <div class="section-header-left">
-        <div class="label">Портфолио</div>
-        <h2 class="display section-title">Работающие<br>решения</h2>
-      </div>
-    </div>
-
-    <div class="products-label">Работает у клиентов</div>
-    <div class="products-live" style="grid-template-columns:repeat(2,1fr)">
-      <div class="live-card">
-        <span class="live-badge">LIVE</span>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-header">
+        <div class="pain-ico pain-nico">🍴</div>
         <div>
-          <h3>Царская Кухня</h3>
-          <p>Гости заказывают с телефона, заказы идут прямо на кухню. Хозяин видит выручку в реальном времени.</p>
-          <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank">Открыть проект →</a>
+          <div class="pain-niche">Кафе · Ресторан</div>
+          <div class="pain-title">Официант перепутал заказ</div>
         </div>
       </div>
-      <div class="live-card">
-        <span class="live-badge">LIVE</span>
-        <div>
-          <h3>СК ПостройДом</h3>
-          <p>Строители перестали терять заявки — все обращения через сайт приходят прямо в Telegram.</p>
-          <a href="https://postroy-dom.vercel.app" target="_blank">Открыть проект →</a>
-        </div>
+      <div class="pain-body">
+        <div class="pain-quote">"Опять скандал — повар сделал не то блюдо, гость злится"</div>
+        <div class="pain-solution">Гость выбирает сам с телефона, заказ идёт прямо на кухню. Ошибок нет.</div>
       </div>
-      <div class="live-card" style="border-top:3px solid var(--accent)">
-        <span class="live-badge" style="background:var(--accent)">LIVE</span>
-        <div>
-          <h3>Lesso — для репетиторов</h3>
-          <p>Расписание, ДЗ, словари, чат с родителями — всё вместо WhatsApp. Работает у репетиторов Челябинска.</p>
-          <a href="/lesso.html">Подробнее →</a>
-          &nbsp;&nbsp;
-          <a href="https://lesso-three.vercel.app" target="_blank">Открыть приложение →</a>
-        </div>
-      </div>
-      <div class="live-card" style="border-top:3px solid #059669">
-        <span class="live-badge" style="background:#059669">LIVE</span>
-        <div>
-          <h3>Осознанность — для мусульман</h3>
-          <p>Точное время намаза, азкары, 99 имён, Кибла. Работает как приложение без установки. Бесплатно.</p>
-          <a href="/osoznannost.html">Подробнее →</a>
-          &nbsp;&nbsp;
-          <a href="https://namaz-drab.vercel.app" target="_blank">Открыть приложение →</a>
-        </div>
-      </div>
+      <div class="pain-footer"><a href="foodflow.html" class="pain-link">Решение для кафе →</a></div>
     </div>
 
-    <div class="products-label" style="margin-top:48px">Демо — попробуйте прямо сейчас</div>
-    <div class="products-grid">
-
-      <div class="prod-card prod-accent">
-        <div class="prod-tag">FoodFlow · Кафе</div>
-        <h3>Кафе, ресторан, шашлычная</h3>
-        <div class="prod-problem">"Официанты путают заказы, выручку считаю в тетради"</div>
-        <div class="prod-result">Результат: <strong>заказы без ошибок</strong>, выручка в реальном времени</div>
-        <div class="prod-actions">
-          <a href="/foodflow.html" class="btn btn-ghost btn-sm">Тарифы</a>
-          <a href="https://foodflow-rho.vercel.app" target="_blank" class="btn btn-primary btn-sm">Демо →</a>
+    <div class="pain-card">
+      <div class="pain-header">
+        <div class="pain-ico pain-nico">📊</div>
+        <div>
+          <div class="pain-niche">Кафе · Учёт</div>
+          <div class="pain-title">Не знаю сколько заработал</div>
         </div>
       </div>
+      <div class="pain-body">
+        <div class="pain-quote">"Считаю выручку вручную в тетради — постоянно ошибаюсь"</div>
+        <div class="pain-solution">Каждый заказ в учёт автоматически. Отчёт в реальном времени на телефоне.</div>
+      </div>
+      <div class="pain-footer"><a href="foodflow.html" class="pain-link">Решение для кафе →</a></div>
+    </div>
 
-      <div class="prod-card prod-green">
-        <div class="prod-tag" style="color:var(--green)">АгроПомощник · Ферма</div>
-        <h3>Ферма, КФХ, сельхозбизнес</h3>
-        <div class="prod-problem">"Субсидии не получаю, отчёты занимают неделю"</div>
-        <div class="prod-result">Результат: <strong>100% субсидий</strong>, отчёты в 1 клик</div>
-        <div class="prod-actions">
-          <a href="/agro.html" class="btn btn-ghost btn-sm">Тарифы</a>
-          <a href="https://agropomoshnik.vercel.app" target="_blank" class="btn btn-primary btn-sm">Демо →</a>
+    <div class="pain-card">
+      <div class="pain-header">
+        <div class="pain-ico pain-rnico">💬</div>
+        <div>
+          <div class="pain-niche">Репетиторы</div>
+          <div class="pain-title">Теряю сообщения в WhatsApp</div>
         </div>
       </div>
+      <div class="pain-body">
+        <div class="pain-quote">"Родители пишут в разные чаты — ничего не найти"</div>
+        <div class="pain-solution">Чат, расписание и ДЗ — в одной платформе. Все роли на своих местах.</div>
+      </div>
+      <div class="pain-footer"><a href="lesso.html" class="pain-link">Решение для репетиторов →</a></div>
+    </div>
 
-      <div class="prod-card">
-        <div class="prod-tag">ПасечникПро · Пасека</div>
-        <h3>Пасека, пчеловодство</h3>
-        <div class="prod-problem">"Не помню когда осматривал улей, теряю данные"</div>
-        <div class="prod-result">Результат: <strong>вся пасека под контролем</strong> — ульи, осмотры, мёд</div>
-        <div class="prod-actions">
-          <a href="https://pasechnik-pro.vercel.app" target="_blank" class="btn btn-ghost btn-sm">Демо →</a>
+    <div class="pain-card">
+      <div class="pain-header">
+        <div class="pain-ico pain-rnico">🌾</div>
+        <div>
+          <div class="pain-niche">Фермеры · КФХ</div>
+          <div class="pain-title">Субсидии — не знаю что положено</div>
         </div>
       </div>
-
-      <div class="prod-card">
-        <div class="prod-tag">Витрина · Торговля</div>
-        <h3>Магазин, торговая точка</h3>
-        <div class="prod-problem">"Клиенты спрашивают цены в WhatsApp, отвечаю вручную"</div>
-        <div class="prod-result">Результат: <strong>каталог онлайн</strong> — клиент выбирает сам</div>
-        <div class="prod-actions">
-          <a href="https://shop-vitrina.vercel.app" target="_blank" class="btn btn-ghost btn-sm">Демо →</a>
-        </div>
+      <div class="pain-body">
+        <div class="pain-quote">"Сосед получил грант, а я даже не знал что он есть"</div>
+        <div class="pain-solution">Калькулятор субсидий покажет всё, на что вы имеете право.</div>
       </div>
-
+      <div class="pain-footer"><a href="agro.html" class="pain-link">Решение для фермеров →</a></div>
     </div>
   </div>
 </section>
 
-<!-- ИИ -->
-<section id="ai" class="ai-section">
-  <div class="c">
-    <div class="section-header" style="margin-bottom:0">
-      <div class="section-header-left">
-        <div class="label" style="color:rgba(255,255,255,0.35)">Дополнительно</div>
-        <h2 class="display section-title" style="color:#fff">ИИ вместо вас<br>отвечает клиентам</h2>
-      </div>
-      <p style="font-size:15px;color:rgba(255,255,255,0.4);max-width:280px;text-align:right">Пропущенный звонок — потерянный клиент. ИИ работает 24/7.</p>
-    </div>
+<hr class="sep">
 
-    <div class="ai-grid">
-      <div class="ai-cell">
-        <div class="ai-icon">💬</div>
-        <h3>ИИ-чат на сайте</h3>
-        <p>Клиент зашёл ночью, задал вопрос — ИИ ответил, принял заявку и передал вам готового клиента.</p>
-        <div class="ai-price">+2 000 <span>₽/мес</span></div>
-      </div>
-      <div class="ai-cell">
-        <div class="ai-icon">🤖</div>
-        <h3>Telegram-бот</h3>
-        <p>Принимает заказы, отвечает на вопросы, показывает меню или каталог — круглосуточно.</p>
-        <div class="ai-price">+2 000 <span>₽/мес</span></div>
-      </div>
-      <div class="ai-cell">
-        <div class="ai-icon">🎙️</div>
-        <h3>Голосовой агент</h3>
-        <p>Принимает звонок, отвечает голосом, записывает заявку — ни один звонок не пропадёт.</p>
-        <div class="ai-price">+5 000 <span>₽/мес</span></div>
+<!-- PRODUCTS -->
+<section class="section" id="products">
+  <div class="section-label">Портфолио</div>
+  <h2 class="section-title">Работающие<br>решения</h2>
+  <p class="section-sub">Не демо-продукты — настоящие инструменты, которые работают у реальных клиентов.</p>
+
+  <div class="products-grid">
+    <div class="product-card featured">
+      <div class="prod-badge">Live у клиента</div>
+      <div class="prod-name">FoodFlow</div>
+      <div class="prod-desc">QR-меню, заказы без официантов, учёт выручки в реальном времени. Работает в Царской Кухне.</div>
+      <div class="prod-result">Результат: <strong>ноль ошибок</strong> в заказах, выручка видна с телефона</div>
+      <div class="prod-actions">
+        <a href="foodflow.html" class="btn-sm btn-sm-primary">Подробнее</a>
+        <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть демо</a>
       </div>
     </div>
 
-    <div class="ai-cta">
-      <button class="btn btn-white" onclick="openModal()">Подключить ИИ к моему бизнесу →</button>
+    <div class="product-card featured">
+      <div class="prod-badge">Live у клиента</div>
+      <div class="prod-name">Lesso</div>
+      <div class="prod-desc">Платформа для репетиторов: расписание, ДЗ с фото, чат с родителями, оплата. Работает вместо WhatsApp.</div>
+      <div class="prod-result">Результат: <strong>все ученики в одном месте</strong>, родители довольны</div>
+      <div class="prod-actions">
+        <a href="lesso.html" class="btn-sm btn-sm-primary">Подробнее</a>
+        <a href="https://lesso-three.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть приложение</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="prod-badge">Live у клиента</div>
+      <div class="prod-name">Осознанность</div>
+      <div class="prod-desc">Исламское PWA: точное время намаза, азкары, 99 имён Аллаха, Кибла. Без установки.</div>
+      <div class="prod-result">Результат: <strong>бесплатно для мусульман</strong>, работает офлайн</div>
+      <div class="prod-actions">
+        <a href="osoznannost.html" class="btn-sm btn-sm-primary">Подробнее</a>
+        <a href="https://namaz-drab.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="prod-badge">Live у клиента</div>
+      <div class="prod-name">СК ПостройДом</div>
+      <div class="prod-desc">Строители перестали терять заявки — все обращения через сайт приходят прямо в Telegram.</div>
+      <div class="prod-result">Результат: <strong>ноль потерянных заявок</strong></div>
+      <div class="prod-actions">
+        <a href="https://postroy-dom.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть проект</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="prod-badge" style="background:rgba(245,158,11,.1);color:#FCD34D">Демо</div>
+      <div class="prod-name">АгроПомощник</div>
+      <div class="prod-desc">Субсидии, отчёты ЕФИС/ФГИС, учёт животных. Для КФХ и агробизнеса Челябинской области.</div>
+      <div class="prod-result">Результат: <strong>100% субсидий</strong> + отчёты в 1 клик</div>
+      <div class="prod-actions">
+        <a href="agro.html" class="btn-sm btn-sm-primary">Подробнее</a>
+        <a href="https://agropomoshnik.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Демо</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="prod-badge" style="background:rgba(245,158,11,.1);color:#FCD34D">Демо</div>
+      <div class="prod-name">ПасечникПро</div>
+      <div class="prod-desc">Контроль ульев, осмотры, учёт мёда. Вся пасека под контролем в телефоне.</div>
+      <div class="prod-result">Результат: <strong>вся пасека</strong> — осмотры, мёд, обработки</div>
+      <div class="prod-actions">
+        <a href="https://pasechnik-pro.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Попробовать</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ТАРИФЫ -->
-<section id="pricing" class="pricing-section">
-  <div class="c">
-    <div class="section-header">
-      <div class="section-header-left">
-        <div class="label">Тарифы платформы</div>
-        <h2 class="display section-title">Начните<br>бесплатно</h2>
-      </div>
-      <p style="font-size:15px;color:var(--ink-2);max-width:300px;text-align:right">Платите только когда почувствуете пользу. Год — 2 месяца в подарок.</p>
+<hr class="sep">
+
+<!-- AI -->
+<section class="section">
+  <div class="section-label">Дополнительно</div>
+  <h2 class="section-title">ИИ вместо вас<br>отвечает клиентам</h2>
+  <p class="section-sub">Пропущенный звонок — потерянный клиент. ИИ работает 24/7 и не берёт выходные.</p>
+
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-icon">💬</div>
+      <div class="ai-name">ИИ-чат на сайте</div>
+      <div class="ai-desc">Клиент зашёл ночью, задал вопрос — ИИ ответил, принял заявку и передал вам готового клиента.</div>
+      <div class="ai-price">+2 000 ₽<span>/мес</span></div>
     </div>
-
-    <div class="pricing-grid">
-      <div class="price-card">
-        <div class="price-tier">Старт</div>
-        <div class="price-val">0 <span style="font-size:18px;color:var(--ink-3)">₽</span></div>
-        <div class="price-per">навсегда</div>
-        <div class="price-note">попробуйте без риска</div>
-        <ul class="price-list">
-          <li class="price-li">Основной функционал</li>
-          <li class="price-li">1 точка / 1 аккаунт</li>
-          <li class="price-li">Мобильная версия</li>
-          <li class="price-li no">Учёт и аналитика</li>
-          <li class="price-li no">Интеграции</li>
-        </ul>
-        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Старт" class="btn btn-ghost" style="width:100%;justify-content:center">Начать бесплатно</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-tier">Базовый</div>
-        <div class="price-val">· · ·</div>
-        <div class="price-per">₽/мес</div>
-        <div class="price-note">· · · ₽/год (−17%)</div>
-        <ul class="price-list">
-          <li class="price-li">Всё из Старта</li>
-          <li class="price-li">Учёт доходов и расходов</li>
-          <li class="price-li">Базовая аналитика</li>
-          <li class="price-li">Уведомления в Telegram</li>
-          <li class="price-li no">Несколько точек</li>
-        </ul>
-        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Базовый" class="btn btn-ghost" style="width:100%;justify-content:center">Выбрать</a>
-      </div>
-
-      <div class="price-card featured">
-        <div class="featured-badge">Популярный</div>
-        <div class="price-tier">Бизнес</div>
-        <div class="price-val">· · ·</div>
-        <div class="price-per">₽/мес</div>
-        <div class="price-note">· · · ₽/год (−17%)</div>
-        <ul class="price-list">
-          <li class="price-li">Всё из Базового</li>
-          <li class="price-li">До 5 точек / аккаунтов</li>
-          <li class="price-li">Отчёты для бухгалтера</li>
-          <li class="price-li">Telegram-интеграция</li>
-          <li class="price-li">Приоритетная поддержка</li>
-        </ul>
-        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Бизнес" class="btn btn-accent" style="width:100%;justify-content:center">Выбрать</a>
-      </div>
-
-      <div class="price-card">
-        <div class="price-tier">Про Макс</div>
-        <div class="price-val">· · ·</div>
-        <div class="price-per">₽/мес</div>
-        <div class="price-note">· · · ₽/год (−17%)</div>
-        <ul class="price-list">
-          <li class="price-li">Всё из Бизнеса</li>
-          <li class="price-li">Без лимита точек</li>
-          <li class="price-li">Авторасчёт НДС 2026</li>
-          <li class="price-li">ИИ-аналитика</li>
-          <li class="price-li">Белый лейбл</li>
-        </ul>
-        <a href="https://t.me/daniil74_bot?text=Хочу%20тариф%20Про%20Макс" class="btn btn-ghost" style="width:100%;justify-content:center">Выбрать</a>
-      </div>
+    <div class="ai-card">
+      <div class="ai-icon">🤖</div>
+      <div class="ai-name">Telegram-бот</div>
+      <div class="ai-desc">Принимает заказы, отвечает на вопросы, показывает меню — круглосуточно без вашего участия.</div>
+      <div class="ai-price">+2 000 ₽<span>/мес</span></div>
     </div>
+    <div class="ai-card">
+      <div class="ai-icon">🎙️</div>
+      <div class="ai-name">Голосовой агент</div>
+      <div class="ai-desc">Принимает звонок, отвечает голосом, записывает заявку. Ни один звонок не пропадёт.</div>
+      <div class="ai-price">+5 000 ₽<span>/мес</span></div>
+    </div>
+  </div>
 
-    <p style="font-size:13px;color:var(--ink-3);margin-top:24px;text-align:center">Не нашли свою нишу? <a href="https://t.me/daniil74_bot" style="color:var(--accent);text-decoration:none">Напишите</a> — сделаем под вас.</p>
+  <div style="margin-top:32px">
+    <a href="#" class="btn-primary" onclick="openModal();return false">Подключить ИИ к моему бизнесу →</a>
   </div>
 </section>
 
-<!-- ОСНОВАТЕЛЬ -->
-<section id="about" class="founder-section">
-  <div class="c">
-    <div class="founder-inner">
-      <div>
-        <div class="founder-portrait">ДН</div>
+<hr class="sep">
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-inner">
+    <div>
+      <div class="about-avatar">ДН</div>
+      <div class="about-quote">"Видел как малый бизнес тонет в бумагах — и <em>решил это исправить</em>"</div>
+      <div class="about-bio">Прошёл путь от завода до IT-продукта. Работаю в Челябинске, строю реальные инструменты для реального бизнеса — не абстрактные «платформы», а решения конкретных болей.<br><br>Принципиально работаю только с халяльными проектами. 10% прибыли — в садака.</div>
+      <div class="about-links">
+        <a href="https://t.me/Aslyamov74" target="_blank" class="btn-ghost" style="font-size:14px;padding:10px 20px">Telegram</a>
+        <a href="https://t.me/Daniil_s_zavoda" target="_blank" class="btn-ghost" style="font-size:14px;padding:10px 20px">Канал</a>
+        <div class="about-tag halal">☪️ Халяльный продукт</div>
       </div>
-      <div>
-        <div class="label" style="margin-bottom:16px">Об основателе</div>
-        <p class="founder-quote">
-          "Видел как малый бизнес тонет в бумагах — и решил это исправить."
-        </p>
-        <p class="founder-bio">
-          Прошёл путь от завода до IT-продукта. Работаю в Челябинске,
-          строю реальные инструменты для реального бизнеса — не абстрактные
-          "платформы", а решения конкретных болей.
-          <br><br>
-          Nizamov.tech — это избавление от потерянных заказов, непонятных налогов,
-          ручного учёта. Принципиально работаю только с халяльными проектами.
-          10% прибыли — в садака.
-        </p>
-        <div class="founder-name">Даниил Низамов</div>
-        <div class="founder-role">Основатель Nizamov.tech · Челябинск</div>
-        <div class="founder-links">
-          <a href="https://t.me/Aslyamov74" class="btn btn-primary btn-sm">Написать в Telegram</a>
-          <a href="https://t.me/Daniil_s_zavoda" class="btn btn-ghost btn-sm">Канал</a>
-          <a href="https://kwork.ru" class="btn btn-ghost btn-sm">Kwork</a>
+    </div>
+    <div class="about-stats-side">
+      <div class="aside-stat">
+        <div>
+          <div class="aside-stat-icon">🏭</div>
+          <div class="aside-stat-val">Завод → IT</div>
+          <div class="aside-stat-label">Реальный опыт малого бизнеса изнутри</div>
+        </div>
+      </div>
+      <div class="aside-stat">
+        <div>
+          <div class="aside-stat-icon">📍</div>
+          <div class="aside-stat-val">Челябинск</div>
+          <div class="aside-stat-label">Работаю с бизнесами России и СНГ</div>
+        </div>
+      </div>
+      <div class="aside-stat">
+        <div>
+          <div class="aside-stat-icon">🤝</div>
+          <div class="aside-stat-val">Без предоплаты</div>
+          <div class="aside-stat-label">Платите только когда увидите пользу</div>
         </div>
       </div>
     </div>
@@ -1024,148 +528,165 @@
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="c">
-    <div class="cta-eyebrow">
-      <div class="label">Готовы начать?</div>
-    </div>
-    <h2 class="display">Опишите вашу боль —<br><span class="display-italic">найдём решение за 10 минут</span></h2>
+  <div class="cta-inner">
+    <div class="section-label" style="text-align:center">Готовы начать?</div>
+    <h2>Опишите вашу боль —<br>найдём решение за 10 минут</h2>
     <p>Без договоров и предоплаты. Первая консультация бесплатно.</p>
     <div class="cta-actions">
-      <button class="btn btn-primary" onclick="openModal()">Описать мою ситуацию</button>
-      <a href="https://t.me/Aslyamov74" class="btn btn-ghost">Написать напрямую</a>
+      <a href="#" class="btn-primary" onclick="openModal();return false">Описать мою ситуацию</a>
+      <a href="https://t.me/Aslyamov74" target="_blank" class="btn-ghost">Написать напрямую</a>
     </div>
   </div>
 </section>
-
 </main>
 
-<!-- FOOTER -->
 <footer>
-  <div class="c">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <span class="footer-logo">NIZAMOV.TECH</span>
-        <p class="footer-desc">Убираем хаос из малого бизнеса России и СНГ. Вы занимаетесь делом — остальное наше. Халяльный IT-продукт.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Продукты</h4>
-        <a href="/foodflow.html">FoodFlow — кафе</a>
-        <a href="/lesso.html">Lesso — репетиторы</a>
-        <a href="/agro.html">АгроПомощник</a>
-        <a href="/osoznannost.html">Осознанность</a>
-        <a href="https://pasechnik-pro.vercel.app">ПасечникПро</a>
-      </div>
-      <div class="footer-col">
-        <h4>Навигация</h4>
-        <a href="#problems">Наши решения</a>
-        <a href="#products">Портфолио</a>
-        <a href="#pricing">Тарифы</a>
-        <a href="#about">Об основателе</a>
-      </div>
-      <div class="footer-col">
-        <h4>Контакты</h4>
-        <a href="tel:+79911745113">8 (991) 174-51-13</a>
-        <a href="https://t.me/Aslyamov74">@Aslyamov74</a>
-        <a href="https://t.me/Daniil_s_zavoda">Telegram-канал</a>
-        <a href="/privacy.html">Конфиденциальность</a>
-      </div>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">NIZAMOV<span>.TECH</span></div>
+      <div class="footer-tagline">Убираем хаос из малого бизнеса России и СНГ. Вы занимаетесь делом — остальное наше.</div>
+      <div class="footer-halal">☪️ Халяльный IT-продукт · 10% в садака</div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Nizamov.tech — Даниил Низамов · Челябинск</span>
-      <span>Халяльный продукт · 10% в садака</span>
+    <div class="footer-col">
+      <h4>Продукты</h4>
+      <ul>
+        <li><a href="foodflow.html">FoodFlow</a></li>
+        <li><a href="lesso.html">Lesso</a></li>
+        <li><a href="agro.html">АгроПомощник</a></li>
+        <li><a href="osoznannost.html">Осознанность</a></li>
+        <li><a href="https://pasechnik-pro.vercel.app" target="_blank">ПасечникПро</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="#problems">Боли бизнеса</a></li>
+        <li><a href="#products">Портфолио</a></li>
+        <li><a href="#about">Об основателе</a></li>
+        <li><a href="privacy.html">Конфиденциальность</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+79911745113">+7 991 174-51-13</a></li>
+        <li><a href="https://t.me/Aslyamov74" target="_blank">@Aslyamov74</a></li>
+        <li><a href="https://t.me/Daniil_s_zavoda" target="_blank">Telegram-канал</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Nizamov.tech — Даниил Низамов · Челябинск</div>
+    <div class="footer-copy">Самозанятый · ИНН для документов по запросу</div>
   </div>
 </footer>
 
 <!-- MODAL -->
-<div id="modal">
-  <div class="modal-box">
+<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+  <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <h3>Опишите вашу ситуацию</h3>
-    <p>Расскажите что мешает бизнесу — свяжемся в течение часа.</p>
-    <form id="cf" onsubmit="submitForm(event)">
-      <div class="field"><input type="text" placeholder="Ваше имя *" required></div>
-      <div class="field"><input type="tel" placeholder="Телефон *" required></div>
-      <div class="field">
-        <select required>
-          <option value="" disabled selected>Какая проблема болит сильнее всего?</option>
+    <div id="modal-form">
+      <h3>Обсудим ваш проект</h3>
+      <p>Расскажите что мешает бизнесу — свяжусь в течение часа.</p>
+      <div class="form-group">
+        <label>Какая проблема болит сильнее всего?</label>
+        <select id="problem-select">
+          <option value="">Выберите...</option>
           <option>Теряю заказы в кафе / ресторане</option>
           <option>Веду учеников в WhatsApp — хаос</option>
-          <option>Не получаю субсидии / отчёты съедают время</option>
+          <option>Не получаю субсидии, отчёты съедают время</option>
           <option>Клиенты не дожидаются ответа</option>
-          <option>Непонятно как считать НДС 2026</option>
           <option>Нужен сайт для строительного бизнеса</option>
-          <option>Другое — расскажу подробнее</option>
+          <option>Другое</option>
         </select>
       </div>
-      <div class="consent">
-        <input type="checkbox" id="pv" required checked>
-        <label for="pv">Согласен на обработку данных согласно <a href="/privacy.html">политике конфиденциальности</a></label>
+      <div class="form-group">
+        <label>Коротко о ситуации (необязательно)</label>
+        <textarea id="problem-text" rows="3" placeholder="Ваш бизнес, основная боль..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Отправить →</button>
-    </form>
+      <button class="form-submit" onclick="submitForm()">Отправить → в Telegram</button>
+    </div>
+    <div class="modal-success" id="modal-success" style="display:none">
+      <div class="check">✅</div>
+      <h3>Отлично! Уже вижу ваш запрос</h3>
+      <p>Свяжусь в течение часа в Telegram.<br>Заранее спасибо за доверие.</p>
+    </div>
   </div>
 </div>
 
 <!-- COOKIE -->
-<div id="cookie">
-  <p>Мы используем cookie для корректной работы сайта. <a href="/privacy.html">Подробнее</a></p>
-  <div class="cookie-btns">
-    <button class="btn-cookie-ok" onclick="acceptCookie()">Принять</button>
-    <button class="btn-cookie-no" onclick="declineCookie()">Отказаться</button>
+<div class="cookie-bar" id="cookie">
+  <span class="cookie-text">Используем cookie для корректной работы сайта.</span>
+  <div class="cookie-actions">
+    <button class="cookie-ok" onclick="acceptCookie()">Принять</button>
+    <button class="cookie-no" onclick="denyCookie()">✕</button>
   </div>
 </div>
 
 <script>
-  // Cookie banner
-  function acceptCookie() {
-    localStorage.setItem('cookie_consent', 'accepted');
-    document.getElementById('cookie').classList.remove('visible');
-  }
-  function declineCookie() {
-    localStorage.setItem('cookie_consent', 'declined');
-    document.getElementById('cookie').classList.remove('visible');
-  }
-  window.addEventListener('DOMContentLoaded', () => {
-    if (!localStorage.getItem('cookie_consent')) {
-      setTimeout(() => document.getElementById('cookie').classList.add('visible'), 800);
-    }
-  });
+// HERO WIDGET visibility
+function checkWidget(){
+  const w=document.getElementById('hero-widget');
+  if(window.innerWidth>900)w.style.display='block';
+  else w.style.display='none';
+}
+checkWidget();
+window.addEventListener('resize',checkWidget);
 
-  // Modal
-  function openModal() {
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  document.getElementById('modal').addEventListener('click', e => {
-    if (e.target === e.currentTarget) closeModal();
-  });
-  function submitForm(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button[type=submit]');
-    btn.textContent = '✓ Получили! Свяжемся в течение часа';
-    btn.disabled = true;
-    setTimeout(() => { closeModal(); e.target.reset(); btn.textContent = 'Отправить →'; btn.disabled = false; }, 2800);
-  }
+// MODAL
+function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
+function handleOverlayClick(e){if(e.target===document.getElementById('modal'))closeModal()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
-  // Mobile menu
-  function toggleMob() {
-    document.querySelector('.nav-links').classList.toggle('mob-open');
-  }
-  const style = document.createElement('style');
-  style.textContent = `.nav-links.mob-open{display:flex;position:fixed;top:60px;left:0;width:100%;background:#fff;flex-direction:column;padding:20px 24px;border-bottom:1px solid var(--paper-3);box-shadow:0 8px 24px rgba(0,0,0,0.08);gap:16px}`;
-  document.head.appendChild(style);
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('mob-open')));
+function submitForm(){
+  const prob=document.getElementById('problem-select').value;
+  const txt=document.getElementById('problem-text').value;
+  const msg=encodeURIComponent((prob||'Запрос с сайта')+(txt?'\n'+txt:''));
+  window.open('https://t.me/Aslyamov74?text='+msg,'_blank');
+  document.getElementById('modal-form').style.display='none';
+  document.getElementById('modal-success').style.display='block';
+}
 
-  // Fade-up on scroll
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+// COOKIE
+(function(){
+  if(!localStorage.getItem('cookie_accepted')){
+    setTimeout(()=>document.getElementById('cookie').classList.add('show'),1200);
+  }
+})();
+function acceptCookie(){localStorage.setItem('cookie_accepted','1');document.getElementById('cookie').classList.remove('show')}
+function denyCookie(){document.getElementById('cookie').classList.remove('show')}
+
+// BURGER (мобильное меню)
+let menuOpen=false;
+function toggleMenu(){
+  menuOpen=!menuOpen;
+  const b=document.getElementById('burger');
+  if(menuOpen){
+    let mob=document.getElementById('mob-menu');
+    if(!mob){
+      mob=document.createElement('div');
+      mob.id='mob-menu';
+      mob.style.cssText='position:fixed;top:60px;left:0;right:0;background:#111218;border-bottom:1px solid #2A2B38;padding:20px 24px;z-index:99;display:flex;flex-direction:column;gap:16px';
+      mob.innerHTML='<a href="#problems" style="color:#8B8C9E;text-decoration:none;font-size:16px;font-weight:500" onclick="toggleMenu()">Боли бизнеса</a><a href="#products" style="color:#8B8C9E;text-decoration:none;font-size:16px;font-weight:500" onclick="toggleMenu()">Портфолио</a><a href="#about" style="color:#8B8C9E;text-decoration:none;font-size:16px;font-weight:500" onclick="toggleMenu()">О нас</a><a href="tel:+79911745113" style="color:#8B8C9E;text-decoration:none;font-size:16px">+7 991 174-51-13</a>';
+      document.body.appendChild(mob);
+    } else mob.style.display='flex';
+    b.style.opacity='.6';
+  } else {
+    const mob=document.getElementById('mob-menu');
+    if(mob)mob.style.display='none';
+    b.style.opacity='1';
+  }
+}
+
+// SCROLL reveal (простой)
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
+},{threshold:.1});
+document.querySelectorAll('.pain-card,.product-card,.ai-card,.aside-stat').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease, transform .5s ease';
+  obs.observe(el);
+});
 </script>
 </body>
 </html>
