@@ -3,523 +3,526 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nizamov.tech — IT-решения для малого бизнеса. Автоматизация кафе, репетиторов, фермеров. Первая консультация бесплатно.">
-<title>Nizamov.tech — Цифровой порядок для малого бизнеса</title>
+<meta name="description" content="Даниил Низамов — разработчик цифровых продуктов. PWA, системы лояльности, автоматизация для бизнеса. Челябинск.">
+<meta property="og:title" content="Даниил Низамов — разработчик цифровых продуктов">
+<meta property="og:description" content="Строю PWA и автоматизацию для бизнеса. Живые клиенты, абонентки, партнёрство. Следующий слот — июль 2026.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nizamov-tech.vercel.app">
+<title>Даниил Низамов — разработчик цифровых продуктов</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0A0B0F;
-  --bg2:#111218;
-  --bg3:#16171F;
-  --card:#1C1D27;
-  --border:#2A2B38;
-  --accent:#2563EB;
-  --accent2:#3B82F6;
-  --gold:#F59E0B;
-  --green:#10B981;
-  --text:#F0EEE8;
-  --muted:#8B8C9E;
-  --danger:#EF4444;
-  --r:12px;
-  --r2:20px;
+  --bg:#08090D;--bg2:#0F1016;--card:#13141C;--card2:#191A24;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --accent:#2563EB;--accent-l:#3B82F6;--gold:#F59E0B;--green:#10B981;
+  --text:#EEECEA;--muted:#6B6C7E;--muted2:#9495A8;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,11,15,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--text);text-decoration:none;letter-spacing:-.3px}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{background:var(--accent);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:var(--accent2)}
-.nav-tel{color:var(--muted);font-size:13px;text-decoration:none;margin-right:16px}
-.nav-tel:hover{color:var(--text)}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.burger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:.2s}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 24px 60px;max-width:1200px;margin:0 auto;position:relative}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.3);border-radius:100px;padding:6px 16px;margin-bottom:32px;width:fit-content}
-.hero-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-.hero-eyebrow span{font-size:13px;color:var(--accent2);font-weight:500}
-.hero h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(42px,6vw,80px);line-height:1.05;letter-spacing:-2px;margin-bottom:24px}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero p{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:560px;margin-bottom:40px;line-height:1.6}
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:64px}
-.btn-primary{background:var(--accent);color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;display:inline-block}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
-.btn-ghost{color:var(--muted);border:1px solid var(--border);background:transparent;padding:14px 28px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
-.btn-ghost:hover{border-color:var(--muted);color:var(--text)}
-.hero-note{font-size:13px;color:var(--muted);margin-top:12px}
-
-/* STATS */
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;max-width:600px}
-.stat{background:var(--card);padding:24px;text-align:center}
-.stat-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:32px;color:var(--text);letter-spacing:-1px}
-.stat-val span{font-size:18px;color:var(--accent)}
-.stat-label{font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
-
-/* FLOW ANIMATION */
-.flow-widget{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:24px;max-width:360px;margin-top:40px}
-.flow-title{font-size:13px;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.flow-title::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green)}
-.flow-items{display:flex;flex-direction:column;gap:10px}
-.flow-item{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;animation:slideIn .4s ease both}
-.flow-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
-.flow-icon.blue{background:rgba(37,99,235,.15);color:#60A5FA}
-.flow-icon.green{background:rgba(16,185,129,.15);color:#34D399}
-.flow-icon.gold{background:rgba(245,158,11,.15);color:#FCD34D}
-.flow-text strong{display:block;font-size:14px;font-weight:600;color:var(--text)}
-.flow-text span{font-size:12px;color:var(--muted)}
-.flow-badge{margin-left:auto;font-size:11px;padding:3px 10px;border-radius:100px;font-weight:600;flex-shrink:0}
-.flow-badge.live{background:rgba(16,185,129,.15);color:#34D399}
-.flow-badge.new{background:rgba(37,99,235,.15);color:#60A5FA}
-
-/* SECTION */
-.section{max-width:1200px;margin:0 auto;padding:80px 24px}
-.section-label{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-.section-title{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,4vw,52px);letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px}
-.section-sub{font-size:18px;color:var(--muted);max-width:600px;line-height:1.6}
-.sep{border:none;border-top:1px solid var(--border);margin:0}
-
-/* PAIN */
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-top:48px}
-.pain-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;transition:border-color .2s,transform .2s}
-.pain-card:hover{border-color:#3A3B4E;transform:translateY(-2px)}
-.pain-header{padding:20px 24px 16px;display:flex;align-items:flex-start;gap:14px}
-.pain-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-.pain-nico{background:rgba(239,68,68,.1);color:#F87171}
-.pain-rnico{background:rgba(37,99,235,.1);color:#60A5FA}
-.pain-body{padding:0 24px 20px}
-.pain-quote{font-style:italic;color:var(--muted);font-size:14px;margin-bottom:16px;padding:12px 16px;background:var(--bg3);border-left:3px solid var(--border);border-radius:0 8px 8px 0}
-.pain-solution{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text)}
-.pain-solution::before{content:'→';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px}
-.pain-footer{padding:16px 24px;border-top:1px solid var(--border);background:var(--bg3)}
-.pain-link{color:var(--accent2);font-size:13px;font-weight:600;text-decoration:none;transition:color .2s}
-.pain-link:hover{color:#93C5FD}
-.pain-niche{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-.pain-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px}
-
-/* PRODUCTS */
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px;margin-top:48px}
-.product-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
-.product-card:hover{border-color:#3A3B4E;transform:translateY(-2px)}
-.product-card.featured{border-color:rgba(37,99,235,.5)}
-.product-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#818CF8)}
-.prod-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.1);color:#34D399;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;width:fit-content}
-.prod-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
-.prod-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;color:var(--text);letter-spacing:-.5px}
-.prod-desc{font-size:14px;color:var(--muted);line-height:1.6}
-.prod-result{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:12px 16px;font-size:13px;color:var(--muted)}
-.prod-result strong{color:var(--green)}
-.prod-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
-.btn-sm{padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:background .2s,color .2s,border-color .2s;cursor:pointer;border:1px solid transparent;display:inline-block}
-.btn-sm-primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn-sm-primary:hover{background:var(--accent2)}
-.btn-sm-ghost{background:transparent;color:var(--muted);border-color:var(--border)}
-.btn-sm-ghost:hover{color:var(--text);border-color:#3A3B4E}
-
-/* AI section */
-.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:48px}
-.ai-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .2s}
-.ai-card:hover{border-color:#3A3B4E}
-.ai-icon{font-size:28px;margin-bottom:16px}
-.ai-name{font-weight:700;font-size:18px;color:var(--text);margin-bottom:8px}
-.ai-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-.ai-price{font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:var(--accent)}
-.ai-price span{font-size:13px;color:var(--muted);font-weight:400;font-family:'Inter',sans-serif}
-
-/* ABOUT */
-.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.about-avatar{width:120px;height:120px;border-radius:24px;background:linear-gradient(135deg,#1E3A8A,#2563EB);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:36px;font-weight:900;color:#fff;margin-bottom:24px;letter-spacing:-2px}
-.about-quote{font-family:'Montserrat',sans-serif;font-size:clamp(20px,2.5vw,28px);font-weight:700;line-height:1.3;color:var(--text);margin-bottom:24px;letter-spacing:-.5px}
-.about-quote em{font-style:normal;color:var(--accent)}
-.about-bio{font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:32px}
-.about-links{display:flex;gap:12px;flex-wrap:wrap}
-.about-tag{background:var(--card);border:1px solid var(--border);padding:6px 16px;border-radius:100px;font-size:13px;font-weight:500;color:var(--muted);display:flex;align-items:center;gap:6px}
-.about-tag.halal{color:var(--gold);border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.05)}
-.about-stats-side{display:flex;flex-direction:column;gap:16px}
-.aside-stat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;align-items:flex-start;gap:16px}
-.aside-stat-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:var(--text);letter-spacing:-1px;line-height:1}
-.aside-stat-info{flex:1}
-.aside-stat-label{font-size:14px;color:var(--muted);margin-top:4px;line-height:1.4}
-.aside-stat-icon{font-size:24px;margin-bottom:8px}
-
-/* CTA */
-.cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.cta-inner{max-width:1200px;margin:0 auto;padding:80px 24px;text-align:center}
-.cta-inner h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(32px,4vw,56px);letter-spacing:-1.5px;margin-bottom:16px}
-.cta-inner p{font-size:18px;color:var(--muted);margin-bottom:40px}
-.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-
-/* FOOTER */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 24px}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
-.footer-brand{font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:var(--text);margin-bottom:12px}
-.footer-brand span{color:var(--accent)}
-.footer-tagline{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px}
-.footer-halal{font-size:13px;color:var(--gold);background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:8px;padding:8px 14px;display:inline-block}
-.footer-col h4{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-.footer-col a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .2s}
-.footer-col a:hover{color:var(--text)}
-.footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:gap;gap:12px}
-.footer-copy{font-size:13px;color:var(--muted)}
-
-/* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
-.modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--card);border:1px solid var(--border);border-radius:24px;max-width:500px;width:100%;padding:36px;position:relative}
-.modal-close{position:absolute;top:16px;right:16px;background:var(--bg3);border:1px solid var(--border);color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center}
-.modal h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:24px;margin-bottom:8px}
-.modal p{color:var(--muted);font-size:14px;margin-bottom:24px}
-.form-group{margin-bottom:16px}
-.form-group label{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-bottom:6px}
-.form-group select,.form-group textarea{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:12px 16px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;appearance:none;resize:none}
-.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
-.form-submit{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px;font-size:16px;font-weight:600;cursor:pointer;transition:background .2s}
-.form-submit:hover{background:var(--accent2)}
-.modal-success{text-align:center;padding:20px 0}
-.modal-success .check{font-size:48px;margin-bottom:16px}
-.modal-success h3{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:800;margin-bottom:8px}
-.modal-success p{color:var(--muted);font-size:14px}
-
-/* COOKIE */
-.cookie-bar{position:fixed;bottom:24px;left:24px;right:24px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:150;max-width:680px;margin:0 auto;transform:translateY(80px);opacity:0;transition:transform .3s,opacity .3s}
-.cookie-bar.show{transform:translateY(0);opacity:1}
-.cookie-text{font-size:14px;color:var(--muted)}
-.cookie-actions{display:flex;gap:10px;flex-shrink:0}
-.cookie-ok{background:var(--accent);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer}
-.cookie-no{background:transparent;color:var(--muted);border:1px solid var(--border);padding:8px 16px;border-radius:8px;font-size:14px;cursor:pointer}
-
-/* ANIMATIONS */
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
-@keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
-
-/* MOBILE */
-@media(max-width:768px){
-  .nav-links,.nav-tel{display:none}
-  .burger{display:flex}
-  .hero{padding:90px 20px 48px}
-  .hero h1{letter-spacing:-1px}
-  .hero-stats{grid-template-columns:1fr 1fr 1fr}
-  .stat{padding:16px 12px}
-  .stat-val{font-size:24px}
-  .about-inner{grid-template-columns:1fr;gap:32px}
-  .footer-inner{grid-template-columns:1fr 1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .products-grid,.pain-grid,.ai-grid{grid-template-columns:1fr}
-  .pain-grid{grid-template-columns:1fr}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+@media(pointer:fine){
+  body{cursor:none}
+  a,button,select,input,label{cursor:none}
 }
-@media(max-width:480px){
-  .footer-inner{grid-template-columns:1fr}
-  .hero-stats{max-width:100%}
-  .cta-actions{flex-direction:column;align-items:center}
-  .hero-actions{flex-direction:column;align-items:flex-start}
-  .btn-primary,.btn-ghost{width:100%;text-align:center}
+
+/* ── CURSOR ── */
+.cursor{position:fixed;width:8px;height:8px;border-radius:50%;background:var(--accent-l);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:screen}
+.cursor.big{width:36px;height:36px;background:rgba(59,130,246,.25)}
+.cursor-trail{position:fixed;width:28px;height:28px;border-radius:50%;border:1px solid rgba(59,130,246,.35);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s ease-out}
+@media(pointer:coarse){.cursor,.cursor-trail{display:none}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px}
+nav::before{content:'';position:absolute;inset:0;background:rgba(8,9,13,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-in{position:relative;max-width:1120px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:16px;letter-spacing:-.3px;display:flex;align-items:center;gap:9px}
+.logo i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
+.nav-links{display:flex;gap:30px;list-style:none}
+.nav-links a{font-size:14px;color:var(--muted2);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-st{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--muted2)}
+.nav-st i{width:6px;height:6px;border-radius:50%;background:var(--green);display:block;animation:pulse 2.4s infinite}
+.nav-btn{background:var(--accent);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:opacity .2s}
+.nav-btn:hover{opacity:.86}
+.burger{display:none;flex-direction:column;gap:5px;padding:6px;border:none;background:none}
+.burger span{display:block;width:20px;height:1.5px;background:var(--muted2);border-radius:2px}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-280px;right:-280px;width:760px;height:760px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 62%);pointer-events:none}
+.hero-in{max-width:1120px;margin:0 auto;padding:110px 28px 60px;width:100%;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);border-radius:100px;padding:5px 15px 5px 5px;margin-bottom:34px}
+.hero-tag b{background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.hero-tag span{font-size:13px;color:var(--muted2)}
+.hero-h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(46px,8vw,104px);line-height:.96;letter-spacing:-4px;margin-bottom:30px}
+.hero-h1 .line2{color:var(--accent)}
+.type-row{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(19px,2.4vw,28px);letter-spacing:-.5px;color:var(--muted2);height:1.5em;margin-bottom:26px;display:flex;align-items:center}
+.type-row .tw{color:var(--text)}
+.type-row .caret{display:inline-block;width:3px;height:1.1em;background:var(--accent-l);margin-left:4px;animation:blink 1s steps(1) infinite}
+.hero-p{font-size:clamp(16px,1.7vw,19px);color:var(--muted2);max-width:520px;margin-bottom:44px}
+.hero-acts{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-p{background:var(--accent);color:#fff;border:none;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:600;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+.btn-p:hover{opacity:.86;transform:translateY(-1px)}
+.btn-g{border:1px solid var(--border2);color:var(--muted2);background:none;padding:16px 30px;border-radius:10px;font-size:15px;font-weight:500;transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-g:hover{border-color:rgba(255,255,255,.28);color:var(--text)}
+.hero-note{font-size:13px;color:var(--muted);margin-top:20px}
+.hero-note b{color:var(--gold);font-weight:600}
+
+/* floating cards */
+.float-zone{position:absolute;inset:0;pointer-events:none;z-index:1}
+.fcard{position:absolute;background:rgba(19,20,28,.78);border:1px solid var(--border2);border-radius:14px;padding:16px 20px;backdrop-filter:blur(8px);min-width:180px;animation:floaty 7s ease-in-out infinite}
+.fcard .fc-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.fcard .fc-dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.fcard .fc-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;color:var(--text)}
+.fcard .fc-sub{font-size:12px;color:var(--muted2)}
+.fc1{top:18%;right:6%;animation-delay:0s}
+.fc2{top:42%;right:16%;animation-delay:1.8s}
+.fc3{top:64%;right:4%;animation-delay:3.4s}
+.fc4{top:80%;right:22%;animation-delay:5s}
+@media(max-width:1000px){.float-zone{display:none}}
+
+/* ── SECTION ── */
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+.sec{padding:100px 0}
+.sec.alt{background:var(--bg2)}
+.sec-label{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent-l);margin-bottom:16px}
+.sec-label::before{content:'';width:28px;height:2px;background:var(--accent);display:block}
+.sec-h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(30px,4.2vw,52px);letter-spacing:-1.8px;line-height:1.06;margin-bottom:18px}
+.sec-sub{font-size:17px;color:var(--muted2);max-width:560px}
+.divider{border:none;border-top:1px solid var(--border)}
+
+/* ── COUNTERS ── */
+.counters{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:56px}
+.counter{background:var(--card);padding:36px 24px;text-align:center}
+.counter-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(36px,5vw,58px);letter-spacing:-2px;color:var(--text);line-height:1}
+.counter-num em{font-style:normal;color:var(--accent-l);font-size:.55em}
+.counter-lbl{font-size:13px;color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.8px}
+
+/* ── CASES ── */
+.cases-layout{display:grid;grid-template-columns:1fr 380px;gap:36px;margin-top:56px;align-items:start}
+.case-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.case-row{background:var(--card);padding:26px 30px;border-bottom:1px solid var(--border);transition:background .2s;position:relative}
+.case-row:last-child{border-bottom:none}
+.case-row:hover,.case-row.active{background:var(--card2)}
+.case-row.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
+.cr-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:6px}
+.cr-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;color:var(--text)}
+.cr-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 11px;border-radius:100px;white-space:nowrap}
+.b-live{background:rgba(16,185,129,.1);color:#34D399}
+.b-live::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.b-demo{background:rgba(245,158,11,.09);color:#FCD34D}
+.cr-desc{font-size:14px;color:var(--muted2);line-height:1.55}
+.cr-meta{font-size:12px;color:var(--muted);margin-top:8px}
+.cr-meta b{color:var(--green);font-weight:600}
+
+/* preview panel */
+.case-preview{position:sticky;top:90px;border:1px solid var(--border);border-radius:20px;background:var(--card);overflow:hidden;min-height:420px}
+.cp-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid var(--border);background:var(--bg2)}
+.cp-bar i{width:9px;height:9px;border-radius:50%;display:block}
+.cp-bar i:nth-child(1){background:#3A3B4E}.cp-bar i:nth-child(2){background:#2A2B38}.cp-bar i:nth-child(3){background:#222330}
+.cp-url{margin-left:8px;font-size:11px;color:var(--muted);background:var(--card);padding:3px 12px;border-radius:6px;flex:1;text-align:center}
+.cp-body{padding:24px;position:relative;min-height:356px}
+.cp-screen{display:none;animation:fadeUp .35s ease}
+.cp-screen.show{display:block}
+@media(max-width:900px){.cases-layout{grid-template-columns:1fr}.case-preview{display:none}}
+
+/* mockup primitives */
+.mk-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.mk-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px}
+.mk-pill{font-size:10px;font-weight:700;padding:4px 11px;border-radius:100px}
+.mk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.mk-stat{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.mk-stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:22px;letter-spacing:-.5px}
+.mk-stat-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px}
+.mk-line{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.mk-ic{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mk-tx b{display:block;font-size:13px;font-weight:600}
+.mk-tx span{font-size:11px;color:var(--muted)}
+
+/* ── CALCULATOR ── */
+.calc{display:grid;grid-template-columns:1fr 340px;gap:36px;margin-top:56px;align-items:start}
+.calc-form{display:flex;flex-direction:column;gap:28px}
+.cf-group h4{font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--muted2);margin-bottom:14px}
+.cf-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.cf-opt{border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--card);transition:border-color .2s,background .2s;user-select:none}
+.cf-opt:hover{border-color:var(--border2)}
+.cf-opt.sel{border-color:var(--accent);background:rgba(37,99,235,.07)}
+.cf-opt b{display:block;font-size:15px;font-weight:600;color:var(--text);margin-bottom:3px}
+.cf-opt span{font-size:12px;color:var(--muted)}
+.cf-toggles{display:flex;flex-direction:column;gap:10px}
+.cf-tg{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-radius:12px;padding:16px 18px;background:var(--card);transition:border-color .2s}
+.cf-tg.sel{border-color:var(--accent);background:rgba(37,99,235,.07)}
+.cf-tg-tx b{display:block;font-size:15px;font-weight:600;margin-bottom:2px}
+.cf-tg-tx span{font-size:12px;color:var(--muted)}
+.tg-sw{width:44px;height:24px;border-radius:100px;background:var(--card2);border:1px solid var(--border2);position:relative;flex-shrink:0;transition:background .2s}
+.tg-sw::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--muted2);transition:transform .2s,background .2s}
+.cf-tg.sel .tg-sw{background:var(--accent)}
+.cf-tg.sel .tg-sw::after{transform:translateX(20px);background:#fff}
+.calc-result{position:sticky;top:90px;background:var(--card);border:1px solid var(--border2);border-radius:20px;padding:32px;text-align:center}
+.cres-label{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.cres-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(34px,4vw,46px);letter-spacing:-2px;color:var(--text);line-height:1;transition:color .2s}
+.cres-num span{font-size:.45em;color:var(--muted2);font-weight:700}
+.cres-mo{font-size:14px;color:var(--gold);margin-top:8px;min-height:1.4em}
+.cres-note{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.5}
+.cres-btn{width:100%;margin-top:22px;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:600;transition:opacity .2s}
+.cres-btn:hover{opacity:.86}
+@media(max-width:900px){.calc{grid-template-columns:1fr}.calc-result{position:static}}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:56px;align-items:start}
+.ava{width:84px;height:84px;border-radius:22px;background:linear-gradient(135deg,#1E3A8A,#2563EB);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:-1px;margin-bottom:26px}
+.ab-quote{font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(19px,2.3vw,27px);line-height:1.32;letter-spacing:-.5px;margin-bottom:22px}
+.ab-quote em{font-style:normal;color:var(--accent-l)}
+.ab-bio{font-size:15px;color:var(--muted2);line-height:1.7;margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.chip{font-size:12px;font-weight:600;padding:5px 14px;border-radius:100px;border:1px solid var(--border);color:var(--muted2)}
+.chip.gold{color:var(--gold);border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.05)}
+.ab-links{display:flex;gap:10px;flex-wrap:wrap}
+.tl{display:flex;flex-direction:column;gap:12px}
+.tl-item{display:flex;gap:18px;padding:20px 22px;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:border-color .2s}
+.tl-item:hover{border-color:var(--border2)}
+.tl-year{font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;color:var(--accent-l);min-width:44px;padding-top:2px}
+.tl-tx{font-size:14px;color:var(--muted2);line-height:1.55}
+.tl-tx b{color:var(--text);font-weight:600}
+.slot{margin-top:14px;background:var(--card);border:1px solid rgba(245,158,11,.22);border-radius:18px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.slot-tx h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:19px;margin-bottom:6px}
+.slot-tx p{font-size:14px;color:var(--muted2)}
+.slot-tx p b{color:var(--gold);font-weight:600}
+.slot-n{text-align:right;flex-shrink:0}
+.slot-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;letter-spacing:-2px;line-height:1}
+.slot-num span{font-size:19px;color:var(--muted2)}
+.slot-l{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-top:4px}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ── CTA ── */
+.cta{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-in{max-width:1120px;margin:0 auto;padding:100px 28px;text-align:center}
+.cta-in .sec-label{justify-content:center}
+.cta-in .sec-label::before{display:none}
+.cta-in h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(30px,4.6vw,58px);letter-spacing:-2px;margin-bottom:18px}
+.cta-in p{font-size:17px;color:var(--muted2);margin-bottom:44px;max-width:460px;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{padding:56px 28px 40px}
+.f-in{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.f-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.f-logo i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
+.f-tag{font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:16px}
+.f-halal{font-size:12px;color:var(--gold);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:8px;padding:6px 12px;display:inline-block}
+.f-col h4{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-col a{font-size:14px;color:var(--muted2);transition:color .2s}
+.f-col a:hover{color:var(--text)}
+.f-bot{max-width:1120px;margin:0 auto;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.f-bot span{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.f-in{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.f-in{grid-template-columns:1fr}}
+
+/* ── MODAL ── */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s;backdrop-filter:blur(6px)}
+.mo.open{opacity:1;pointer-events:all}
+.mo-box{background:var(--card);border:1px solid var(--border2);border-radius:24px;max-width:480px;width:100%;padding:40px;position:relative}
+.mo-close{position:absolute;top:14px;right:14px;background:var(--card2);border:1px solid var(--border);color:var(--muted2);width:30px;height:30px;border-radius:50%;font-size:14px;display:flex;align-items:center;justify-content:center}
+.mo h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;margin-bottom:6px}
+.mo p{color:var(--muted2);font-size:14px;margin-bottom:24px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:12px;font-weight:600;color:var(--muted2);margin-bottom:6px}
+.fg select,.fg textarea{width:100%;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:12px 16px;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s;resize:none;appearance:none}
+.fg select:focus,.fg textarea:focus{border-color:rgba(37,99,235,.5)}
+.mo-sub{width:100%;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:600;margin-top:6px;transition:opacity .2s}
+.mo-sub:hover{opacity:.86}
+.mo-ok{text-align:center;padding:20px 0;display:none}
+.mo-ok .e{font-size:44px;margin-bottom:16px}
+.mo-ok h3{margin-bottom:8px}
+.mo-ok p{margin-bottom:0}
+
+/* ── COOKIE ── */
+.ck{position:fixed;bottom:20px;left:20px;right:20px;max-width:620px;margin:0 auto;background:var(--card);border:1px solid var(--border2);border-radius:14px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;z-index:150;transform:translateY(96px);opacity:0;transition:.3s}
+.ck.show{transform:translateY(0);opacity:1}
+.ck span{font-size:13px;color:var(--muted2)}
+.ck-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-ok{background:var(--accent);color:#fff;border:none;padding:7px 18px;border-radius:7px;font-size:13px;font-weight:600}
+.ck-no{background:none;border:1px solid var(--border);color:var(--muted2);padding:7px 14px;border-radius:7px;font-size:13px}
+
+/* ── ANIM ── */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.88)}}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-.4deg)}50%{transform:translateY(-16px) rotate(.4deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
+@media(max-width:640px){
+  .nav-links,.nav-st{display:none}
+  .burger{display:flex}
+  .hero-acts{flex-direction:column;align-items:stretch}
+  .btn-p,.btn-g{justify-content:center}
+  .counters{grid-template-columns:1fr 1fr 1fr}
+  .counter{padding:22px 12px}
+  .slot{flex-direction:column;text-align:center}
+  .slot-n{text-align:center}
+  .cta-row{flex-direction:column;align-items:center}
 }
 </style>
 </head>
 <body>
 
+<div class="cursor" id="cur"></div>
+<div class="cursor-trail" id="curT"></div>
+
 <nav>
-  <div class="nav-inner">
-    <a href="#" class="logo">NIZAMOV<span>.TECH</span></a>
+  <div class="nav-in">
+    <a href="#" class="logo"><i></i>Низамов.тех</a>
     <ul class="nav-links">
-      <li><a href="#problems">Боли</a></li>
-      <li><a href="#products">Продукты</a></li>
-      <li><a href="#about">О нас</a></li>
+      <li><a href="#cases">Проекты</a></li>
+      <li><a href="#calc">Калькулятор</a></li>
+      <li><a href="#about">О себе</a></li>
     </ul>
-    <div style="display:flex;align-items:center;gap:8px">
-      <a href="tel:+79911745113" class="nav-tel">+7 991 174-51-13</a>
-      <a href="#" class="nav-cta" onclick="openModal();return false">Обсудить проект</a>
-      <div class="burger" onclick="toggleMenu()" id="burger"><span></span><span></span><span></span></div>
+    <div class="nav-right">
+      <div class="nav-st"><i></i>Беру проекты</div>
+      <button class="nav-btn" onclick="openM()">Написать</button>
+      <button class="burger" onclick="toggleBurger()" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
   </div>
 </nav>
 
-<main>
 <!-- HERO -->
-<section style="position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;pointer-events:none;z-index:0">
-    <div style="position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 70%)"></div>
-    <div style="position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.05) 0%,transparent 70%)"></div>
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="float-zone">
+    <div class="fcard fc1">
+      <div class="fc-top"><span class="fc-dot"></span><span class="fc-name">Ракета</span></div>
+      <div class="fc-sub">Лояльность · ТРК Таганай</div>
+    </div>
+    <div class="fcard fc2">
+      <div class="fc-top"><span class="fc-dot"></span><span class="fc-name">Lesso</span></div>
+      <div class="fc-sub">Платформа репетиторов</div>
+    </div>
+    <div class="fcard fc3">
+      <div class="fc-top"><span class="fc-dot"></span><span class="fc-name">FoodFlow</span></div>
+      <div class="fc-sub">QR-меню для кафе</div>
+    </div>
+    <div class="fcard fc4">
+      <div class="fc-top"><span class="fc-dot"></span><span class="fc-name">FitCore</span></div>
+      <div class="fc-sub">Персональные тренировки</div>
+    </div>
   </div>
-  <div class="hero" style="z-index:1;position:relative">
-    <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:flex-start">
-      <div>
-        <div class="hero-eyebrow">
-          <div class="hero-eyebrow-dot"></div>
-          <span>Работает у клиентов прямо сейчас</span>
+  <div class="hero-in">
+    <div class="hero-tag"><b>Челябинск</b><span>Разработчик · Самозанятый</span></div>
+    <h1 class="hero-h1">ДАНИИЛ<br><span class="line2">НИЗАМОВ</span></h1>
+    <div class="type-row"><span class="tw" id="tw"></span><span class="caret"></span></div>
+    <p class="hero-p">Для бизнеса, который хочет расти — а не тонуть в Excel, WhatsApp и ручном учёте.</p>
+    <div class="hero-acts">
+      <button class="btn-p" onclick="openM()">Обсудить проект →</button>
+      <a href="#cases" class="btn-g">Смотреть проекты</a>
+    </div>
+    <p class="hero-note">Первая консультация бесплатно · <b>Следующий слот — июль 2026</b></p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- COUNTERS + CASES -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <div class="sec-label reveal">Проекты</div>
+    <h2 class="sec-h2 reveal">Что уже работает<br>у клиентов</h2>
+    <p class="sec-sub reveal">Не макеты — живые продукты с реальными пользователями. Наведите на проект, чтобы увидеть превью.</p>
+
+    <div class="counters reveal">
+      <div class="counter"><div class="counter-num"><span data-count="8">0</span><em>+</em></div><div class="counter-lbl">продуктов</div></div>
+      <div class="counter"><div class="counter-num"><span data-count="3">0</span></div><div class="counter-lbl">живых клиента</div></div>
+      <div class="counter"><div class="counter-num"><span data-count="1.5" data-dec="1">0</span><em>года</em></div><div class="counter-lbl">пути в IT</div></div>
+    </div>
+
+    <div class="cases-layout">
+      <div class="case-list reveal">
+
+        <div class="case-row active" data-pv="pv-raketa" onmouseenter="showPv(this)">
+          <div class="cr-top"><span class="cr-name">Ракета</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-desc">Система лояльности и бронирования для парка в ТРК Таганай. Три роли, QR-сканер, Telegram-уведомления.</div>
+          <div class="cr-meta">Абонентка <b>8 000 ₽/мес</b> · интеграция с кассой в работе</div>
         </div>
-        <h1>Цифровой порядок<br>вместо <em>хаоса</em></h1>
-        <p>Пока вы занимаетесь делом — система работает за вас. Никаких потерянных заказов, ручного учёта и паники перед ФНС.</p>
-        <div class="hero-actions">
-          <a href="#" class="btn-primary" onclick="openModal();return false">Обсудить мой проект →</a>
-          <a href="#products" class="btn-ghost">Смотреть решения</a>
+
+        <div class="case-row" data-pv="pv-lesso" onmouseenter="showPv(this)">
+          <div class="cr-top"><span class="cr-name">Lesso</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-desc">Платформа для репетиторов вместо WhatsApp: расписание, ДЗ с фото, чат с родителями, оплата.</div>
+          <div class="cr-meta">Первый живой клиент — <b>репетитор по английскому</b></div>
         </div>
-        <p class="hero-note">Без предоплаты · Первая консультация бесплатно</p>
-        <div class="hero-stats" style="margin-top:40px">
-          <div class="stat"><div class="stat-val">8<span>+</span></div><div class="stat-label">ниш</div></div>
-          <div class="stat"><div class="stat-val">24<span>/7</span></div><div class="stat-label">система</div></div>
-          <div class="stat"><div class="stat-val">10<span>%</span></div><div class="stat-label">садака</div></div>
+
+        <div class="case-row" data-pv="pv-foodflow" onmouseenter="showPv(this)">
+          <div class="cr-top"><span class="cr-name">FoodFlow</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-desc">QR-меню для кафе: гость заказывает с телефона, заказ идёт прямо на кухню, выручка видна онлайн.</div>
+          <div class="cr-meta">Работает в кафе <b>Царская Кухня</b></div>
         </div>
+
+        <div class="case-row" data-pv="pv-fitcore" onmouseenter="showPv(this)">
+          <div class="cr-top"><span class="cr-name">FitCore</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-desc">Закрытая PWA для персональных программ тренировок. A/B логика, недели, счётчик тренировок.</div>
+          <div class="cr-meta">Три пилотных клиента, цель — <b>платные программы</b></div>
+        </div>
+
+        <div class="case-row" data-pv="pv-sled" onmouseenter="showPv(this)">
+          <div class="cr-top"><span class="cr-name">Следопыт</span><span class="cr-badge b-demo">Пилот</span></div>
+          <div class="cr-desc">Платформа корпоративных квестов: маршруты, фотоотчёты, достижения, командные рейтинги.</div>
+          <div class="cr-meta">Корпоративный пилот <b>на 14 точек</b></div>
+        </div>
+
       </div>
-      <div class="flow-widget" style="display:none;min-width:320px" id="hero-widget">
-        <div class="flow-title"><span>Ваш бизнес сегодня</span></div>
-        <div class="flow-items">
-          <div class="flow-item" style="animation-delay:.1s">
-            <div class="flow-icon blue">🍽️</div>
-            <div class="flow-text">
-              <strong>Заказ #147 — Столик 3</strong>
-              <span>Борщ × 2, Стейк × 1</span>
+
+      <div class="case-preview reveal">
+        <div class="cp-bar"><i></i><i></i><i></i><span class="cp-url" id="cp-url">raketa-park.ru</span></div>
+        <div class="cp-body">
+
+          <div class="cp-screen show" id="pv-raketa" data-url="raketa-park.ru">
+            <div class="mk-head"><span class="mk-title">🚀 Ракета</span><span class="mk-pill" style="background:rgba(16,185,129,.12);color:#34D399">Касса · смена открыта</span></div>
+            <div class="mk-grid">
+              <div class="mk-stat"><div class="mk-stat-n">1 240</div><div class="mk-stat-l">баллов выдано</div></div>
+              <div class="mk-stat"><div class="mk-stat-n">38</div><div class="mk-stat-l">гостей сегодня</div></div>
             </div>
-            <div class="flow-badge live">Live</div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(37,99,235,.14)">🎟️</div><div class="mk-tx"><b>Гость #4412 — QR отсканирован</b><span>+50 баллов · батутная арена</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(16,185,129,.12)">📅</div><div class="mk-tx"><b>Бронь: день рождения</b><span>Суббота 14:00 · 12 детей</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(245,158,11,.12)">🔔</div><div class="mk-tx"><b>Telegram-уведомление отправлено</b><span>менеджеру · 2 мин назад</span></div></div>
           </div>
-          <div class="flow-item" style="animation-delay:.25s">
-            <div class="flow-icon green">📚</div>
-            <div class="flow-text">
-              <strong>Вика — ДЗ сдано ✓</strong>
-              <span>Математика, 15:45</span>
+
+          <div class="cp-screen" id="pv-lesso" data-url="lesso-three.vercel.app">
+            <div class="mk-head"><span class="mk-title">📚 Lesso</span><span class="mk-pill" style="background:rgba(37,99,235,.14);color:#60A5FA">Кабинет учителя</span></div>
+            <div class="mk-grid">
+              <div class="mk-stat"><div class="mk-stat-n">6</div><div class="mk-stat-l">уроков сегодня</div></div>
+              <div class="mk-stat"><div class="mk-stat-n">4/5</div><div class="mk-stat-l">ДЗ сдано</div></div>
             </div>
-            <div class="flow-badge live">Live</div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(16,185,129,.12)">✅</div><div class="mk-tx"><b>Вика сдала ДЗ — фото приложено</b><span>Английский · Unit 7</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(37,99,235,.14)">💬</div><div class="mk-tx"><b>Сообщение от родителя</b><span>«Спасибо за отчёт за неделю!»</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(245,158,11,.12)">💰</div><div class="mk-tx"><b>Оплата получена — 4 урока</b><span>баланс пополнен</span></div></div>
           </div>
-          <div class="flow-item" style="animation-delay:.4s">
-            <div class="flow-icon gold">💰</div>
-            <div class="flow-text">
-              <strong>Выручка за день</strong>
-              <span>47 200 ₽ · +12% к вчера</span>
+
+          <div class="cp-screen" id="pv-foodflow" data-url="tsarskaya-kukhnya.vercel.app">
+            <div class="mk-head"><span class="mk-title">🍽️ FoodFlow</span><span class="mk-pill" style="background:rgba(16,185,129,.12);color:#34D399">Кухня · онлайн</span></div>
+            <div class="mk-grid">
+              <div class="mk-stat"><div class="mk-stat-n">47</div><div class="mk-stat-l">заказов сегодня</div></div>
+              <div class="mk-stat"><div class="mk-stat-n">52 400 ₽</div><div class="mk-stat-l">выручка</div></div>
             </div>
-            <div class="flow-badge new">Авто</div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(37,99,235,.14)">🪑</div><div class="mk-tx"><b>Столик 3 — новый заказ</b><span>Борщ ×2 · Стейк ×1 · сразу на кухню</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(16,185,129,.12)">✅</div><div class="mk-tx"><b>Заказ #146 выдан</b><span>время приготовления 14 мин</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(245,158,11,.12)">📊</div><div class="mk-tx"><b>Отчёт за день сформирован</b><span>автоматически · без тетради</span></div></div>
+          </div>
+
+          <div class="cp-screen" id="pv-fitcore" data-url="sport-eight-psi.vercel.app">
+            <div class="mk-head"><span class="mk-title">💪 FitCore</span><span class="mk-pill" style="background:rgba(37,99,235,.14);color:#60A5FA">Неделя 3 · день B</span></div>
+            <div class="mk-grid">
+              <div class="mk-stat"><div class="mk-stat-n">12</div><div class="mk-stat-l">тренировок</div></div>
+              <div class="mk-stat"><div class="mk-stat-n">8 нед</div><div class="mk-stat-l">программа</div></div>
+            </div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(37,99,235,.14)">🏋️</div><div class="mk-tx"><b>Приседания — 3×12</b><span>выполнено · следующее упражнение</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(16,185,129,.12)">🧘</div><div class="mk-tx"><b>Осанка: superman 3×10</b><span>блок «спина и осанка»</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(245,158,11,.12)">🔥</div><div class="mk-tx"><b>Серия: 6 дней подряд</b><span>так держать!</span></div></div>
+          </div>
+
+          <div class="cp-screen" id="pv-sled" data-url="sledopyt.vercel.app">
+            <div class="mk-head"><span class="mk-title">🧭 Следопыт</span><span class="mk-pill" style="background:rgba(245,158,11,.12);color:#FCD34D">Квест «Путь банки»</span></div>
+            <div class="mk-grid">
+              <div class="mk-stat"><div class="mk-stat-n">14</div><div class="mk-stat-l">точек маршрута</div></div>
+              <div class="mk-stat"><div class="mk-stat-n">7</div><div class="mk-stat-l">команд</div></div>
+            </div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(37,99,235,.14)">📍</div><div class="mk-tx"><b>Точка 8 пройдена — команда «Альфа»</b><span>+15 за ответ · фотобонус +5</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(16,185,129,.12)">🏆</div><div class="mk-tx"><b>Ачивка: speed run</b><span>команда «Вектор»</span></div></div>
+            <div class="mk-line"><div class="mk-ic" style="background:rgba(245,158,11,.12)">📷</div><div class="mk-tx"><b>Фото на модерации: 3</b><span>проверка организатором</span></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="sec alt" id="calc">
+  <div class="wrap">
+    <div class="sec-label reveal">Калькулятор</div>
+    <h2 class="sec-h2 reveal">Прикиньте стоимость<br>за 30 секунд</h2>
+    <p class="sec-sub reveal">Это ориентир, не оферта. Точную цифру скажу после 15-минутного разговора — иногда она оказывается ниже.</p>
+
+    <div class="calc">
+      <div class="calc-form reveal">
+        <div class="cf-group">
+          <h4>Тип проекта</h4>
+          <div class="cf-opts" id="cf-type">
+            <div class="cf-opt sel" data-price="10000" onclick="pickType(this)"><b>Лендинг / сайт</b><span>визитка, промо-страница</span></div>
+            <div class="cf-opt" data-price="30000" onclick="pickType(this)"><b>PWA-приложение</b><span>авторизация, офлайн-режим</span></div>
+            <div class="cf-opt" data-price="50000" onclick="pickType(this)"><b>Многоролевая система</b><span>3+ роли, аналитика</span></div>
+          </div>
+        </div>
+        <div class="cf-group">
+          <h4>Дополнительно</h4>
+          <div class="cf-toggles">
+            <div class="cf-tg" id="tg-api" onclick="toggleOpt(this)">
+              <div class="cf-tg-tx"><b>Интеграция с кассой / API</b><span>iiko, онлайн-касса, сторонние сервисы · +15 000 ₽</span></div>
+              <div class="tg-sw"></div>
+            </div>
+            <div class="cf-tg" id="tg-sup" onclick="toggleOpt(this)">
+              <div class="cf-tg-tx"><b>Поддержка и развитие</b><span>правки, обновления, мониторинг · от 8 000 ₽/мес</span></div>
+              <div class="tg-sw"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<hr class="sep">
-
-<!-- PAIN -->
-<section class="section" id="problems">
-  <div class="section-label">Узнаёте себя?</div>
-  <h2 class="section-title">Проблемы,<br>которые стоят денег</h2>
-  <p class="section-sub">Это не просто неудобства — каждая ситуация уносит реальную выручку каждый день.</p>
-
-  <div class="pain-grid">
-    <div class="pain-card">
-      <div class="pain-header">
-        <div class="pain-ico pain-nico">🍴</div>
-        <div>
-          <div class="pain-niche">Кафе · Ресторан</div>
-          <div class="pain-title">Официант перепутал заказ</div>
-        </div>
-      </div>
-      <div class="pain-body">
-        <div class="pain-quote">"Опять скандал — повар сделал не то блюдо, гость злится"</div>
-        <div class="pain-solution">Гость выбирает сам с телефона, заказ идёт прямо на кухню. Ошибок нет.</div>
-      </div>
-      <div class="pain-footer"><a href="foodflow.html" class="pain-link">Решение для кафе →</a></div>
-    </div>
-
-    <div class="pain-card">
-      <div class="pain-header">
-        <div class="pain-ico pain-nico">📊</div>
-        <div>
-          <div class="pain-niche">Кафе · Учёт</div>
-          <div class="pain-title">Не знаю сколько заработал</div>
-        </div>
-      </div>
-      <div class="pain-body">
-        <div class="pain-quote">"Считаю выручку вручную в тетради — постоянно ошибаюсь"</div>
-        <div class="pain-solution">Каждый заказ в учёт автоматически. Отчёт в реальном времени на телефоне.</div>
-      </div>
-      <div class="pain-footer"><a href="foodflow.html" class="pain-link">Решение для кафе →</a></div>
-    </div>
-
-    <div class="pain-card">
-      <div class="pain-header">
-        <div class="pain-ico pain-rnico">💬</div>
-        <div>
-          <div class="pain-niche">Репетиторы</div>
-          <div class="pain-title">Теряю сообщения в WhatsApp</div>
-        </div>
-      </div>
-      <div class="pain-body">
-        <div class="pain-quote">"Родители пишут в разные чаты — ничего не найти"</div>
-        <div class="pain-solution">Чат, расписание и ДЗ — в одной платформе. Все роли на своих местах.</div>
-      </div>
-      <div class="pain-footer"><a href="lesso.html" class="pain-link">Решение для репетиторов →</a></div>
-    </div>
-
-    <div class="pain-card">
-      <div class="pain-header">
-        <div class="pain-ico pain-rnico">🌾</div>
-        <div>
-          <div class="pain-niche">Фермеры · КФХ</div>
-          <div class="pain-title">Субсидии — не знаю что положено</div>
-        </div>
-      </div>
-      <div class="pain-body">
-        <div class="pain-quote">"Сосед получил грант, а я даже не знал что он есть"</div>
-        <div class="pain-solution">Калькулятор субсидий покажет всё, на что вы имеете право.</div>
-      </div>
-      <div class="pain-footer"><a href="agro.html" class="pain-link">Решение для фермеров →</a></div>
-    </div>
-  </div>
-</section>
-
-<hr class="sep">
-
-<!-- PRODUCTS -->
-<section class="section" id="products">
-  <div class="section-label">Портфолио</div>
-  <h2 class="section-title">Работающие<br>решения</h2>
-  <p class="section-sub">Не демо-продукты — настоящие инструменты, которые работают у реальных клиентов.</p>
-
-  <div class="products-grid">
-    <div class="product-card featured">
-      <div class="prod-badge">Live у клиента</div>
-      <div class="prod-name">FoodFlow</div>
-      <div class="prod-desc">QR-меню, заказы без официантов, учёт выручки в реальном времени. Работает в Царской Кухне.</div>
-      <div class="prod-result">Результат: <strong>ноль ошибок</strong> в заказах, выручка видна с телефона</div>
-      <div class="prod-actions">
-        <a href="foodflow.html" class="btn-sm btn-sm-primary">Подробнее</a>
-        <a href="https://tsarskaya-kukhnya.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть демо</a>
-      </div>
-    </div>
-
-    <div class="product-card featured">
-      <div class="prod-badge">Live у клиента</div>
-      <div class="prod-name">Lesso</div>
-      <div class="prod-desc">Платформа для репетиторов: расписание, ДЗ с фото, чат с родителями, оплата. Работает вместо WhatsApp.</div>
-      <div class="prod-result">Результат: <strong>все ученики в одном месте</strong>, родители довольны</div>
-      <div class="prod-actions">
-        <a href="lesso.html" class="btn-sm btn-sm-primary">Подробнее</a>
-        <a href="https://lesso-three.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть приложение</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="prod-badge">Live у клиента</div>
-      <div class="prod-name">Осознанность</div>
-      <div class="prod-desc">Исламское PWA: точное время намаза, азкары, 99 имён Аллаха, Кибла. Без установки.</div>
-      <div class="prod-result">Результат: <strong>бесплатно для мусульман</strong>, работает офлайн</div>
-      <div class="prod-actions">
-        <a href="osoznannost.html" class="btn-sm btn-sm-primary">Подробнее</a>
-        <a href="https://namaz-drab.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="prod-badge">Live у клиента</div>
-      <div class="prod-name">СК ПостройДом</div>
-      <div class="prod-desc">Строители перестали терять заявки — все обращения через сайт приходят прямо в Telegram.</div>
-      <div class="prod-result">Результат: <strong>ноль потерянных заявок</strong></div>
-      <div class="prod-actions">
-        <a href="https://postroy-dom.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Открыть проект</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="prod-badge" style="background:rgba(245,158,11,.1);color:#FCD34D">Демо</div>
-      <div class="prod-name">АгроПомощник</div>
-      <div class="prod-desc">Субсидии, отчёты ЕФИС/ФГИС, учёт животных. Для КФХ и агробизнеса Челябинской области.</div>
-      <div class="prod-result">Результат: <strong>100% субсидий</strong> + отчёты в 1 клик</div>
-      <div class="prod-actions">
-        <a href="agro.html" class="btn-sm btn-sm-primary">Подробнее</a>
-        <a href="https://agropomoshnik.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Демо</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <div class="prod-badge" style="background:rgba(245,158,11,.1);color:#FCD34D">Демо</div>
-      <div class="prod-name">ПасечникПро</div>
-      <div class="prod-desc">Контроль ульев, осмотры, учёт мёда. Вся пасека под контролем в телефоне.</div>
-      <div class="prod-result">Результат: <strong>вся пасека</strong> — осмотры, мёд, обработки</div>
-      <div class="prod-actions">
-        <a href="https://pasechnik-pro.vercel.app" target="_blank" class="btn-sm btn-sm-ghost">Попробовать</a>
+      <div class="calc-result reveal">
+        <div class="cres-label">Ориентировочно</div>
+        <div class="cres-num">от <span id="cres" style="color:var(--text);font-size:1em">10 000</span><span> ₽</span></div>
+        <div class="cres-mo" id="cres-mo"></div>
+        <div class="cres-note">Первая консультация бесплатно. Платите только когда увидите пользу.</div>
+        <button class="cres-btn" onclick="calcToTg()">Обсудить эту задачу →</button>
       </div>
     </div>
   </div>
 </section>
-
-<hr class="sep">
-
-<!-- AI -->
-<section class="section">
-  <div class="section-label">Дополнительно</div>
-  <h2 class="section-title">ИИ вместо вас<br>отвечает клиентам</h2>
-  <p class="section-sub">Пропущенный звонок — потерянный клиент. ИИ работает 24/7 и не берёт выходные.</p>
-
-  <div class="ai-grid">
-    <div class="ai-card">
-      <div class="ai-icon">💬</div>
-      <div class="ai-name">ИИ-чат на сайте</div>
-      <div class="ai-desc">Клиент зашёл ночью, задал вопрос — ИИ ответил, принял заявку и передал вам готового клиента.</div>
-      <div class="ai-price">+2 000 ₽<span>/мес</span></div>
-    </div>
-    <div class="ai-card">
-      <div class="ai-icon">🤖</div>
-      <div class="ai-name">Telegram-бот</div>
-      <div class="ai-desc">Принимает заказы, отвечает на вопросы, показывает меню — круглосуточно без вашего участия.</div>
-      <div class="ai-price">+2 000 ₽<span>/мес</span></div>
-    </div>
-    <div class="ai-card">
-      <div class="ai-icon">🎙️</div>
-      <div class="ai-name">Голосовой агент</div>
-      <div class="ai-desc">Принимает звонок, отвечает голосом, записывает заявку. Ни один звонок не пропадёт.</div>
-      <div class="ai-price">+5 000 ₽<span>/мес</span></div>
-    </div>
-  </div>
-
-  <div style="margin-top:32px">
-    <a href="#" class="btn-primary" onclick="openModal();return false">Подключить ИИ к моему бизнесу →</a>
-  </div>
-</section>
-
-<hr class="sep">
 
 <!-- ABOUT -->
-<section class="section" id="about">
-  <div class="about-inner">
-    <div>
-      <div class="about-avatar">ДН</div>
-      <div class="about-quote">"Видел как малый бизнес тонет в бумагах — и <em>решил это исправить</em>"</div>
-      <div class="about-bio">Прошёл путь от завода до IT-продукта. Работаю в Челябинске, строю реальные инструменты для реального бизнеса — не абстрактные «платформы», а решения конкретных болей.<br><br>Принципиально работаю только с халяльными проектами. 10% прибыли — в садака.</div>
-      <div class="about-links">
-        <a href="https://t.me/Aslyamov74" target="_blank" class="btn-ghost" style="font-size:14px;padding:10px 20px">Telegram</a>
-        <a href="https://t.me/Daniil_s_zavoda" target="_blank" class="btn-ghost" style="font-size:14px;padding:10px 20px">Канал</a>
-        <div class="about-tag halal">☪️ Халяльный продукт</div>
-      </div>
-    </div>
-    <div class="about-stats-side">
-      <div class="aside-stat">
-        <div>
-          <div class="aside-stat-icon">🏭</div>
-          <div class="aside-stat-val">Завод → IT</div>
-          <div class="aside-stat-label">Реальный опыт малого бизнеса изнутри</div>
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="sec-label reveal">Об авторе</div>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="ava">ДН</div>
+        <div class="ab-quote">«Пришёл из завода в IT — <em>не по учебнику</em>, а через реальные задачи»</div>
+        <div class="ab-bio">Работаю на заводе и параллельно строю Nizamov.tech. Понимаю малый бизнес изнутри — потому что сам в нём. Каждый проект делаю как свой собственный.</div>
+        <div class="chips">
+          <span class="chip">Челябинск</span>
+          <span class="chip">Самозанятый</span>
+          <span class="chip">Соло-разработчик</span>
+          <span class="chip gold">☪️ Халяльный продукт · 10% в садака</span>
+        </div>
+        <div class="ab-links">
+          <a href="https://t.me/Aslyamov74" target="_blank" rel="noopener" class="btn-g" style="padding:11px 22px;font-size:14px">Telegram</a>
+          <a href="https://t.me/Daniil_s_zavoda" target="_blank" rel="noopener" class="btn-g" style="padding:11px 22px;font-size:14px">Канал «Путь с завода»</a>
+          <a href="tel:+79911745113" class="btn-g" style="padding:11px 22px;font-size:14px">+7 991 174-51-13</a>
         </div>
       </div>
-      <div class="aside-stat">
-        <div>
-          <div class="aside-stat-icon">📍</div>
-          <div class="aside-stat-val">Челябинск</div>
-          <div class="aside-stat-label">Работаю с бизнесами России и СНГ</div>
+      <div class="reveal">
+        <div class="tl">
+          <div class="tl-item"><div class="tl-year">2024</div><div class="tl-tx"><b>Первый коммерческий проект</b> — FoodFlow для кафе. Понял, что это работает.</div></div>
+          <div class="tl-item"><div class="tl-year">2025</div><div class="tl-tx"><b>Портфель из 6+ продуктов</b> — Lesso, АгроПомощник, ПасечникПро и другие.</div></div>
+          <div class="tl-item"><div class="tl-year">2026</div><div class="tl-tx"><b>Живые клиенты и абонентки</b> — Ракета, FitCore, Следопыт. Партнёрская модель.</div></div>
         </div>
-      </div>
-      <div class="aside-stat">
-        <div>
-          <div class="aside-stat-icon">🤝</div>
-          <div class="aside-stat-val">Без предоплаты</div>
-          <div class="aside-stat-label">Платите только когда увидите пользу</div>
+        <div class="slot">
+          <div class="slot-tx">
+            <h3>Сейчас в работе</h3>
+            <p>Следующий слот — <b>июль 2026</b>. Записаться можно заранее.</p>
+          </div>
+          <div class="slot-n">
+            <div class="slot-num">3<span>/3</span></div>
+            <div class="slot-l">слота занято</div>
+          </div>
         </div>
       </div>
     </div>
@@ -527,166 +530,248 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:48px 24px
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <div class="section-label" style="text-align:center">Готовы начать?</div>
-    <h2>Опишите вашу боль —<br>найдём решение за 10 минут</h2>
-    <p>Без договоров и предоплаты. Первая консультация бесплатно.</p>
-    <div class="cta-actions">
-      <a href="#" class="btn-primary" onclick="openModal();return false">Описать мою ситуацию</a>
-      <a href="https://t.me/Aslyamov74" target="_blank" class="btn-ghost">Написать напрямую</a>
+<div class="cta">
+  <div class="cta-in">
+    <div class="sec-label">Готовы начать?</div>
+    <h2>Расскажите о задаче</h2>
+    <p>15 минут — и я скажу, что нужно сделать и сколько это стоит. Без воды.</p>
+    <div class="cta-row">
+      <button class="btn-p" onclick="openM()">Написать Даниилу →</button>
+      <a href="https://t.me/Aslyamov74" target="_blank" rel="noopener" class="btn-g">Telegram напрямую</a>
     </div>
   </div>
-</section>
-</main>
+</div>
 
 <footer>
-  <div class="footer-inner">
+  <div class="f-in">
     <div>
-      <div class="footer-brand">NIZAMOV<span>.TECH</span></div>
-      <div class="footer-tagline">Убираем хаос из малого бизнеса России и СНГ. Вы занимаетесь делом — остальное наше.</div>
-      <div class="footer-halal">☪️ Халяльный IT-продукт · 10% в садака</div>
+      <div class="f-logo"><i></i>Низамов.тех</div>
+      <div class="f-tag">Цифровые продукты для бизнеса.<br>Челябинск · Россия · СНГ</div>
+      <div class="f-halal">☪️ Халяльный IT · 10% в садака</div>
     </div>
-    <div class="footer-col">
-      <h4>Продукты</h4>
+    <div class="f-col">
+      <h4>Проекты</h4>
       <ul>
         <li><a href="foodflow.html">FoodFlow</a></li>
         <li><a href="lesso.html">Lesso</a></li>
         <li><a href="agro.html">АгроПомощник</a></li>
         <li><a href="osoznannost.html">Осознанность</a></li>
-        <li><a href="https://pasechnik-pro.vercel.app" target="_blank">ПасечникПро</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="f-col">
       <h4>Навигация</h4>
       <ul>
-        <li><a href="#problems">Боли бизнеса</a></li>
-        <li><a href="#products">Портфолио</a></li>
-        <li><a href="#about">Об основателе</a></li>
+        <li><a href="#cases">Проекты</a></li>
+        <li><a href="#calc">Калькулятор</a></li>
+        <li><a href="#about">О себе</a></li>
         <li><a href="privacy.html">Конфиденциальность</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="f-col">
       <h4>Контакты</h4>
       <ul>
         <li><a href="tel:+79911745113">+7 991 174-51-13</a></li>
-        <li><a href="https://t.me/Aslyamov74" target="_blank">@Aslyamov74</a></li>
-        <li><a href="https://t.me/Daniil_s_zavoda" target="_blank">Telegram-канал</a></li>
+        <li><a href="https://t.me/Aslyamov74" target="_blank" rel="noopener">@Aslyamov74</a></li>
+        <li><a href="https://t.me/daniil74_bot" target="_blank" rel="noopener">@daniil74_bot</a></li>
+        <li><a href="https://t.me/Daniil_s_zavoda" target="_blank" rel="noopener">Telegram-канал</a></li>
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Nizamov.tech — Даниил Низамов · Челябинск</div>
-    <div class="footer-copy">Самозанятый · ИНН для документов по запросу</div>
+  <div class="f-bot">
+    <span>© 2026 Даниил Низамов · Самозанятый · Челябинск</span>
+    <span>ИНН по запросу</span>
   </div>
 </footer>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modal-form">
-      <h3>Обсудим ваш проект</h3>
-      <p>Расскажите что мешает бизнесу — свяжусь в течение часа.</p>
-      <div class="form-group">
-        <label>Какая проблема болит сильнее всего?</label>
-        <select id="problem-select">
+<div class="mo" id="mo">
+  <div class="mo-box">
+    <button class="mo-close" onclick="closeM()">✕</button>
+    <div id="mo-form">
+      <h3>Обсудим задачу</h3>
+      <p>Опишите что нужно — отвечу в течение часа.</p>
+      <div class="fg">
+        <label>Тип задачи</label>
+        <select id="ms">
           <option value="">Выберите...</option>
-          <option>Теряю заказы в кафе / ресторане</option>
-          <option>Веду учеников в WhatsApp — хаос</option>
-          <option>Не получаю субсидии, отчёты съедают время</option>
-          <option>Клиенты не дожидаются ответа</option>
-          <option>Нужен сайт для строительного бизнеса</option>
+          <option>Лендинг / сайт</option>
+          <option>PWA-приложение</option>
+          <option>Система лояльности</option>
+          <option>Автоматизация процессов</option>
+          <option>Поддержка готового проекта</option>
           <option>Другое</option>
         </select>
       </div>
-      <div class="form-group">
-        <label>Коротко о ситуации (необязательно)</label>
-        <textarea id="problem-text" rows="3" placeholder="Ваш бизнес, основная боль..."></textarea>
+      <div class="fg">
+        <label>Коротко о задаче</label>
+        <textarea id="mt" rows="3" placeholder="Что за бизнес, что болит..."></textarea>
       </div>
-      <button class="form-submit" onclick="submitForm()">Отправить → в Telegram</button>
+      <button class="mo-sub" onclick="submitMo()">Отправить в Telegram →</button>
     </div>
-    <div class="modal-success" id="modal-success" style="display:none">
-      <div class="check">✅</div>
-      <h3>Отлично! Уже вижу ваш запрос</h3>
-      <p>Свяжусь в течение часа в Telegram.<br>Заранее спасибо за доверие.</p>
+    <div class="mo-ok" id="mo-ok">
+      <div class="e">✅</div>
+      <h3>Отлично, вижу запрос</h3>
+      <p>Свяжусь в течение часа. Спасибо за доверие.</p>
     </div>
   </div>
 </div>
 
 <!-- COOKIE -->
-<div class="cookie-bar" id="cookie">
-  <span class="cookie-text">Используем cookie для корректной работы сайта.</span>
-  <div class="cookie-actions">
-    <button class="cookie-ok" onclick="acceptCookie()">Принять</button>
-    <button class="cookie-no" onclick="denyCookie()">✕</button>
+<div class="ck" id="ck">
+  <span>Используем cookie для работы сайта.</span>
+  <div class="ck-btns">
+    <button class="ck-ok" onclick="ckOk()">Принять</button>
+    <button class="ck-no" onclick="ckNo()">✕</button>
   </div>
 </div>
 
 <script>
-// HERO WIDGET visibility
-function checkWidget(){
-  const w=document.getElementById('hero-widget');
-  if(window.innerWidth>900)w.style.display='block';
-  else w.style.display='none';
-}
-checkWidget();
-window.addEventListener('resize',checkWidget);
-
-// MODAL
-function openModal(){document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
-function handleOverlayClick(e){if(e.target===document.getElementById('modal'))closeModal()}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
-function submitForm(){
-  const prob=document.getElementById('problem-select').value;
-  const txt=document.getElementById('problem-text').value;
-  const msg=encodeURIComponent((prob||'Запрос с сайта')+(txt?'\n'+txt:''));
-  window.open('https://t.me/Aslyamov74?text='+msg,'_blank');
-  document.getElementById('modal-form').style.display='none';
-  document.getElementById('modal-success').style.display='block';
-}
-
-// COOKIE
+/* CURSOR */
 (function(){
-  if(!localStorage.getItem('cookie_accepted')){
-    setTimeout(()=>document.getElementById('cookie').classList.add('show'),1200);
-  }
+  if(!window.matchMedia('(pointer:fine)').matches)return;
+  const c=document.getElementById('cur'),t=document.getElementById('curT');
+  let x=0,y=0,tx=0,ty=0;
+  document.addEventListener('mousemove',e=>{x=e.clientX;y=e.clientY;c.style.left=x+'px';c.style.top=y+'px'});
+  (function loop(){tx+=(x-tx)*.18;ty+=(y-ty)*.18;t.style.left=tx+'px';t.style.top=ty+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.cf-opt,.cf-tg,.case-row').forEach(el=>{
+    el.addEventListener('mouseenter',()=>c.classList.add('big'));
+    el.addEventListener('mouseleave',()=>c.classList.remove('big'));
+  });
 })();
-function acceptCookie(){localStorage.setItem('cookie_accepted','1');document.getElementById('cookie').classList.remove('show')}
-function denyCookie(){document.getElementById('cookie').classList.remove('show')}
 
-// BURGER (мобильное меню)
-let menuOpen=false;
-function toggleMenu(){
-  menuOpen=!menuOpen;
-  const b=document.getElementById('burger');
-  if(menuOpen){
-    let mob=document.getElementById('mob-menu');
-    if(!mob){
-      mob=document.createElement('div');
-      mob.id='mob-menu';
-      mob.style.cssText='position:fixed;top:60px;left:0;right:0;background:#111218;border-bottom:1px solid #2A2B38;padding:20px 24px;z-index:99;display:flex;flex-direction:column;gap:16px';
-      mob.innerHTML='<a href="#problems" style="color:#8B8C9E;text-decoration:none;font-size:16px;font-weight:500" onclick="toggleMenu()">Боли бизнеса</a><a href="#products" style="color:#8B8C9E;text-decoration:none;font-size:16px;font-weight:500" onclick="toggleMenu()">Портфолио</a><a href="#about" style="color:#8B8C9E;text-decoration:none;font-size:16px;font-weight:500" onclick="toggleMenu()">О нас</a><a href="tel:+79911745113" style="color:#8B8C9E;text-decoration:none;font-size:16px">+7 991 174-51-13</a>';
-      document.body.appendChild(mob);
-    } else mob.style.display='flex';
-    b.style.opacity='.6';
-  } else {
-    const mob=document.getElementById('mob-menu');
-    if(mob)mob.style.display='none';
-    b.style.opacity='1';
+/* TYPEWRITER */
+(function(){
+  const words=['строю PWA','автоматизирую бизнес','делаю продукты которые работают'];
+  const el=document.getElementById('tw');
+  let wi=0,ci=0,del=false;
+  function tick(){
+    const w=words[wi];
+    if(!del){ci++;el.textContent=w.slice(0,ci);if(ci===w.length){del=true;setTimeout(tick,1800);return}}
+    else{ci--;el.textContent=w.slice(0,ci);if(ci===0){del=false;wi=(wi+1)%words.length}}
+    setTimeout(tick,del?38:70);
   }
+  tick();
+})();
+
+/* REVEAL */
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* COUNTERS */
+const cObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    cObs.unobserve(e.target);
+    const target=parseFloat(e.target.dataset.count);
+    const dec=parseInt(e.target.dataset.dec||'0');
+    const dur=1400,start=performance.now();
+    function step(now){
+      const p=Math.min((now-start)/dur,1);
+      const ease=1-Math.pow(1-p,3);
+      e.target.textContent=(target*ease).toFixed(dec);
+      if(p<1)requestAnimationFrame(step);
+      else e.target.textContent=target.toFixed(dec);
+    }
+    requestAnimationFrame(step);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
+
+/* CASE PREVIEW */
+function showPv(row){
+  document.querySelectorAll('.case-row').forEach(r=>r.classList.remove('active'));
+  row.classList.add('active');
+  const id=row.dataset.pv;
+  document.querySelectorAll('.cp-screen').forEach(s=>s.classList.remove('show'));
+  const sc=document.getElementById(id);
+  sc.classList.add('show');
+  document.getElementById('cp-url').textContent=sc.dataset.url;
 }
 
-// SCROLL reveal (простой)
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}});
-},{threshold:.1});
-document.querySelectorAll('.pain-card,.product-card,.ai-card,.aside-stat').forEach(el=>{
-  el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s ease, transform .5s ease';
-  obs.observe(el);
+/* CALCULATOR */
+let basePrice=10000,apiOn=false,supOn=false;
+function pickType(el){
+  document.querySelectorAll('#cf-type .cf-opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  basePrice=parseInt(el.dataset.price);
+  updCalc();
+}
+function toggleOpt(el){
+  el.classList.toggle('sel');
+  if(el.id==='tg-api')apiOn=el.classList.contains('sel');
+  if(el.id==='tg-sup')supOn=el.classList.contains('sel');
+  updCalc();
+}
+function updCalc(){
+  const total=basePrice+(apiOn?15000:0);
+  document.getElementById('cres').textContent=total.toLocaleString('ru-RU');
+  document.getElementById('cres-mo').textContent=supOn?'+ от 8 000 ₽/мес поддержка':'';
+}
+function calcToTg(){
+  const type=document.querySelector('#cf-type .cf-opt.sel b').textContent;
+  const total=basePrice+(apiOn?15000:0);
+  let msg='Запрос с сайта nizamov.tech\nЗадача: '+type;
+  if(apiOn)msg+='\n+ интеграция с кассой/API';
+  if(supOn)msg+='\n+ поддержка';
+  msg+='\nОриентир по калькулятору: от '+total.toLocaleString('ru-RU')+' ₽';
+  window.open('https://t.me/Aslyamov74?text='+encodeURIComponent(msg),'_blank');
+}
+
+/* MODAL */
+function openM(){
+  document.getElementById('mo').classList.add('open');
+  document.body.style.overflow='hidden';
+  history.pushState({modal:true},'');
+}
+function closeM(){
+  document.getElementById('mo').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('mo').addEventListener('click',e=>{if(e.target.id==='mo')closeM()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+window.addEventListener('popstate',()=>{
+  if(document.getElementById('mo').classList.contains('open'))closeM();
 });
+function submitMo(){
+  const s=document.getElementById('ms').value;
+  const t=document.getElementById('mt').value;
+  const msg=encodeURIComponent('Запрос с сайта nizamov.tech\n'+(s?'Задача: '+s+'\n':'')+(t||''));
+  window.open('https://t.me/Aslyamov74?text='+msg,'_blank');
+  document.getElementById('mo-form').style.display='none';
+  document.getElementById('mo-ok').style.display='block';
+}
+
+/* COOKIE */
+if(!localStorage.getItem('ck'))setTimeout(()=>document.getElementById('ck').classList.add('show'),1500);
+function ckOk(){localStorage.setItem('ck','1');document.getElementById('ck').classList.remove('show')}
+function ckNo(){document.getElementById('ck').classList.remove('show')}
+
+/* BURGER */
+let mOpen=false;
+function toggleBurger(){
+  mOpen=!mOpen;
+  let m=document.getElementById('mob-nav');
+  if(mOpen){
+    if(!m){
+      m=document.createElement('div');
+      m.id='mob-nav';
+      m.style.cssText='position:fixed;top:64px;left:0;right:0;background:#0F1016;border-bottom:1px solid rgba(255,255,255,.08);padding:24px 28px;z-index:99;display:flex;flex-direction:column;gap:18px';
+      [['Проекты','#cases'],['Калькулятор','#calc'],['О себе','#about']].forEach(([l,h])=>{
+        const a=document.createElement('a');
+        a.href=h;a.textContent=l;
+        a.style.cssText='font-size:18px;font-weight:600;color:#9495A8';
+        a.onclick=()=>toggleBurger();
+        m.appendChild(a);
+      });
+      const btn=document.createElement('button');
+      btn.textContent='Написать';
+      btn.style.cssText='background:#2563EB;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:600;margin-top:8px';
+      btn.onclick=()=>{toggleBurger();openM()};
+      m.appendChild(btn);
+      document.body.appendChild(m);
+    } else m.style.display='flex';
+  } else if(m) m.style.display='none';
+}
 </script>
 </body>
 </html>
