@@ -105,7 +105,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(8,9,13,.82);bac
 /* ── CASES ── */
 .cases-layout{display:grid;grid-template-columns:1fr 380px;gap:36px;margin-top:56px;align-items:start}
 .case-list{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:20px;overflow:hidden}
-.case-row{background:var(--card);padding:26px 30px;border-bottom:1px solid var(--border);transition:background .2s;position:relative}
+.case-row{background:var(--card);padding:26px 30px;border-bottom:1px solid var(--border);transition:background .2s;position:relative;user-select:none;-webkit-user-select:none;cursor:pointer}
 .case-row:last-child{border-bottom:none}
 .case-row:hover,.case-row.active{background:var(--card2)}
 .case-row.active::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent)}
@@ -394,31 +394,31 @@ body{animation:pageIn .3s ease}
     <div class="cases-layout">
       <div class="case-list reveal">
 
-        <div class="case-row active" data-pv="pv-raketa" onmouseenter="showPv(this)">
+        <div class="case-row active" data-pv="pv-raketa" data-url="raketa-park.ru" onmouseenter="showPv(this)">
           <div class="cr-top"><span class="cr-name">Ракета</span><span class="cr-badge b-live">Live</span></div>
           <div class="cr-desc">Система лояльности и бронирования для парка в ТРК Таганай. Три роли, QR-сканер, Telegram-уведомления.</div>
           <div class="cr-meta">Абонентка <b>8 000 ₽/мес</b> · интеграция с кассой в работе</div>
         </div>
 
-        <div class="case-row" data-pv="pv-lesso" onmouseenter="showPv(this)">
+        <div class="case-row" data-pv="pv-lesso" data-url="lesso.html" onmouseenter="showPv(this)">
           <div class="cr-top"><span class="cr-name">Lesso</span><span class="cr-badge b-live">Live</span></div>
           <div class="cr-desc">Платформа для репетиторов вместо WhatsApp: расписание, ДЗ с фото, чат с родителями, оплата.</div>
           <div class="cr-meta">Первый живой клиент — <b>репетитор по английскому</b></div>
         </div>
 
-        <div class="case-row" data-pv="pv-foodflow" onmouseenter="showPv(this)">
+        <div class="case-row" data-pv="pv-foodflow" data-url="foodflow.html" onmouseenter="showPv(this)">
           <div class="cr-top"><span class="cr-name">FoodFlow</span><span class="cr-badge b-live">Live</span></div>
           <div class="cr-desc">QR-меню для кафе: гость заказывает с телефона, заказ идёт прямо на кухню, выручка видна онлайн.</div>
           <div class="cr-meta">Работает в кафе <b>Царская Кухня</b></div>
         </div>
 
-        <div class="case-row" data-pv="pv-fitcore" onmouseenter="showPv(this)">
+        <div class="case-row" data-pv="pv-fitcore" data-url="fit-core.ru" onmouseenter="showPv(this)">
           <div class="cr-top"><span class="cr-name">FitCore</span><span class="cr-badge b-live">Live</span></div>
           <div class="cr-desc">Закрытая PWA для персональных программ тренировок. A/B логика, недели, счётчик тренировок.</div>
           <div class="cr-meta">Три пилотных клиента, цель — <b>платные программы</b></div>
         </div>
 
-        <div class="case-row" data-pv="pv-sled" onmouseenter="showPv(this)">
+        <div class="case-row" data-pv="pv-sled" data-url="sledopyts.ru" onmouseenter="showPv(this)">
           <div class="cr-top"><span class="cr-name">Следопыт</span><span class="cr-badge b-demo">Пилот</span></div>
           <div class="cr-desc">Платформа корпоративных квестов: маршруты, фотоотчёты, достижения, командные рейтинги.</div>
           <div class="cr-meta">Корпоративный пилот <b>на 14 точек</b></div>
@@ -994,6 +994,30 @@ document.querySelectorAll('a[href]').forEach(a=>{
     });
   }
 });
+
+// MOBILE TAP ON CASE ROW
+(function(){
+  const isMobile = window.matchMedia('(max-width:900px)').matches;
+  if(!isMobile) return;
+  document.querySelectorAll('.case-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const url = row.dataset.url;
+      if(!url) return;
+      if(url.startsWith('http') || url.includes('.ru') && !url.includes('.html')){
+        window.open('https://' + url.replace('https://',''), '_blank');
+      } else {
+        navigate(url);
+      }
+    });
+  });
+  // Добавляем стрелку на мобильном
+  document.querySelectorAll('.case-row').forEach(row => {
+    const arr = document.createElement('div');
+    arr.textContent = '→';
+    arr.style.cssText = 'margin-top:10px;color:var(--accent-l);font-size:14px;font-weight:600';
+    row.appendChild(arr);
+  });
+})();
 </script>
 </body>
 </html>
