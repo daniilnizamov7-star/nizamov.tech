@@ -319,6 +319,9 @@ footer{padding:56px 28px 40px}
 .page-out{animation:pageOut .25s ease forwards}
 .page-in{animation:pageIn .3s ease forwards}
 body{animation:pageIn .3s ease}
+
+.cr-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:13px;font-weight:600;color:var(--accent-l);border:1px solid rgba(59,130,246,.25);border-radius:7px;padding:6px 14px;transition:background .2s,border-color .2s;text-decoration:none}
+.cr-btn:hover{background:rgba(37,99,235,.1);border-color:rgba(59,130,246,.5)}
 </style>
 </head>
 <body>
@@ -395,31 +398,41 @@ body{animation:pageIn .3s ease}
       <div class="case-list reveal">
 
         <div class="case-row active" data-pv="pv-raketa" data-url="raketa-park.ru" onmouseenter="showPv(this)">
-          <div class="cr-top"><span class="cr-name">Ракета</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-top"><span class="cr-name">Ракета</span><span class="cr-badge b-live">Live</span>
+          <a href="https://raketa-park.ru" class="cr-btn" target="_blank">Открыть →</a>
+        </div>
           <div class="cr-desc">Система лояльности и бронирования для парка в ТРК Таганай. Три роли, QR-сканер, Telegram-уведомления.</div>
           <div class="cr-meta">Абонентка <b>8 000 ₽/мес</b> · интеграция с кассой в работе</div>
         </div>
 
         <div class="case-row" data-pv="pv-lesso" data-url="lesso.html" onmouseenter="showPv(this)">
-          <div class="cr-top"><span class="cr-name">Lesso</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-top"><span class="cr-name">Lesso</span><span class="cr-badge b-live">Live</span>
+          <a href="lesso.html" class="cr-btn">Открыть →</a>
+        </div>
           <div class="cr-desc">Платформа для репетиторов вместо WhatsApp: расписание, ДЗ с фото, чат с родителями, оплата.</div>
           <div class="cr-meta">Первый живой клиент — <b>репетитор по английскому</b></div>
         </div>
 
         <div class="case-row" data-pv="pv-foodflow" data-url="foodflow.html" onmouseenter="showPv(this)">
-          <div class="cr-top"><span class="cr-name">FoodFlow</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-top"><span class="cr-name">FoodFlow</span><span class="cr-badge b-live">Live</span>
+          <a href="foodflow.html" class="cr-btn">Открыть →</a>
+        </div>
           <div class="cr-desc">QR-меню для кафе: гость заказывает с телефона, заказ идёт прямо на кухню, выручка видна онлайн.</div>
           <div class="cr-meta">Работает в кафе <b>Царская Кухня</b></div>
         </div>
 
         <div class="case-row" data-pv="pv-fitcore" data-url="fit-core.ru" onmouseenter="showPv(this)">
-          <div class="cr-top"><span class="cr-name">FitCore</span><span class="cr-badge b-live">Live</span></div>
+          <div class="cr-top"><span class="cr-name">FitCore</span><span class="cr-badge b-live">Live</span>
+          <a href="https://fit-core.ru" class="cr-btn" target="_blank">Открыть →</a>
+        </div>
           <div class="cr-desc">Закрытая PWA для персональных программ тренировок. A/B логика, недели, счётчик тренировок.</div>
           <div class="cr-meta">Три пилотных клиента, цель — <b>платные программы</b></div>
         </div>
 
         <div class="case-row" data-pv="pv-sled" data-url="sledopyt.html" onmouseenter="showPv(this)">
-          <div class="cr-top"><span class="cr-name">Следопыт</span><span class="cr-badge b-demo">Пилот</span></div>
+          <div class="cr-top"><span class="cr-name">Следопыт</span><span class="cr-badge b-demo">Пилот</span>
+          <a href="sledopyt.html" class="cr-btn">Открыть →</a>
+        </div>
           <div class="cr-desc">Платформа корпоративных квестов: маршруты, фотоотчёты, достижения, командные рейтинги.</div>
           <div class="cr-meta">Корпоративный пилот <b>на 14 точек</b></div>
         </div>
