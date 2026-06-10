@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FitCore — персональные программы тренировок. 8-недельный план, упражнения для кора и спины, прогресс в телефоне.">
+<title>FitCore — Персональные тренировки | Nizamov.tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0A0F;--bg2:#0D0D12;--bg3:#111118;
+  --card:#13131A;--card2:#1A1A22;
+  --border:rgba(191,255,0,.08);--border2:rgba(191,255,0,.18);
+  --accent:#BFFF00;--accent2:#A8E600;
+  --green:#10B981;--text:#F0EEE8;--muted:#4A4A5A;--muted2:#7A7A8A;--r:14px;--r2:20px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,15,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-in{position:relative;max-width:1100px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--accent);letter-spacing:-.5px}
+.logo-back{font-size:12px;color:var(--muted2);font-weight:400;margin-left:8px;font-family:'Inter',sans-serif}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;color:var(--muted2);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-btn{background:var(--accent);color:#0A0A0F;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:700;transition:opacity .2s}
+.nav-btn:hover{opacity:.86}
+.burger{display:none;flex-direction:column;gap:5px;padding:6px;border:none;background:none;cursor:pointer}
+.burger span{display:block;width:20px;height:1.5px;background:var(--muted2);border-radius:2px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 28px 60px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-200px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(191,255,0,.06) 0%,transparent 65%);pointer-events:none}
+.hero-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);border-radius:100px;padding:5px 14px 5px 5px;margin-bottom:28px}
+.hero-tag-pill{background:var(--accent);color:#0A0A0F;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.hero-tag span{font-size:13px;color:var(--muted2)}
+.hero-h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(40px,6vw,72px);line-height:1.0;letter-spacing:-2.5px;margin-bottom:22px}
+.hero-h1 em{font-style:normal;color:var(--accent)}
+.hero-p{font-size:17px;color:var(--muted2);line-height:1.7;margin-bottom:36px;max-width:480px}
+.hero-acts{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.btn-p{background:var(--accent);color:#0A0A0F;border:none;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:700;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn-p:hover{opacity:.86;transform:translateY(-1px)}
+.btn-g{border:1px solid var(--border2);color:var(--accent);background:rgba(191,255,0,.04);padding:14px 26px;border-radius:10px;font-size:15px;font-weight:500;transition:background .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-g:hover{background:rgba(191,255,0,.08)}
+.hero-note{font-size:13px;color:var(--muted)}
+
+/* PHONE */
+.phone-wrap{display:flex;justify-content:center}
+.phone{width:240px;background:#0D0D12;border-radius:36px;padding:12px;box-shadow:0 40px 80px rgba(191,255,0,.1),0 0 0 1px rgba(191,255,0,.08)}
+.phone-screen{background:#0A0A0F;border-radius:26px;overflow:hidden}
+.p-bar{background:#0D0D12;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.p-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:14px;color:var(--accent)}
+.p-ver{font-size:10px;color:var(--muted);background:var(--card);padding:2px 8px;border-radius:100px}
+.p-body{padding:14px}
+.p-date{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.p-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:var(--text);margin-bottom:2px}
+.p-title em{font-style:normal;color:var(--accent)}
+.p-sub{font-size:10px;color:var(--muted2);margin-bottom:12px}
+.p-streak{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.p-streak-tx{font-size:10px;color:var(--accent);font-weight:600}
+.p-streak-sub{font-size:9px;color:var(--muted2)}
+.p-today{background:#1E3A1E;border:1px solid rgba(191,255,0,.15);border-radius:10px;padding:12px;margin-bottom:10px}
+.p-today-tag{font-size:8px;color:rgba(191,255,0,.6);font-weight:700;letter-spacing:.3px;margin-bottom:4px}
+.p-today-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;color:var(--text);margin-bottom:2px}
+.p-today-sub{font-size:9px;color:var(--muted2);margin-bottom:8px}
+.p-today-btn{background:var(--accent);color:#0A0A0F;border:none;border-radius:6px;padding:5px 14px;font-size:9px;font-weight:700}
+.p-ex{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:8px 10px;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.p-ex-name{font-size:10px;color:var(--text);font-weight:500}
+.p-ex-sets{font-size:9px;color:var(--muted2)}
+.p-nav{background:#0D0D12;border-top:1px solid var(--border);padding:10px 20px;display:flex;justify-content:space-around}
+.p-nav-item{text-align:center;font-size:9px;color:var(--muted)}
+.p-nav-item.active{color:var(--accent)}
+.p-nav-ico{font-size:14px;display:block;margin-bottom:2px}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin:56px 0}
+.stat-box{background:var(--card);padding:28px 20px;text-align:center}
+.stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:var(--accent);letter-spacing:-1px;margin-bottom:4px}
+.stat-l{font-size:13px;color:var(--muted2)}
+
+/* SECTION */
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.sec{padding:96px 0}
+.sec-alt{background:var(--bg2)}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--accent);display:block}
+.sec-h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,46px);letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px}
+.sec-h2 em{font-style:normal;color:var(--accent)}
+.sec-sub{font-size:17px;color:var(--muted2);max-width:560px}
+.divider{border:none;border-top:1px solid var(--border)}
+
+/* PROGRAM */
+.program-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;margin-top:48px}
+.program-weeks{display:flex;flex-direction:column;gap:10px}
+.week{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;display:flex;align-items:center;gap:16px;transition:border-color .2s}
+.week:hover{border-color:var(--border2)}
+.week.active{border-color:var(--accent);background:rgba(191,255,0,.04)}
+.week-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;color:var(--muted);min-width:56px}
+.week.active .week-num{color:var(--accent)}
+.week-name{font-weight:600;font-size:15px;color:var(--text);margin-bottom:3px}
+.week-sub{font-size:13px;color:var(--muted2)}
+.week-badge{margin-left:auto;font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;flex-shrink:0}
+.program-right{display:flex;flex-direction:column;gap:16px}
+.prog-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px}
+.prog-card-ico{font-size:28px;margin-bottom:14px}
+.prog-card h3{font-weight:700;font-size:18px;color:var(--text);margin-bottom:8px}
+.prog-card p{font-size:14px;color:var(--muted2);line-height:1.6}
+@media(max-width:700px){.program-grid{grid-template-columns:1fr}}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:48px}
+.feat{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .2s,transform .2s}
+.feat:hover{border-color:var(--border2);transform:translateY(-2px)}
+.feat-ico{font-size:24px;margin-bottom:14px;width:48px;height:48px;background:rgba(191,255,0,.06);border-radius:12px;display:flex;align-items:center;justify-content:center}
+.feat h3{font-weight:700;font-size:16px;color:var(--text);margin-bottom:8px}
+.feat p{font-size:14px;color:var(--muted2);line-height:1.6}
+
+/* FOR WHO */
+.forwho-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:48px}
+.forwho{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);padding:28px;transition:border-color .2s}
+.forwho:hover{border-color:var(--border2)}
+.forwho-ico{font-size:28px;margin-bottom:14px}
+.forwho h3{font-weight:700;font-size:17px;color:var(--text);margin-bottom:10px}
+.forwho p{font-size:14px;color:var(--muted2);line-height:1.6}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;align-items:start}
+.price-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r2);padding:32px 28px;position:relative;transition:border-color .2s}
+.price-card.pop{border-color:var(--accent);box-shadow:0 8px 40px rgba(191,255,0,.1)}
+.pop-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#0A0A0F;font-size:11px;font-weight:700;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.pc-ico{font-size:28px;margin-bottom:14px}
+.pc-name{font-weight:700;font-size:17px;color:var(--text);margin-bottom:6px}
+.pc-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:36px;color:var(--text);letter-spacing:-1.5px;line-height:1;margin-bottom:4px}
+.pc-price span{font-size:15px;color:var(--muted2);font-weight:400;font-family:'Inter',sans-serif}
+.pc-desc{font-size:13px;color:var(--muted2);margin-bottom:20px;line-height:1.5}
+.pc-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.pc-list li{font-size:14px;color:var(--muted2);display:flex;align-items:flex-start;gap:8px}
+.pc-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
+.pc-btn{width:100%;padding:13px;border-radius:10px;font-size:15px;font-weight:600;border:none;cursor:pointer;transition:opacity .2s}
+.pc-btn-p{background:var(--accent);color:#0A0A0F}
+.pc-btn-p:hover{opacity:.86}
+.pc-btn-g{background:transparent;border:1.5px solid var(--border2);color:var(--accent)}
+.pc-btn-g:hover{background:rgba(191,255,0,.06)}
+@media(max-width:700px){.pricing-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta{background:var(--bg2);border-top:1px solid var(--border)}
+.cta-in{max-width:1100px;margin:0 auto;padding:96px 28px;text-align:center}
+.cta-in .sec-label{justify-content:center}
+.cta-in .sec-label::before{display:none}
+.cta-in h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,50px);letter-spacing:-1.5px;margin-bottom:16px}
+.cta-in h2 em{font-style:normal;color:var(--accent)}
+.cta-in p{font-size:17px;color:var(--muted2);margin-bottom:36px}
+.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:#060608;padding:56px 28px 36px;border-top:1px solid var(--border)}
+.f-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.f-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--accent);margin-bottom:10px}
+.f-tag{font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:16px}
+.f-back a{font-size:13px;color:var(--muted2)}
+.f-back a:hover{color:var(--text)}
+.f-col h4{font-size:11px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.f-col a{font-size:14px;color:var(--muted2);transition:color .2s}
+.f-col a:hover{color:var(--text)}
+.f-bot{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.f-bot span{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.f-in{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.f-in{grid-template-columns:1fr}.hero-in{grid-template-columns:1fr}.phone-wrap{display:none}.stats-row{grid-template-columns:1fr 1fr}.cta-row{flex-direction:column;align-items:center}}
+@media(max-width:640px){.nav-links{display:none}.burger{display:flex}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* PAGE TRANSITIONS */
+@keyframes pageOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-40px)}}
+@keyframes pageIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+.page-out{animation:pageOut .25s ease forwards}
+body{animation:pageIn .3s ease}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="logo">FitCore<span class="logo-back">← Nizamov.tech</span></a>
+    <ul class="nav-links">
+      <li><a href="#program">Программа</a></li>
+      <li><a href="#features">Возможности</a></li>
+      <li><a href="#forwho">Для кого</a></li>
+      <li><a href="#pricing">Цены</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="https://t.me/Aslyamov74" target="_blank" class="nav-btn">Записаться →</a>
+      <button class="burger" onclick="toggleBurger()" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-in">
+    <div>
+      <div class="hero-tag">
+        <div class="hero-tag-pill">Закрытый клуб</div>
+        <span>Персональные тренировки · PWA</span>
+      </div>
+      <h1 class="hero-h1">Твоя программа —<br><em>твой результат</em></h1>
+      <p class="hero-p">8-недельный план тренировок под твои цели. Кор, спина, осанка — всё в телефоне. Без зала, без тренера рядом.</p>
+      <div class="hero-acts">
+        <a href="https://t.me/Aslyamov74" target="_blank" class="btn-p">Записаться в программу →</a>
+        <a href="#program" class="btn-g">Смотреть программу</a>
+      </div>
+      <p class="hero-note">Три пилотных клиента · результаты уже есть</p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="p-bar">
+            <div class="p-logo">FitCore</div>
+            <div class="p-ver">v0.4</div>
+          </div>
+          <div class="p-body">
+            <div class="p-date">Среда, 10 июня</div>
+            <div class="p-title">Твоя программа — <em>твой результат</em></div>
+            <div class="p-sub">Персональный план тренировок</div>
+            <div class="p-streak">
+              <span style="font-size:16px">🔥</span>
+              <div>
+                <div class="p-streak-tx">12 дней подряд · 24 тренировки</div>
+                <div class="p-streak-sub">Привычка строится 21 день — не прерывай</div>
+              </div>
+            </div>
+            <div class="p-today">
+              <div class="p-today-tag">ДЕНЬ 3 · КОР</div>
+              <div class="p-today-name">Кор + активация</div>
+              <div class="p-today-sub">5 упражнений · 28 мин</div>
+              <button class="p-today-btn">Начать →</button>
+            </div>
+            <div class="p-ex">
+              <div>
+                <div class="p-ex-name">Приседания</div>
+                <div class="p-ex-sets">3 подхода × 12 повторений</div>
+              </div>
+              <span style="font-size:11px;color:var(--accent)">✓</span>
+            </div>
+            <div class="p-ex">
+              <div>
+                <div class="p-ex-name">Superman</div>
+                <div class="p-ex-sets">3 × 10 · осанка</div>
+              </div>
+              <span style="font-size:11px;color:var(--muted)">→</span>
+            </div>
+          </div>
+          <div class="p-nav">
+            <div class="p-nav-item active"><span class="p-nav-ico">🏠</span>Главная</div>
+            <div class="p-nav-item"><span class="p-nav-ico">📋</span>Программы</div>
+            <div class="p-nav-item"><span class="p-nav-ico">📈</span>Прогресс</div>
+            <div class="p-nav-item"><span class="p-nav-ico">❤️</span>Партнёр</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="sec">
+  <div class="wrap">
+    <div class="stats-row reveal">
+      <div class="stat-box"><div class="stat-n">8</div><div class="stat-l">недель программы</div></div>
+      <div class="stat-box"><div class="stat-n">56</div><div class="stat-l">тренировочных дней</div></div>
+      <div class="stat-box"><div class="stat-n">3</div><div class="stat-l">пилотных клиента</div></div>
+      <div class="stat-box"><div class="stat-n">PWA</div><div class="stat-l">без установки</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="sec sec-alt" id="program">
+  <div class="wrap">
+    <div class="sec-label reveal">Программа</div>
+    <h2 class="sec-h2 reveal">8 недель к <em>результату</em></h2>
+    <p class="sec-sub reveal">Каждая неделя строится на предыдущей. Нагрузка растёт постепенно — без травм и перегрузок.</p>
+    <div class="program-grid">
+      <div class="program-weeks reveal">
+        <div class="week active">
+          <div class="week-num">Нед 1–2</div>
+          <div><div class="week-name">Активация</div><div class="week-sub">Базовые движения, включение мышц кора</div></div>
+          <div class="week-badge" style="background:rgba(191,255,0,.1);color:var(--accent)">Старт</div>
+        </div>
+        <div class="week">
+          <div class="week-num">Нед 3–4</div>
+          <div><div class="week-name">Нагрузка</div><div class="week-sub">Увеличение объёма, работа со спиной</div></div>
+        </div>
+        <div class="week">
+          <div class="week-num">Нед 5–6</div>
+          <div><div class="week-name">Интенсив</div><div class="week-sub">Суперсеты, функциональные движения</div></div>
+        </div>
+        <div class="week">
+          <div class="week-num">Нед 7–8</div>
+          <div><div class="week-name">Закрепление</div><div class="week-sub">Пиковая нагрузка и формирование привычки</div></div>
+          <div class="week-badge" style="background:rgba(16,185,129,.1);color:#34D399">Финиш</div>
+        </div>
+      </div>
+      <div class="program-right reveal">
+        <div class="prog-card">
+          <div class="prog-card-ico">💪</div>
+          <h3>Биомеханика в основе</h3>
+          <p>Каждая программа включает упражнения на осанку и мобильность — даже если ты не просил. Это основа долгосрочного результата.</p>
+        </div>
+        <div class="prog-card">
+          <div class="prog-card-ico">🔄</div>
+          <h3>A/B чередование</h3>
+          <p>Два типа тренировок чередуются — мышцы успевают восстановиться и растут быстрее.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="sec" id="features">
+  <div class="wrap">
+    <div class="sec-label reveal">Возможности</div>
+    <h2 class="sec-h2 reveal">Всё в одном <em>приложении</em></h2>
+    <p class="sec-sub reveal">Открываешь телефон — и знаешь что делать сегодня.</p>
+    <div class="feat-grid">
+      <div class="feat reveal">
+        <div class="feat-ico">📅</div>
+        <h3>План на каждый день</h3>
+        <p>Открываешь приложение — видишь сегодняшнюю тренировку. День, блок, упражнения, подходы.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">⏱️</div>
+        <h3>Таймер прямо в упражнении</h3>
+        <p>Для планки, отдыха между подходами, изометрики — таймер встроен. Не нужен телефон рядом.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">🧘</div>
+        <h3>Осанка и мобильность</h3>
+        <p>Каждый блок включает упражнения на спину и осанку. Строим тело, а не только накачиваем мышцы.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">📈</div>
+        <h3>Счётчик прогресса</h3>
+        <p>Серия дней подряд, общее количество тренировок, выполненные недели — мотивирует не бросать.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">🤝</div>
+        <h3>Партнёрский режим</h3>
+        <p>Тренируйся с другом — видите прогресс друг друга и мотивируете не пропускать.</p>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">📱</div>
+        <h3>PWA — без установки</h3>
+        <p>Открыл ссылку — уже приложение. Работает офлайн. Android и iOS без магазина приложений.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="sec sec-alt" id="forwho">
+  <div class="wrap">
+    <div class="sec-label reveal">Для кого</div>
+    <h2 class="sec-h2 reveal">Подойдёт <em>тебе,</em> если...</h2>
+    <p class="sec-sub reveal">FitCore — не для всех. Вот кому это реально помогает.</p>
+    <div class="forwho-grid">
+      <div class="forwho reveal">
+        <div class="forwho-ico">🪑</div>
+        <h3>Сидишь целый день</h3>
+        <p>Офис, завод, компьютер — спина болит, осанка портится. Программа специально выстроена вокруг этой проблемы.</p>
+      </div>
+      <div class="forwho reveal">
+        <div class="forwho-ico">🏃</div>
+        <h3>Нет времени на зал</h3>
+        <p>28–40 минут в день, дома или где угодно. Никакого оборудования — только тело и пол.</p>
+      </div>
+      <div class="forwho reveal">
+        <div class="forwho-ico">🔁</div>
+        <h3>Начинал и бросал</h3>
+        <p>Система построена на привычке: короткие тренировки, серия дней подряд, напоминания. Трудно бросить.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;background:var(--card);border:1px solid rgba(239,68,68,.2);border-radius:var(--r2);padding:24px 28px">
+      <div style="font-size:12px;font-weight:700;color:#EF4444;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Не подойдёт если</div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:14px;color:var(--muted2);display:flex;gap:10px"><span style="color:#EF4444;flex-shrink:0">✗</span>Хочешь накачать массу — это не программа на массу</div>
+        <div style="font-size:14px;color:var(--muted2);display:flex;gap:10px"><span style="color:#EF4444;flex-shrink:0">✗</span>Ищешь тренировку раз в неделю — нужна системность</div>
+        <div style="font-size:14px;color:var(--muted2);display:flex;gap:10px"><span style="color:#EF4444;flex-shrink:0">✗</span>Есть серьёзные травмы позвоночника — сначала к врачу</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-label reveal">Цены</div>
+    <h2 class="sec-h2 reveal">Стоимость <em>программы</em></h2>
+    <p class="sec-sub reveal">Разовая оплата за 8-недельный курс. Никаких подписок.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card reveal">
+        <div class="pc-ico">🌱</div>
+        <div class="pc-name">Базовый</div>
+        <div class="pc-price">2 500 ₽<span></span></div>
+        <div class="pc-desc">8-недельная программа · разовая оплата</div>
+        <ul class="pc-list">
+          <li>Готовая 8-недельная программа</li>
+          <li>56 тренировочных дней</li>
+          <li>Таймеры и инструкции</li>
+          <li>Счётчик прогресса</li>
+          <li>Офлайн-режим</li>
+        </ul>
+        <a href="https://t.me/Aslyamov74?text=Хочу FitCore Базовый" target="_blank" class="pc-btn pc-btn-g">Записаться →</a>
+      </div>
+
+      <div class="price-card pop reveal">
+        <div class="pop-badge">Популярный</div>
+        <div class="pc-ico">💪</div>
+        <div class="pc-name">Персональный</div>
+        <div class="pc-price">5 000 ₽<span></span></div>
+        <div class="pc-desc">Программа под твои цели и особенности</div>
+        <ul class="pc-list">
+          <li>Всё из базового</li>
+          <li>Программа под твои цели</li>
+          <li>Учёт травм и ограничений</li>
+          <li>Партнёрский режим</li>
+          <li>Корректировка на 4-й неделе</li>
+        </ul>
+        <a href="https://t.me/Aslyamov74?text=Хочу FitCore Персональный" target="_blank" class="pc-btn pc-btn-p">Записаться →</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="pc-ico">🔄</div>
+        <div class="pc-name">Продолжение</div>
+        <div class="pc-price">3 500 ₽<span></span></div>
+        <div class="pc-desc">Следующие 8 недель после первого курса</div>
+        <ul class="pc-list">
+          <li>Усложнённая программа</li>
+          <li>Новые блоки упражнений</li>
+          <li>Строится на твоих результатах</li>
+          <li>Для тех кто прошёл первый курс</li>
+        </ul>
+        <a href="https://t.me/Aslyamov74?text=Хочу продолжить FitCore" target="_blank" class="pc-btn pc-btn-g">Записаться →</a>
+      </div>
+
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-top:24px;text-align:center">Оплата переводом · начало после оплаты · вопросы: <a href="https://t.me/Aslyamov74" style="color:var(--accent)" target="_blank">@Aslyamov74</a></p>
+  </div>
+</section>
+
+<div class="cta">
+  <div class="cta-in">
+    <div class="sec-label">Готов начать?</div>
+    <h2>Первая тренировка —<br><em>уже сегодня.</em></h2>
+    <p>Напиши — расскажу подробнее и подберём программу под тебя.</p>
+    <div class="cta-row">
+      <a href="https://t.me/Aslyamov74" target="_blank" class="btn-p">Написать Даниилу →</a>
+      <a href="https://sport-eight-psi.vercel.app" target="_blank" class="btn-g">Посмотреть демо</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-in">
+    <div>
+      <div class="f-logo">FitCore</div>
+      <div class="f-tag">Персональные программы тренировок. Кор, спина, осанка. Без зала.</div>
+      <div class="f-back"><a href="/">← Nizamov.tech</a></div>
+    </div>
+    <div class="f-col">
+      <h4>Программа</h4>
+      <ul>
+        <li><a href="#program">8 недель</a></li>
+        <li><a href="#features">Возможности</a></li>
+        <li><a href="#forwho">Для кого</a></li>
+        <li><a href="#pricing">Цены</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Тарифы</h4>
+      <ul>
+        <li><a href="#pricing">Базовый — 2 500 ₽</a></li>
+        <li><a href="#pricing">Персональный — 5 000 ₽</a></li>
+        <li><a href="#pricing">Продолжение — 3 500 ₽</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="https://t.me/Aslyamov74" target="_blank">@Aslyamov74</a></li>
+        <li><a href="tel:+79911745113">+7 991 174-51-13</a></li>
+        <li><a href="https://sport-eight-psi.vercel.app" target="_blank">Демо приложения</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bot">
+    <span>© 2026 Nizamov.tech · Даниил Низамов</span>
+    <span><a href="/privacy.html" style="color:var(--muted)">Конфиденциальность</a></span>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+let mOpen=false;
+function toggleBurger(){
+  mOpen=!mOpen;
+  let m=document.getElementById('mob-nav');
+  if(mOpen){
+    if(!m){
+      m=document.createElement('div');
+      m.id='mob-nav';
+      m.style.cssText='position:fixed;top:64px;left:0;right:0;background:#0D0D12;border-bottom:1px solid rgba(191,255,0,.08);padding:20px 28px;z-index:99;display:flex;flex-direction:column;gap:16px';
+      [['Программа','#program'],['Возможности','#features'],['Для кого','#forwho'],['Цены','#pricing']].forEach(([l,h])=>{
+        const a=document.createElement('a');
+        a.href=h;a.textContent=l;
+        a.style.cssText='font-size:17px;font-weight:500;color:#7A7A8A';
+        a.onclick=()=>toggleBurger();
+        m.appendChild(a);
+      });
+      document.body.appendChild(m);
+    } else m.style.display='flex';
+  } else if(m) m.style.display='none';
+}
+
+function navigate(url){
+  document.body.style.pointerEvents='none';
+  document.body.classList.add('page-out');
+  setTimeout(()=>window.location.href=url,260);
+}
+document.querySelectorAll('a[href]').forEach(a=>{
+  const href=a.getAttribute('href');
+  if(href&&!href.startsWith('#')&&!href.startsWith('http')&&!href.startsWith('tel')&&!a.target){
+    a.addEventListener('click',e=>{e.preventDefault();navigate(href)});
+  }
+});
+</script>
+</body>
+</html>
