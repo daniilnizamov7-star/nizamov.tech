@@ -82,13 +82,13 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(8,14,8,.88);bac
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin:56px 0}
 .stat-box{background:var(--card);padding:28px 20px;text-align:center}
 .stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:var(--accent);letter-spacing:-1px;margin-bottom:4px}
-.stat-l{font-size:13px;color:var(--muted2)}
+.stat-l{font-size:13px;color:var(--muted2);letter-spacing:0}
 
 /* SECTION */
 .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
 .sec{padding:96px 0}
 .sec-alt{background:var(--bg2)}
-.sec-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .sec-label::before{content:'';width:24px;height:2px;background:var(--accent);display:block}
 .sec-h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,46px);letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px}
 .sec-h2 em{font-style:normal;color:var(--accent)}
@@ -120,7 +120,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(8,14,8,.88);bac
 .role:hover{border-color:var(--border2)}
 .role-ico{font-size:28px;margin-bottom:14px}
 .role-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;color:var(--text);margin-bottom:6px}
-.role-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;margin-bottom:16px;display:inline-block}
+.role-tag{font-size:12px;font-weight:600;padding:4px 12px;border-radius:100px;margin-bottom:16px;display:inline-block}
 .role-list{list-style:none;display:flex;flex-direction:column;gap:8px}
 .role-list li{font-size:14px;color:var(--muted2);display:flex;align-items:flex-start;gap:8px;line-height:1.5}
 .role-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
@@ -150,7 +150,7 @@ footer{background:#050805;padding:56px 28px 36px;border-top:1px solid var(--bord
 .f-tag{font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:16px}
 .f-back a{font-size:13px;color:var(--muted2)}
 .f-back a:hover{color:var(--text)}
-.f-col h4{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.f-col h4{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
 .f-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
 .f-col a{font-size:14px;color:var(--muted2);transition:color .2s}
 .f-col a:hover{color:var(--text)}
@@ -215,7 +215,7 @@ body{animation:pageIn .3s ease}
           </div>
           <div class="p-body">
             <div class="p-badge">
-              <div class="p-badge-ico">🗺️</div>
+              <div class="p-badge-ico">🗺</div>
               <div class="p-badge-tx">«Путь банки» · точка 8 из 14</div>
             </div>
             <div class="p-stats">
@@ -239,7 +239,7 @@ body{animation:pageIn .3s ease}
             </div>
           </div>
           <div class="p-nav">
-            <div class="p-nav-item active"><span class="p-nav-ico">🗺️</span>Квест</div>
+            <div class="p-nav-item active"><span class="p-nav-ico">🗺</span>Квест</div>
             <div class="p-nav-item"><span class="p-nav-ico">🏆</span>Рейтинг</div>
             <div class="p-nav-item"><span class="p-nav-ico">👤</span>Профиль</div>
           </div>
@@ -274,7 +274,7 @@ body{animation:pageIn .3s ease}
         <div class="step-line"></div>
         <div class="step-num">1</div>
         <h3>Регистрируйся</h3>
-        <p>Открываешь sledopyts.ru, создаёшь аккаунт или входишь. Никакого магазина приложений.</p>
+        <p>Открываешь сайт, создаёшь аккаунт или входишь. Никакого магазина приложений.</p>
       </div>
       <div class="step reveal">
         <div class="step-line"></div>
@@ -303,10 +303,10 @@ body{animation:pageIn .3s ease}
   <div class="wrap">
     <div class="sec-label reveal">Возможности</div>
     <h2 class="sec-h2 reveal">Всё для настоящего <em>приключения</em></h2>
-    <p class="sec-sub reveal">Продуманная система которая делает квест живым и честным.</p>
+    <p class="sec-sub reveal">Продуманная система, которая делает квест живым и честным.</p>
     <div class="feat-grid">
       <div class="feat reveal">
-        <div class="feat-ico">📍</div>
+        <div class="feat-ico">📌</div>
         <h3>Точки маршрута</h3>
         <p>До 14+ точек в одном квесте. Каждая точка — задание, вопрос или загадка. Организатор настраивает всё.</p>
       </div>
@@ -318,17 +318,17 @@ body{animation:pageIn .3s ease}
       <div class="feat reveal">
         <div class="feat-ico">🏆</div>
         <h3>Командный рейтинг</h3>
-        <p>Рейтинг обновляется в реальном времени. Видно кто лидирует, сколько очков у каждой команды.</p>
+        <p>Рейтинг обновляется в реальном времени. Видно кто лидирует и сколько очков у каждой команды.</p>
       </div>
       <div class="feat reveal">
-        <div class="feat-ico">🎖️</div>
+        <div class="feat-ico">🏅</div>
         <h3>Достижения</h3>
         <p>Speed Run, первое место, все точки за день — ачивки которые остаются в профиле навсегда.</p>
       </div>
       <div class="feat reveal">
-        <div class="feat-ico">🔓</div>
+        <div class="feat-ico">🌿</div>
         <h3>Свободный режим</h3>
-        <p>Можно исследовать город без соревнования — просто находить интересные места и узнавать историю.</p>
+        <p>Можно исследовать город без соревнования — просто находить интересные места и узнавать историю города.</p>
       </div>
       <div class="feat reveal">
         <div class="feat-ico">📱</div>
@@ -348,7 +348,7 @@ body{animation:pageIn .3s ease}
     <p class="sec-sub reveal">Участник, организатор или зритель — у каждого свой кабинет.</p>
     <div class="roles-grid">
       <div class="role reveal">
-        <div class="role-ico">🧭</div>
+        <div class="role-ico">🏃</div>
         <div class="role-name">Участник</div>
         <div class="role-tag" style="background:rgba(74,222,128,.1);color:var(--accent)">Играет</div>
         <ul class="role-list">
@@ -360,7 +360,7 @@ body{animation:pageIn .3s ease}
         </ul>
       </div>
       <div class="role reveal">
-        <div class="role-ico">🎯</div>
+        <div class="role-ico">⚡</div>
         <div class="role-name">Организатор</div>
         <div class="role-tag" style="background:rgba(252,211,77,.08);color:var(--gold)">Управляет</div>
         <ul class="role-list">
@@ -372,7 +372,7 @@ body{animation:pageIn .3s ease}
         </ul>
       </div>
       <div class="role reveal">
-        <div class="role-ico">👀</div>
+        <div class="role-ico">👁</div>
         <div class="role-name">Зритель</div>
         <div class="role-tag" style="background:rgba(74,222,128,.06);color:var(--muted2)">Следит</div>
         <ul class="role-list">
@@ -412,11 +412,11 @@ body{animation:pageIn .3s ease}
       </div>
       <div class="score-card reveal">
         <div class="score-val">+50</div>
-        <div class="score-info"><b>Финиш квеста</b><span>за прохождение всех точек</span></div>
+        <div class="score-info"><b>Финиш квеста</b><span>за прохождение всех точек маршрута</span></div>
       </div>
       <div class="score-card reveal">
         <div class="score-val">×0.7</div>
-        <div class="score-info"><b>Командный коэф.</b><span>честный баланс команд</span></div>
+        <div class="score-info"><b>Командный коэф.</b><span>выравнивает шансы команд разного размера</span></div>
       </div>
     </div>
   </div>
