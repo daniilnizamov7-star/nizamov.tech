@@ -272,6 +272,46 @@ footer{padding:56px 28px 40px}
   .slot-n{text-align:center}
   .cta-row{flex-direction:column;align-items:center}
 }
+
+/* ── SECTION BACKGROUNDS ── */
+.sec-dark{background:var(--bg)}
+.sec-mid{background:var(--bg2)}
+.sec-card{background:var(--card)}
+
+/* Градиентные разделители */
+.sec-dark + .sec-mid,.sec-mid + .sec-dark{border-top:1px solid var(--border)}
+
+/* Лёгкий top-border акцент на заголовках */
+.sec-label{position:relative}
+
+/* Превью — скриншот телефона */
+.cp-phone{
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:16px;
+  overflow:hidden;
+  max-height:300px;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  margin-bottom:14px;
+}
+.cp-phone img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  object-position:top;
+  border-radius:0;
+}
+
+/* Hero — добавляем тонкую линию снизу */
+.hero::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border2),transparent);
+}
 </style>
 </head>
 <body>
@@ -281,7 +321,7 @@ footer{padding:56px 28px 40px}
 
 <nav>
   <div class="nav-in">
-    <a href="#" class="logo"><i></i>Низамов.тех</a>
+    <a href="#" class="logo"><i></i>NIZAMOV<span style="color:var(--accent)">.TECH</span></a>
     <ul class="nav-links">
       <li><a href="#cases">Проекты</a></li>
       <li><a href="#calc">Калькулятор</a></li>
@@ -332,7 +372,7 @@ footer{padding:56px 28px 40px}
 <hr class="divider">
 
 <!-- COUNTERS + CASES -->
-<section class="sec" id="cases">
+<section class="sec" id="cases" style="background:var(--bg)">
   <div class="wrap">
     <div class="sec-label reveal">Проекты</div>
     <h2 class="sec-h2 reveal">Что уже работает<br>у клиентов</h2>
@@ -384,6 +424,7 @@ footer{padding:56px 28px 40px}
         <div class="cp-body">
 
           <div class="cp-screen show" id="pv-raketa" data-url="raketa-park.ru">
+            <div class="cp-phone"><img src="img/raketa.jpg" alt="Ракета" onerror="this.style.display='none'"></div>
             <div class="mk-head"><span class="mk-title">🚀 Ракета</span><span class="mk-pill" style="background:rgba(16,185,129,.12);color:#34D399">Касса · смена открыта</span></div>
             <div class="mk-grid">
               <div class="mk-stat"><div class="mk-stat-n">1 240</div><div class="mk-stat-l">баллов выдано</div></div>
@@ -395,6 +436,7 @@ footer{padding:56px 28px 40px}
           </div>
 
           <div class="cp-screen" id="pv-lesso" data-url="lesso-three.vercel.app">
+            <div class="cp-phone"><img src="img/lesso.jpg" alt="Lesso" onerror="this.style.display='none'"></div>
             <div class="mk-head"><span class="mk-title">📚 Lesso</span><span class="mk-pill" style="background:rgba(37,99,235,.14);color:#60A5FA">Кабинет учителя</span></div>
             <div class="mk-grid">
               <div class="mk-stat"><div class="mk-stat-n">6</div><div class="mk-stat-l">уроков сегодня</div></div>
@@ -416,7 +458,8 @@ footer{padding:56px 28px 40px}
             <div class="mk-line"><div class="mk-ic" style="background:rgba(245,158,11,.12)">📊</div><div class="mk-tx"><b>Отчёт за день сформирован</b><span>автоматически · без тетради</span></div></div>
           </div>
 
-          <div class="cp-screen" id="pv-fitcore" data-url="sport-eight-psi.vercel.app">
+          <div class="cp-screen" id="pv-fitcore" data-url="fit-core.ru">
+            <div class="cp-phone"><img src="img/fitcore.jpg" alt="FitCore" onerror="this.style.display='none'"></div>
             <div class="mk-head"><span class="mk-title">💪 FitCore</span><span class="mk-pill" style="background:rgba(37,99,235,.14);color:#60A5FA">Неделя 3 · день B</span></div>
             <div class="mk-grid">
               <div class="mk-stat"><div class="mk-stat-n">12</div><div class="mk-stat-l">тренировок</div></div>
@@ -488,7 +531,7 @@ footer{padding:56px 28px 40px}
 </section>
 
 <!-- ABOUT -->
-<section class="sec" id="about">
+<section class="sec" id="about" style="background:var(--bg2)">
   <div class="wrap">
     <div class="sec-label reveal">Об авторе</div>
     <div class="about-grid">
@@ -545,7 +588,7 @@ footer{padding:56px 28px 40px}
 <footer>
   <div class="f-in">
     <div>
-      <div class="f-logo"><i></i>Низамов.тех</div>
+      <div class="f-logo"><i></i>NIZAMOV<span style="color:var(--accent)">.TECH</span></div>
       <div class="f-tag">Цифровые продукты для бизнеса.<br>Челябинск · Россия · СНГ</div>
       <div class="f-halal">☪️ Халяльный IT · 10% в садака</div>
     </div>
