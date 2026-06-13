@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Сайты и приложения для бизнеса под ключ. Лендинги, PWA, системы лояльности, Telegram-боты. Челябинск — Даниил Низамов.">
+<title>Сайты и приложения для бизнеса | Nizamov.tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#08090D;--bg2:#0F1016;--bg3:#13141C;
+  --card:#13141C;--card2:#191A24;
+  --border:rgba(255,255,255,.07);--border2:rgba(255,255,255,.13);
+  --accent:#2563EB;--accent-l:#3B82F6;--gold:#F59E0B;--green:#10B981;
+  --text:#EEECEA;--muted:#6B6C7E;--muted2:#9495A8;--r:14px;--r2:20px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:64px}
+nav::before{content:'';position:absolute;inset:0;background:rgba(8,9,13,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-in{position:relative;max-width:1100px;margin:0 auto;padding:0 28px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:17px;letter-spacing:-.3px;display:flex;align-items:center;gap:8px}
+.logo i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
+.logo-back{font-size:12px;color:var(--muted2);font-weight:400;margin-left:4px;font-family:'Inter',sans-serif}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:14px;color:var(--muted2);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-btn{background:var(--accent);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:14px;font-weight:600;transition:opacity .2s}
+.nav-btn:hover{opacity:.86}
+.burger{display:none;flex-direction:column;gap:5px;padding:6px;border:none;background:none;cursor:pointer}
+.burger span{display:block;width:20px;height:1.5px;background:var(--muted2);border-radius:2px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 28px 60px;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-250px;right:-150px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 65%);pointer-events:none}
+.hero-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);border-radius:100px;padding:5px 15px 5px 5px;margin-bottom:28px}
+.hero-tag-pill{background:var(--accent);color:#fff;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:100px}
+.hero-tag span{font-size:13px;color:var(--muted2)}
+.hero-h1{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(38px,5.5vw,66px);line-height:1.0;letter-spacing:-2px;margin-bottom:22px}
+.hero-h1 em{font-style:normal;color:var(--accent)}
+.hero-p{font-size:17px;color:var(--muted2);line-height:1.7;margin-bottom:36px;max-width:480px}
+.hero-acts{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.btn-p{background:var(--accent);color:#fff;border:none;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:600;transition:opacity .2s,transform .15s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn-p:hover{opacity:.86;transform:translateY(-1px)}
+.btn-g{border:1px solid var(--border2);color:var(--muted2);background:none;padding:14px 26px;border-radius:10px;font-size:15px;font-weight:500;transition:border-color .2s,color .2s;display:inline-flex;align-items:center;gap:8px}
+.btn-g:hover{border-color:rgba(255,255,255,.28);color:var(--text)}
+.hero-note{font-size:13px;color:var(--muted)}
+.hero-note b{color:var(--gold);font-weight:600}
+
+/* PHONE MOCKUP */
+.phone-wrap{display:flex;justify-content:center}
+.phone{width:240px;background:#0F1016;border-radius:36px;padding:12px;box-shadow:0 40px 80px rgba(37,99,235,.15),0 0 0 1px rgba(255,255,255,.08)}
+.phone-screen{background:var(--bg);border-radius:26px;overflow:hidden}
+.p-bar{background:var(--bg2);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.p-bar-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;color:var(--text)}
+.p-bar-status{font-size:10px;background:rgba(16,185,129,.1);color:#34D399;padding:2px 8px;border-radius:100px;font-weight:600;display:flex;align-items:center;gap:4px}
+.p-bar-status::before{content:'';width:5px;height:5px;border-radius:50%;background:#34D399;display:block}
+.p-body{padding:14px}
+.p-greeting{font-size:10px;color:var(--muted);margin-bottom:4px}
+.p-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:14px;color:var(--text);margin-bottom:14px}
+.p-card{background:linear-gradient(135deg,var(--accent),#6366F1);border-radius:14px;padding:16px;margin-bottom:12px;position:relative;overflow:hidden}
+.p-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.08)}
+.p-card-label{font-size:9px;color:rgba(255,255,255,.7);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.p-card-val{font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:#fff;letter-spacing:-1px;line-height:1;margin-bottom:2px}
+.p-card-sub{font-size:10px;color:rgba(255,255,255,.75)}
+.p-row{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.p-row-ico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.p-row-tx b{display:block;font-size:11px;font-weight:600;color:var(--text);margin-bottom:1px}
+.p-row-tx span{font-size:10px;color:var(--muted)}
+.p-row-right{margin-left:auto;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;color:var(--green);flex-shrink:0}
+.p-nav{background:var(--bg2);border-top:1px solid var(--border);padding:10px 20px;display:flex;justify-content:space-around}
+.p-nav-item{text-align:center;font-size:9px;color:var(--muted)}
+.p-nav-item.active{color:var(--accent)}
+.p-nav-ico{font-size:14px;display:block;margin-bottom:2px}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:56px}
+.stat-box{background:var(--card);padding:28px 20px;text-align:center}
+.stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:28px;color:var(--accent);letter-spacing:-1px;margin-bottom:4px}
+.stat-l{font-size:13px;color:var(--muted2)}
+
+/* SECTION */
+.wrap{max-width:1100px;margin:0 auto;padding:0 28px}
+.sec{padding:96px 0}
+.sec-alt{background:var(--bg2)}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--accent);display:block}
+.sec-h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,48px);letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px}
+.sec-h2 em{font-style:normal;color:var(--accent)}
+.sec-sub{font-size:17px;color:var(--muted2);max-width:560px}
+.divider{border:none;border-top:1px solid var(--border)}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:48px}
+.service{background:var(--card);padding:32px;transition:background .2s}
+.service:hover{background:var(--card2)}
+.service-ico{width:52px;height:52px;border-radius:14px;background:rgba(37,99,235,.1);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px}
+.service-name{font-family:'Montserrat',sans-serif;font-weight:800;font-size:18px;color:var(--text);margin-bottom:8px}
+.service-desc{font-size:14px;color:var(--muted2);line-height:1.6;margin-bottom:16px}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px}
+.service-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(37,99,235,.08);color:var(--accent-l);border:1px solid rgba(37,99,235,.15)}
+
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.step{position:relative}
+.step-num{width:44px;height:44px;border-radius:12px;background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--accent);margin-bottom:16px}
+.step-line{position:absolute;top:22px;left:44px;right:-16px;height:1px;background:var(--border)}
+.step:last-child .step-line{display:none}
+.step h3{font-weight:700;font-size:16px;color:var(--text);margin-bottom:8px}
+.step p{font-size:14px;color:var(--muted2);line-height:1.6}
+@media(max-width:700px){.steps-grid{grid-template-columns:1fr 1fr}.step-line{display:none}}
+
+/* CASE */
+.case-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:48px}
+.case-header{padding:32px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.case-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;background:rgba(16,185,129,.1);color:#34D399;margin-bottom:12px}
+.case-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
+.case-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:var(--text);margin-bottom:8px}
+.case-desc{font-size:15px;color:var(--muted2);line-height:1.6;max-width:500px}
+.case-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent-l);padding:9px 18px;border:1px solid rgba(37,99,235,.3);border-radius:8px;transition:background .2s;flex-shrink:0}
+.case-link:hover{background:rgba(37,99,235,.1)}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border)}
+.case-stat{background:var(--card);padding:24px;text-align:center}
+.case-stat-n{font-family:'Montserrat',sans-serif;font-weight:900;font-size:24px;color:var(--text);letter-spacing:-1px;margin-bottom:4px}
+.case-stat-l{font-size:13px;color:var(--muted2)}
+.case-features{padding:28px 32px;display:flex;flex-wrap:wrap;gap:10px}
+.case-feat{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:6px 14px;font-size:13px;color:var(--muted2)}
+@media(max-width:700px){.case-header{flex-direction:column}.case-grid{grid-template-columns:1fr 1fr}}
+
+/* PRICING */
+.pricing-table{border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;margin-top:48px}
+.pt-head{display:grid;grid-template-columns:2fr 1fr 1fr;background:var(--card2);border-bottom:1px solid var(--border)}
+.pt-cell{padding:16px 24px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.pt-row{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1px solid var(--border);transition:background .2s}
+.pt-row:last-child{border-bottom:none}
+.pt-row:hover{background:var(--card2)}
+.pt-task{padding:18px 24px;font-size:14px;color:var(--muted2);display:flex;align-items:center}
+.pt-price{padding:18px 24px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:var(--text);display:flex;align-items:center}
+.pt-note{padding:18px 24px;font-size:13px;color:var(--muted);display:flex;align-items:center}
+.pricing-footer{margin-top:20px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;font-size:14px;color:var(--muted2);line-height:1.6}
+.pricing-footer strong{color:var(--text)}
+@media(max-width:700px){.pt-head .pt-cell:last-child,.pt-row .pt-note{display:none}.pt-head,.pt-row{grid-template-columns:2fr 1fr}}
+
+/* ADDS */
+.adds-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:48px}
+.add-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:22px;transition:border-color .2s}
+.add-card:hover{border-color:var(--border2)}
+.add-ico{font-size:22px;margin-bottom:12px}
+.add-name{font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px}
+.add-desc{font-size:13px;color:var(--muted2);line-height:1.55;margin-bottom:12px}
+.add-price{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;color:var(--accent)}
+.add-price span{font-size:12px;color:var(--muted);font-weight:400;font-family:'Inter',sans-serif}
+
+/* CTA */
+.cta{background:var(--bg2);border-top:1px solid var(--border)}
+.cta-in{max-width:1100px;margin:0 auto;padding:96px 28px;text-align:center}
+.cta-in .sec-label{justify-content:center}
+.cta-in .sec-label::before{display:none}
+.cta-in h2{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4.5vw,54px);letter-spacing:-1.5px;margin-bottom:18px}
+.cta-in h2 em{font-style:normal;color:var(--accent)}
+.cta-in p{font-size:17px;color:var(--muted2);margin-bottom:44px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:56px 28px 36px}
+.f-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.f-logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.f-logo i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
+.f-tag{font-size:13px;color:var(--muted2);line-height:1.6;margin-bottom:16px}
+.f-halal{font-size:12px;color:var(--gold);background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:8px;padding:6px 12px;display:inline-block}
+.f-col h4{font-size:11px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.f-col a{font-size:14px;color:var(--muted2);transition:color .2s}
+.f-col a:hover{color:var(--text)}
+.f-bot{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.f-bot span{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.f-in{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.f-in{grid-template-columns:1fr}.hero-in{grid-template-columns:1fr}.phone-wrap{display:none}.stats-row{grid-template-columns:1fr 1fr}.cta-row{flex-direction:column;align-items:center}.hero-acts{flex-direction:column;align-items:stretch}.btn-p,.btn-g{justify-content:center}}
+@media(max-width:640px){.nav-links{display:none}.burger{display:flex}}
+
+
+/* SCREENS */
+.screens-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:48px}
+.screen-wrap{}
+.screen-mac{background:#1C1C1E;border-radius:12px;padding:10px 10px 6px;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.06);margin-bottom:14px}
+.mac-bar{display:flex;gap:5px;margin-bottom:8px}
+.mac-bar span{width:9px;height:9px;border-radius:50%;background:#3A3A3C}
+.mac-bar span:nth-child(1){background:#FF5F57}
+.mac-bar span:nth-child(2){background:#FEBC2E}
+.mac-bar span:nth-child(3){background:#28C840}
+.mac-screen{border-radius:6px;overflow:hidden;min-height:160px}
+.screen-label{text-align:center}
+.screen-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--text);margin-bottom:4px}
+.screen-price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;color:var(--accent)}
+@media(max-width:700px){.screens-grid{grid-template-columns:1fr}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* PAGE TRANSITIONS */
+@keyframes pageOut{from{opacity:1;transform:translateX(0)}to{opacity:0;transform:translateX(-40px)}}
+@keyframes pageIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+.page-out{animation:pageOut .25s ease forwards}
+body{animation:pageIn .3s ease}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="logo"><i></i>NIZAMOV<span style="color:var(--accent)">.TECH</span><span class="logo-back">← Главная</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#how">Процесс</a></li>
+      <li><a href="#case">Кейс</a></li>
+      <li><a href="#pricing">Цены</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="https://t.me/Aslyamov74" target="_blank" class="nav-btn">Написать →</a>
+      <button class="burger" onclick="toggleBurger()" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-in">
+    <div>
+      <div class="hero-tag">
+        <div class="hero-tag-pill">Под ключ</div>
+        <span>От идеи до запуска</span>
+      </div>
+      <h1 class="hero-h1">Сайт и приложение<br>для вашего <em>бизнеса</em></h1>
+      <p class="hero-p">Лендинг который продаёт, PWA которое работает как приложение, система лояльности которая возвращает клиентов. Без лишних звеньев — пишете мне, я делаю.</p>
+      <div class="hero-acts">
+        <a href="https://t.me/Aslyamov74" target="_blank" class="btn-p">Обсудить проект →</a>
+        <a href="#services" class="btn-g">Смотреть услуги</a>
+      </div>
+      <p class="hero-note">Первая консультация бесплатно · <b>Следующий слот — июль 2026</b></p>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="p-bar">
+            <div class="p-bar-logo">Ракета 🚀</div>
+            <div class="p-bar-status">Live</div>
+          </div>
+          <div class="p-body">
+            <div class="p-greeting">Добро пожаловать,</div>
+            <div class="p-name">Карта лояльности 🎟️</div>
+            <div class="p-card">
+              <div class="p-card-label">Ваши баллы</div>
+              <div class="p-card-val">1 240</div>
+              <div class="p-card-sub">Достаточно для скидки 15%</div>
+            </div>
+            <div class="p-row">
+              <div class="p-row-ico" style="background:rgba(37,99,235,.12)">🎟️</div>
+              <div class="p-row-tx"><b>QR отсканирован</b><span>Батутная арена · сегодня</span></div>
+              <div class="p-row-right">+50</div>
+            </div>
+            <div class="p-row">
+              <div class="p-row-ico" style="background:rgba(16,185,129,.1)">🎂</div>
+              <div class="p-row-tx"><b>День рождения</b><span>Бронь на субботу 14:00</span></div>
+              <div class="p-row-right">✓</div>
+            </div>
+            <div class="p-row">
+              <div class="p-row-ico" style="background:rgba(245,158,11,.1)">🎁</div>
+              <div class="p-row-tx"><b>Акция — двойные баллы</b><span>До конца недели</span></div>
+              <div class="p-row-right">×2</div>
+            </div>
+          </div>
+          <div class="p-nav">
+            <div class="p-nav-item active"><span class="p-nav-ico">🏠</span>Главная</div>
+            <div class="p-nav-item"><span class="p-nav-ico">🎟️</span>Баллы</div>
+            <div class="p-nav-item"><span class="p-nav-ico">📅</span>Бронь</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- STATS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="stats-row reveal">
+      <div class="stat-box"><div class="stat-n">8+</div><div class="stat-l">проектов запущено</div></div>
+      <div class="stat-box"><div class="stat-n">3</div><div class="stat-l">живых клиента</div></div>
+      <div class="stat-box"><div class="stat-n">14</div><div class="stat-l">дней средний срок</div></div>
+      <div class="stat-box"><div class="stat-n">24/7</div><div class="stat-l">поддержка после сдачи</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SERVICES -->
+<section class="sec sec-alt" id="services">
+  <div class="wrap">
+    <div class="sec-label reveal">Услуги</div>
+    <h2 class="sec-h2 reveal">Что <em>делаю</em></h2>
+    <p class="sec-sub reveal">От простого лендинга до полноценного приложения с несколькими ролями. Под ваш бизнес — не шаблон.</p>
+    <div class="services-grid">
+
+      <div class="service reveal">
+        <div class="service-ico">🎯</div>
+        <div class="service-name">Лендинг</div>
+        <div class="service-desc">Продающая страница для бизнеса. Мобильная версия, форма заявки, интеграция с Telegram — клиент оставил заявку и она сразу у вас.</div>
+        <div class="service-tags">
+          <span class="service-tag">Быстрый старт</span>
+          <span class="service-tag">SEO-готов</span>
+          <span class="service-tag">Telegram-интеграция</span>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-ico">📱</div>
+        <div class="service-name">PWA-приложение</div>
+        <div class="service-desc">Устанавливается на телефон как приложение — без App Store. Работает офлайн, отправляет push-уведомления, выглядит как нативное.</div>
+        <div class="service-tags">
+          <span class="service-tag">Android + iOS</span>
+          <span class="service-tag">Офлайн-режим</span>
+          <span class="service-tag">Push-уведомления</span>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-ico">🎟️</div>
+        <div class="service-name">Система лояльности</div>
+        <div class="service-desc">Карта постоянного клиента, начисление баллов, QR-сканер, история посещений. Гость возвращается — потому что у него есть баллы.</div>
+        <div class="service-tags">
+          <span class="service-tag">QR-сканер</span>
+          <span class="service-tag">Баллы и скидки</span>
+          <span class="service-tag">Бронирование</span>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-ico">👥</div>
+        <div class="service-name">Многоролевая система</div>
+        <div class="service-desc">Кассир, менеджер, директор — каждый видит своё. Учёт, аналитика, уведомления. Идеально для кафе, парков, студий, клиник.</div>
+        <div class="service-tags">
+          <span class="service-tag">3+ роли</span>
+          <span class="service-tag">Аналитика</span>
+          <span class="service-tag">Supabase</span>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-ico">🤖</div>
+        <div class="service-name">Telegram-бот</div>
+        <div class="service-desc">Принимает заявки, отвечает на вопросы, уведомляет о заказах — прямо в мессенджере. Работает 24/7 без вашего участия.</div>
+        <div class="service-tags">
+          <span class="service-tag">Приём заявок</span>
+          <span class="service-tag">Уведомления</span>
+          <span class="service-tag">24/7</span>
+        </div>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-ico">🔗</div>
+        <div class="service-name">Интеграции</div>
+        <div class="service-desc">Подключение к кассовому ПО, онлайн-оплата, CRM, карты, внешние API. Система работает в связке с тем что у вас уже есть.</div>
+        <div class="service-tags">
+          <span class="service-tag">Онлайн-касса</span>
+          <span class="service-tag">iiko</span>
+          <span class="service-tag">API</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- HOW -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-label reveal">Процесс</div>
+    <h2 class="sec-h2 reveal">От звонка до <em>запуска</em></h2>
+    <p class="sec-sub reveal">Никаких сюрпризов. Знаете что происходит на каждом шаге.</p>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-line"></div>
+        <div class="step-num">1</div>
+        <h3>Разговор</h3>
+        <p>15 минут — рассказываете о бизнесе и задаче. Я говорю что нужно сделать и сколько стоит. Без воды.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-line"></div>
+        <div class="step-num">2</div>
+        <h3>Прототип</h3>
+        <p>За 2–3 дня показываю первую версию. Смотрите, правите, говорите что не так — до оплаты.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-line"></div>
+        <div class="step-num">3</div>
+        <h3>Разработка</h3>
+        <p>Делаю по согласованному плану. Каждые 2–3 дня — обновление. Видите прогресс в реальном времени.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <h3>Запуск и поддержка</h3>
+        <p>Деплой на ваш домен, обучение, передача доступов. После сдачи — остаюсь на связи.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CASE -->
+<section class="sec sec-alt" id="case">
+  <div class="wrap">
+    <div class="sec-label reveal">Кейс</div>
+    <h2 class="sec-h2 reveal">Как это выглядит <em>в жизни</em></h2>
+    <p class="sec-sub reveal">Не макет — живой проект который работает у реального клиента.</p>
+    <div class="case-block reveal">
+      <div class="case-header">
+        <div>
+          <div class="case-badge">Live</div>
+          <div class="case-name">Семейный парк «Ракета»</div>
+          <div class="case-desc">Система лояльности и бронирования для парка в ТРК Таганай, Челябинск. Три роли — кассир, менеджер, директор. QR-сканер, начисление баллов, бронирование праздников, Telegram-уведомления. Абонентское сопровождение.</div>
+        </div>
+        <a href="https://raketa-park.ru" target="_blank" class="case-link">Открыть сайт →</a>
+      </div>
+      <div class="case-grid">
+        <div class="case-stat"><div class="case-stat-n">3</div><div class="case-stat-l">роли в системе</div></div>
+        <div class="case-stat"><div class="case-stat-n">QR</div><div class="case-stat-l">сканер в браузере</div></div>
+        <div class="case-stat"><div class="case-stat-n">8к</div><div class="case-stat-l">абонентка /мес</div></div>
+      </div>
+      <div class="case-features">
+        <div class="case-feat">Карта лояльности</div>
+        <div class="case-feat">Начисление баллов</div>
+        <div class="case-feat">QR-сканер</div>
+        <div class="case-feat">Бронирование праздников</div>
+        <div class="case-feat">Telegram-уведомления</div>
+        <div class="case-feat">Панель директора</div>
+        <div class="case-feat">Суpabase бэкенд</div>
+        <div class="case-feat">PWA — без App Store</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- PRICING -->
+<section class="sec" id="pricing">
+  <div class="wrap">
+    <div class="sec-label reveal">Стоимость</div>
+    <h2 class="sec-h2 reveal">Сколько это <em>стоит</em></h2>
+    <p class="sec-sub reveal">Ориентир по типу проекта. Точную цифру скажу после 15-минутного разговора — иногда выходит меньше.</p>
+
+    <div class="pricing-table reveal">
+      <div class="pt-head">
+        <div class="pt-cell">Задача</div>
+        <div class="pt-cell">От</div>
+        <div class="pt-cell">Заметка</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-task">Лендинг / сайт-визитка</div>
+        <div class="pt-price">10 000 ₽</div>
+        <div class="pt-note">Мобильная версия, домен, деплой</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-task">PWA с авторизацией</div>
+        <div class="pt-price">30 000 ₽</div>
+        <div class="pt-note">Роли, Supabase, офлайн-режим</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-task">Система лояльности</div>
+        <div class="pt-price">40 000 ₽</div>
+        <div class="pt-note">QR, баллы, бронирование, роли</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-task">Многоролевая система</div>
+        <div class="pt-price">50 000 ₽</div>
+        <div class="pt-note">3+ роли, аналитика, уведомления</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-task">Интеграция с кассой / API</div>
+        <div class="pt-price">+15 000 ₽</div>
+        <div class="pt-note">iiko, онлайн-касса, внешний API</div>
+      </div>
+      <div class="pt-row" style="background:var(--card2)">
+        <div class="pt-task">Поддержка (мелкие правки)</div>
+        <div class="pt-price">8 000 ₽<span style="font-size:12px;color:var(--muted);font-weight:400">/мес</span></div>
+        <div class="pt-note">До 10 часов в месяц</div>
+      </div>
+      <div class="pt-row" style="background:var(--card2)">
+        <div class="pt-task">Партнёрская абонентка</div>
+        <div class="pt-price">15 000 ₽<span style="font-size:12px;color:var(--muted);font-weight:400">/мес</span></div>
+        <div class="pt-note">Активное развитие продукта</div>
+      </div>
+    </div>
+
+    <div class="pricing-footer reveal">
+      <strong>Платите только когда увидите пользу.</strong> Показываю прототип до оплаты. Первая консультация бесплатно — иногда это просто разговор без разработки.
+    </div>
+
+    <div class="sec-label reveal" style="margin-top:56px">Дополнительно</div>
+    <h2 class="sec-h2 reveal" style="font-size:clamp(22px,3vw,34px)">Что можно <em>добавить</em></h2>
+    <div class="adds-grid">
+      <div class="add-card reveal">
+        <div class="add-ico">🤖</div>
+        <div class="add-name">ИИ-чат на сайте</div>
+        <div class="add-desc">Отвечает на вопросы клиентов, принимает заявки, работает ночью.</div>
+        <div class="add-price">+2 000 ₽<span>/мес</span></div>
+      </div>
+      <div class="add-card reveal">
+        <div class="add-ico">📊</div>
+        <div class="add-name">Аналитика и отчёты</div>
+        <div class="add-desc">Дашборд с выручкой, клиентами, конверсией — прямо в телефоне.</div>
+        <div class="add-price">+5 000 ₽</div>
+      </div>
+      <div class="add-card reveal">
+        <div class="add-ico">🔔</div>
+        <div class="add-name">Push-уведомления</div>
+        <div class="add-desc">Акции, напоминания, статусы заказов — клиент получает на телефон.</div>
+        <div class="add-price">+3 000 ₽</div>
+      </div>
+      <div class="add-card reveal">
+        <div class="add-ico">💳</div>
+        <div class="add-name">Онлайн-оплата</div>
+        <div class="add-desc">Приём платежей через ЮКасса или другие российские эквайринги.</div>
+        <div class="add-price">+8 000 ₽</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SCREENS -->
+<section class="sec" id="examples">
+  <div class="wrap">
+    <div class="sec-label reveal">Примеры</div>
+    <h2 class="sec-h2 reveal">Как может выглядеть <em>ваш сайт</em></h2>
+    <p class="sec-sub reveal">Каждый проект уникален — не шаблон, не конструктор. Вот варианты для разных ниш.</p>
+
+    <div class="screens-grid">
+
+      <!-- Лендинг — светлый -->
+      <div class="screen-wrap reveal">
+        <div class="screen-mac">
+          <div class="mac-bar"><span></span><span></span><span></span></div>
+          <div class="mac-screen" style="background:#F8F9FC">
+            <div style="background:#1E3A8A;padding:6px 10px;display:flex;align-items:center;justify-content:space-between">
+              <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:7px;color:#fff">LOGO</div>
+              <div style="display:flex;gap:8px">
+                <div style="width:20px;height:3px;background:rgba(255,255,255,.4);border-radius:2px"></div>
+                <div style="width:20px;height:3px;background:rgba(255,255,255,.4);border-radius:2px"></div>
+                <div style="width:20px;height:3px;background:rgba(255,255,255,.4);border-radius:2px"></div>
+              </div>
+              <div style="background:#fff;color:#1E3A8A;font-size:5px;font-weight:700;padding:2px 6px;border-radius:3px">Связаться</div>
+            </div>
+            <div style="padding:14px 10px;text-align:center">
+              <div style="font-size:5px;color:#6B7280;margin-bottom:4px;text-transform:uppercase;letter-spacing:1px">Стоматология · Челябинск</div>
+              <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:11px;color:#111827;line-height:1.2;margin-bottom:6px">Здоровая улыбка<br><span style="color:#2563EB">без боли и страха</span></div>
+              <div style="font-size:5px;color:#6B7280;margin-bottom:8px;line-height:1.6">Современное оборудование, опытные врачи,<br>комфортная атмосфера</div>
+              <div style="display:flex;gap:6px;justify-content:center">
+                <div style="background:#2563EB;color:#fff;font-size:5px;font-weight:700;padding:4px 10px;border-radius:4px">Записаться →</div>
+                <div style="border:1px solid #E5E7EB;color:#6B7280;font-size:5px;padding:4px 8px;border-radius:4px">Услуги</div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:0 8px 8px">
+              <div style="background:#EFF6FF;border-radius:4px;padding:6px;text-align:center">
+                <div style="font-size:10px;margin-bottom:2px">🦷</div>
+                <div style="font-size:5px;font-weight:600;color:#1E3A8A">Лечение</div>
+              </div>
+              <div style="background:#F0FDF4;border-radius:4px;padding:6px;text-align:center">
+                <div style="font-size:10px;margin-bottom:2px">✨</div>
+                <div style="font-size:5px;font-weight:600;color:#166534">Отбеливание</div>
+              </div>
+              <div style="background:#FFF7ED;border-radius:4px;padding:6px;text-align:center">
+                <div style="font-size:10px;margin-bottom:2px">🔧</div>
+                <div style="font-size:5px;font-weight:600;color:#9A3412">Протезирование</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          <div class="screen-title">Лендинг для клиники</div>
+          <div class="screen-price">от 10 000 ₽</div>
+        </div>
+      </div>
+
+      <!-- Интернет-магазин -->
+      <div class="screen-wrap reveal">
+        <div class="screen-mac">
+          <div class="mac-bar"><span></span><span></span><span></span></div>
+          <div class="mac-screen" style="background:#0A0A0A">
+            <div style="background:#111;padding:6px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #222">
+              <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:7px;color:#fff;letter-spacing:1px">BYTELAB</div>
+              <div style="display:flex;gap:6px">
+                <div style="font-size:5px;color:#888">Каталог</div>
+                <div style="font-size:5px;color:#888">Сборки</div>
+                <div style="font-size:5px;color:#888">О нас</div>
+              </div>
+              <div style="font-size:10px">🛒</div>
+            </div>
+            <div style="padding:8px 8px 4px;display:grid;grid-template-columns:1fr 1fr;gap:5px">
+              <div style="background:#111;border:1px solid #222;border-radius:5px;overflow:hidden">
+                <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);height:32px;display:flex;align-items:center;justify-content:center;font-size:16px">💻</div>
+                <div style="padding:5px">
+                  <div style="font-size:5px;color:#fff;font-weight:600;margin-bottom:2px">RTX 4070 Gaming</div>
+                  <div style="font-size:5px;color:#888;margin-bottom:3px">Игровая сборка</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:7px;font-weight:900;color:#60A5FA">89 990 ₽</div>
+                </div>
+              </div>
+              <div style="background:#111;border:1px solid #222;border-radius:5px;overflow:hidden">
+                <div style="background:linear-gradient(135deg,#0f2027,#203a43);height:32px;display:flex;align-items:center;justify-content:center;font-size:16px">🖥️</div>
+                <div style="padding:5px">
+                  <div style="font-size:5px;color:#fff;font-weight:600;margin-bottom:2px">Workstation Pro</div>
+                  <div style="font-size:5px;color:#888;margin-bottom:3px">Для работы</div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:7px;font-weight:900;color:#60A5FA">124 990 ₽</div>
+                </div>
+              </div>
+            </div>
+            <div style="padding:4px 8px 8px">
+              <div style="background:#1E40AF;color:#fff;font-size:5px;font-weight:700;padding:4px;border-radius:4px;text-align:center">Собрать свой ПК →</div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          <div class="screen-title">Магазин / каталог</div>
+          <div class="screen-price">от 25 000 ₽</div>
+        </div>
+      </div>
+
+      <!-- Система лояльности -->
+      <div class="screen-wrap reveal">
+        <div class="screen-mac">
+          <div class="mac-bar"><span></span><span></span><span></span></div>
+          <div class="mac-screen" style="background:#08090D">
+            <div style="background:#0F1016;padding:6px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07)">
+              <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:7px;color:#fff">🚀 Ракета</div>
+              <div style="background:rgba(16,185,129,.1);color:#34D399;font-size:4px;font-weight:700;padding:2px 6px;border-radius:3px;display:flex;align-items:center;gap:3px"><span style="width:4px;height:4px;border-radius:50%;background:#34D399;display:block"></span>Live</div>
+            </div>
+            <div style="padding:8px">
+              <div style="background:linear-gradient(135deg,#2563EB,#6366F1);border-radius:7px;padding:8px;margin-bottom:6px">
+                <div style="font-size:4px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px">Баллы гостя</div>
+                <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:16px;color:#fff;letter-spacing:-1px;line-height:1">1 240</div>
+                <div style="font-size:4px;color:rgba(255,255,255,.7);margin-top:2px">Достаточно для скидки 15%</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:6px">
+                <div style="background:#13141C;border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:5px">
+                  <div style="font-size:4px;color:#6B6C7E;margin-bottom:1px">Визитов</div>
+                  <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:9px;color:#fff">38</div>
+                </div>
+                <div style="background:#13141C;border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:5px">
+                  <div style="font-size:4px;color:#6B6C7E;margin-bottom:1px">Скидка</div>
+                  <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:9px;color:#10B981">15%</div>
+                </div>
+              </div>
+              <div style="background:#13141C;border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:5px;display:flex;align-items:center;gap:5px">
+                <div style="font-size:8px">🎟️</div>
+                <div>
+                  <div style="font-size:4px;color:#fff;font-weight:600">QR отсканирован</div>
+                  <div style="font-size:4px;color:#6B6C7E">+50 баллов сегодня</div>
+                </div>
+                <div style="margin-left:auto;font-family:Montserrat,sans-serif;font-size:6px;font-weight:700;color:#10B981">+50</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          <div class="screen-title">Система лояльности</div>
+          <div class="screen-price">от 40 000 ₽</div>
+        </div>
+      </div>
+
+      <!-- Корпоративный сайт -->
+      <div class="screen-wrap reveal">
+        <div class="screen-mac">
+          <div class="mac-bar"><span></span><span></span><span></span></div>
+          <div class="mac-screen" style="background:#fff">
+            <div style="background:#1a1a1a;padding:6px 10px;display:flex;align-items:center;justify-content:space-between">
+              <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:7px;color:#fff;letter-spacing:2px">СТРОЙПРО</div>
+              <div style="display:flex;gap:8px">
+                <div style="font-size:4px;color:#999">Услуги</div>
+                <div style="font-size:4px;color:#999">Портфолио</div>
+                <div style="font-size:4px;color:#999">О нас</div>
+              </div>
+              <div style="background:#F59E0B;color:#000;font-size:4px;font-weight:700;padding:2px 6px;border-radius:3px">Заявка</div>
+            </div>
+            <div style="background:#1a1a1a;padding:12px 10px 10px;position:relative;overflow:hidden">
+              <div style="position:absolute;right:0;top:0;bottom:0;width:40%;background:linear-gradient(135deg,#374151,#1f2937);opacity:.6"></div>
+              <div style="font-size:4px;color:#F59E0B;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px">Строительная компания</div>
+              <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:9px;color:#fff;line-height:1.2;margin-bottom:5px">Строим дома<br>под ключ</div>
+              <div style="font-size:4px;color:#9CA3AF;margin-bottom:6px">С 2008 года · 200+ объектов</div>
+              <div style="background:#F59E0B;color:#000;font-size:4px;font-weight:700;padding:3px 8px;border-radius:3px;display:inline-block">Получить смету →</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid #eee">
+              <div style="padding:5px;text-align:center;border-right:1px solid #eee">
+                <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:8px;color:#1a1a1a">200+</div>
+                <div style="font-size:4px;color:#6B7280">объектов</div>
+              </div>
+              <div style="padding:5px;text-align:center;border-right:1px solid #eee">
+                <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:8px;color:#1a1a1a">15</div>
+                <div style="font-size:4px;color:#6B7280">лет опыта</div>
+              </div>
+              <div style="padding:5px;text-align:center">
+                <div style="font-family:Montserrat,sans-serif;font-weight:900;font-size:8px;color:#1a1a1a">5★</div>
+                <div style="font-size:4px;color:#6B7280">рейтинг</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          <div class="screen-title">Корпоративный сайт</div>
+          <div class="screen-price">от 20 000 ₽</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:32px;text-align:center">
+      <p style="font-size:15px;color:var(--muted2);margin-bottom:20px">Это лишь примеры — ваш сайт будет сделан под вашу нишу и цвета бренда</p>
+      <a href="https://t.me/Aslyamov74" target="_blank" class="btn-p">Обсудить мой проект →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-in">
+    <div class="sec-label">Готовы начать?</div>
+    <h2>Расскажите о задаче —<br><em>отвечу за час</em></h2>
+    <p>15 минут разговора — и вы знаете что делать, сколько стоит и когда будет готово.</p>
+    <div class="cta-row">
+      <a href="https://t.me/Aslyamov74" target="_blank" class="btn-p">Написать в Telegram →</a>
+      <a href="tel:+79911745113" class="btn-g">+7 991 174-51-13</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-in">
+    <div>
+      <div class="f-logo"><i></i>NIZAMOV.TECH</div>
+      <div class="f-tag">Сайты и приложения для бизнеса.<br>Челябинск · Россия · СНГ</div>
+      <div class="f-halal">☪️ Халяльный IT · 10% в садака</div>
+    </div>
+    <div class="f-col">
+      <h4>Услуги</h4>
+      <ul>
+        <li><a href="#services">Лендинги</a></li>
+        <li><a href="#services">PWA-приложения</a></li>
+        <li><a href="#services">Системы лояльности</a></li>
+        <li><a href="#services">Telegram-боты</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="/">Nizamov.tech</a></li>
+        <li><a href="#case">Кейс Ракеты</a></li>
+        <li><a href="#pricing">Цены</a></li>
+        <li><a href="/privacy.html">Конфиденциальность</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+79911745113">+7 991 174-51-13</a></li>
+        <li><a href="https://t.me/Aslyamov74" target="_blank">@Aslyamov74</a></li>
+        <li><a href="https://t.me/daniil74_bot" target="_blank">@daniil74_bot</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bot">
+    <span>© 2026 Даниил Низамов · Самозанятый · Челябинск</span>
+    <span>ИНН по запросу</span>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+let mOpen=false;
+function toggleBurger(){
+  mOpen=!mOpen;
+  let m=document.getElementById('mob-nav');
+  if(mOpen){
+    if(!m){
+      m=document.createElement('div');
+      m.id='mob-nav';
+      m.style.cssText='position:fixed;top:64px;left:0;right:0;background:#0F1016;border-bottom:1px solid rgba(255,255,255,.07);padding:24px 28px;z-index:99;display:flex;flex-direction:column;gap:18px';
+      [['Услуги','#services'],['Процесс','#how'],['Кейс','#case'],['Цены','#pricing']].forEach(([l,h])=>{
+        const a=document.createElement('a');
+        a.href=h;a.textContent=l;
+        a.style.cssText='font-size:18px;font-weight:600;color:#9495A8';
+        a.onclick=()=>toggleBurger();
+        m.appendChild(a);
+      });
+      const btn=document.createElement('button');
+      btn.textContent='Написать';
+      btn.style.cssText='background:#2563EB;color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:600;margin-top:8px;cursor:pointer';
+      btn.onclick=()=>window.open('https://t.me/Aslyamov74','_blank');
+      m.appendChild(btn);
+      document.body.appendChild(m);
+    } else m.style.display='flex';
+  } else if(m) m.style.display='none';
+}
+
+function navigate(url){
+  document.body.style.pointerEvents='none';
+  document.body.classList.add('page-out');
+  setTimeout(()=>window.location.href=url,260);
+}
+document.querySelectorAll('a[href]').forEach(a=>{
+  const href=a.getAttribute('href');
+  if(href&&!href.startsWith('#')&&!href.startsWith('http')&&!href.startsWith('tel')&&!a.target){
+    a.addEventListener('click',e=>{e.preventDefault();navigate(href)});
+  }
+});
+
+window.addEventListener('popstate',()=>{
+  if(document.body.classList.contains('page-out'))document.body.classList.remove('page-out');
+});
+</script>
+</body>
+</html>
